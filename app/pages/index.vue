@@ -21,8 +21,6 @@ onMounted(() => {
 	<div class="flex h-screen flex-1 flex-col bg-red-100">
 		<div id="hero" class="relative h-[calc(100vh-70px)]">
 			<IndexGallery />
-			<NuxtImg src="img/headshot.jpg" alt="Deana J. Becker" class="hidden z-10 h-full w-full object-cover" />
-			<div class="absolute inset-0 z-20 bg-black/20"></div>
 			<div class="flex-flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-start p-6 text-white">
 				<h1 class="text-3xl font-medium uppercase">{{ header }}</h1>
 				<p class="mt-2 max-w-md uppercase">{{ text }}</p>

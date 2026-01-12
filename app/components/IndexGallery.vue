@@ -1,36 +1,56 @@
 <script setup lang="ts">
-const images = [
-  '/gallery/one.jpg',
-  '/gallery/two.jpg',
-  '/gallery/three.jpg',
-  '/gallery/4.jpg'
+// Define a clear interface for your image objects
+interface GalleryImage {
+  id: number | string
+  src: string
+  alt: string
+  caption?: string
+}
+
+const images: GalleryImage[] = [
+  { id: 1, src: '/gallery/one.jpg', alt: 'Fashion Film Production' },
+  { id: 2, src: '/gallery/two.jpg', alt: 'Editorial Portrait' },
+  { id: 3, src: '/gallery/three.jpg', alt: 'Studio Photography' },
+  { id: 4, src: '/gallery/4.jpg', alt: 'On-set Behind the Scenes' }
 ]
 </script>
 
 <template>
-	<div class="gallery-container">
-		<div class="flex w-full justify-start gap-4 overflow-x-scroll py-4">
-			<NuxtImg 
-				v-for="(src, index) in images" 
-				:key="index" 
-				:src="src" 
-				alt="Gallery Image"
-				class="h-72 w-auto object-cover rounded-lg shadow-md"
-				format="webp"
-				quality="80"
-			/>
-		</div>
-		
-		<div v-if="images.length === 0" class="mt-4 text-center text-gray-500">
-			No images found in assets/gallery.
-		</div>
-	</div>
+  <div class="gallery-container">
+    <div class="flex w-full overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar overflow-y-hidden">
+      
+      <div 
+        v-for="image in images" 
+        :key="image.id" 
+        class="w-full flex-shrink-0 snap-center relative"
+      >
+        <NuxtImg 
+          :src="image.src" 
+          :alt="image.alt"
+          class="w-full h-screen object-cover"
+          format="webp"
+          quality="80"
+          loading="lazy"
+        />
+        
+        <div v-if="image.alt" class="absolute bottom-10 left-10 text-white z-50 bg-black/20 p-2 backdrop-blur-sm">
+           <p class="text-sm uppercase tracking-widest">{{ image.alt }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div v-if="images.length === 0" class="mt-4 text-center text-gray-500 font-mono">
+      // NO_IMAGES_FOUND
+    </div>
+  </div>
 </template>
 
 <style scoped>
-/* Ensure the scrollbar is visible or hidden based on your design */
-.overflow-x-scroll {
-	scroll-snap-type: x mandatory;
-	-webkit-overflow-scrolling: touch;
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 </style>
