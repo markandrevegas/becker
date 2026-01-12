@@ -1,47 +1,36 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue"
-import { useUnsplash } from "~/composables/useUnsplash"
-// states
-const images = ref<{ src: string; alt: string }[]>([])
-const isLoading = ref(true)
-
-// helpers
-const { getRandomPhoto } = useUnsplash()
-async function fetchImages() {
-	isLoading.value = true
-
-	const params = {
-		query: "fashion",
-		orientation: "portrait",
-		content_filter: "high"
-	}
-
-	const results = []
-
-	for (let i = 0; i < 5; i++) {
-		const { data } = await getRandomPhoto(params)
-		if (data) {
-			results.push({
-				src: data.urls?.regular,
-				alt: data.alt_description || "Unsplash image"
-			})
-		}
-	}
-
-	images.value = results
-	isLoading.value = false
-}
-
-onMounted(() => {
-	fetchImages()
-})
+const images = [
+  '/gallery/one.jpg',
+  '/gallery/two.jpg',
+  '/gallery/three.jpg',
+  '/gallery/4.jpg'
+]
 </script>
+
 <template>
-	<div>
-		<div class="flex w-full justify-start gap-4 overflow-x-scroll">
-			<div v-if="isLoading">Loading...</div>
-			<NuxtImg v-for="(img, index) in images" :key="index" :src="img.src" :alt="img.alt" class="h-72" />
+	<div class="gallery-container">
+		<div class="flex w-full justify-start gap-4 overflow-x-scroll py-4">
+			<NuxtImg 
+				v-for="(src, index) in images" 
+				:key="index" 
+				:src="src" 
+				alt="Gallery Image"
+				class="h-72 w-auto object-cover rounded-lg shadow-md"
+				format="webp"
+				quality="80"
+			/>
 		</div>
-		<div v-if="!isLoading && images.length === 0" class="mt-4 text-center">No images found.</div>
+		
+		<div v-if="images.length === 0" class="mt-4 text-center text-gray-500">
+			No images found in assets/gallery.
+		</div>
 	</div>
 </template>
+
+<style scoped>
+/* Ensure the scrollbar is visible or hidden based on your design */
+.overflow-x-scroll {
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+}
+</style>
