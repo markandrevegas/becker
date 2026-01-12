@@ -4,9 +4,6 @@ import tsconfigPaths from "vite-tsconfig-paths"
 // Extend the NuxtConfig type
 declare module "nuxt/schema" {
 	interface NuxtConfig {
-		content?: {
-			[key: string]: unknown
-		}
 		fonts?: {
 			provider?: string
 			assets?: {
@@ -55,16 +52,16 @@ export default defineNuxtConfig({
 			meta: [{ name: "apple-mobile-web-app-title", content: "Scratch" }]
 		}
 	},
-	compatibilityDate: "2025-07-15",
+	future: {
+		compatibilityVersion: 4
+	},
+	compatibilityDate: "2025-01-12",
 	devtools: { enabled: true },
 	css: ["@/assets/css/tailwind.css"],
 	vite: {
 		plugins: [tsconfigPaths()]
-		/* server: {
-      allowedHosts: ['scratch.local']
-    } */
 	},
-	modules: ["@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "@nuxt/fonts", "@nuxt/image", "@nuxt/eslint", "@nuxt/icon", "@nuxt/content"],
+	modules: ["@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "@nuxt/fonts", "@nuxt/image", "@nuxt/eslint", "@nuxt/icon"],
 	image: {
 		providers: {
 			placehold: {
@@ -116,6 +113,5 @@ export default defineNuxtConfig({
 		externals: {
 			inline: ["ipx", "ofetch"]
 		}
-	},
-	content: {}
+	}
 })

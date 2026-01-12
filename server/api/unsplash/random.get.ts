@@ -1,80 +1,74 @@
-import { defineEventHandler, createError, getQuery, type H3Event } from 'h3'
+import { defineEventHandler, getQuery } from "h3"
 
 interface UnsplashPhoto {
-  id: string
-  alt_description: string | null
-  urls: {
-    raw: string
-    full: string
-    regular: string
-    small: string
-    thumb: string
-  }
-  blur_hash: string
+	id: string
+	alt_description: string | null
+	urls: {
+		raw: string
+		full: string
+		regular: string
+		small: string
+		thumb: string
+	}
+	blur_hash: string
 }
 
 interface QueryParams {
-  query?: string
-  orientation?: string
-  content_filter?: string
+	query?: string
+	orientation?: string
+	content_filter?: string
 }
 
-export default defineEventHandler(async (event: H3Event) => {
-  const UNSPLASH_KEY = process.env.NUXT_UNSPLASH_ACCESS_KEY
-  const UNSPLASH_BASE = process.env.NUXT_UNSPLASH_BASE || "https://api.unsplash.com"
+export default defineEventHandler(async (event) => {
+	// 1. Use the runtime config defined in your nuxt.config.ts
+	const config = useRuntimeConfig()
+	const UNSPLASH_KEY = config.unsplashAccessKey
+	const UNSPLASH_BASE = config.public.unsplashBase
 
-  // Check for API key early
-  if (!UNSPLASH_KEY) {
-    throw createError({
-      statusCode: 500,
-      statusMessage: "Unsplash API key is missing in environment variables."
-    })
-  }
+	if (!UNSPLASH_KEY) {
+		throw createError({
+			statusCode: 500,
+			statusMessage: "Unsplash API key is missing."
+		})
+	}
 
-  try {
-    const query = getQuery(event) as QueryParams
+	try {
+		const query = getQuery(event) as QueryParams
 
-    const params = new URLSearchParams({
-      query: query.query || "actress african american",
-      orientation: query.orientation || "portrait",
-      content_filter: query.content_filter || "high",
-      count: "1"
-    })
+		// 2. Use $fetch: It handles JSON parsing and error throwing automatically
+		const data = await $fetch<UnsplashPhoto | UnsplashPhoto[]>(`${UNSPLASH_BASE}/photos/random`, {
+			headers: {
+				Authorization: `Client-ID ${UNSPLASH_KEY}`
+			},
+			query: {
+				query: query.query || "actress african american",
+				orientation: query.orientation || "portrait",
+				content_filter: query.content_filter || "high",
+				count: "1"
+			}
+		})
 
-    const url = `${UNSPLASH_BASE}/photos/random?${params.toString()}`
+		const photo = Array.isArray(data) ? data[0] : data
 
-    const res = await fetch(url, {
-      headers: {
-        Authorization: `Client-ID ${UNSPLASH_KEY}`
-      }
-    })
+		if (!photo) {
+			throw createError({
+				statusCode: 404,
+				statusMessage: "No photo found"
+			})
+		}
 
-    if (!res.ok) {
-      const msg = await res.text()
-      throw createError({
-        statusCode: res.status,
-        statusMessage: msg || "Unsplash API Error"
-      })
-    }
+		return {
+			id: photo.id,
+			alt: photo.alt_description || "",
+			urls: photo.urls,
+			blurhash: photo.blur_hash
+		}
+	} catch (err: any) {
+		if (err.statusCode) throw err
 
-    const json = await res.json()
-    // Unsplash returns an array when 'count' is used
-    const photo: UnsplashPhoto = Array.isArray(json) ? json[0] : json
-
-    return {
-      id: photo.id,
-      alt: photo.alt_description || "",
-      urls: photo.urls,
-      blurhash: photo.blur_hash
-    }
-  } catch (err: any) {
-    // Re-throw if it's already an H3 error (from the res.ok check)
-    if (err.statusCode) throw err
-
-    // Otherwise, create a new 500 error
-    throw createError({
-      statusCode: 500,
-      statusMessage: err.message || "Internal Server Error"
-    })
-  }
+		throw createError({
+			statusCode: 500,
+			statusMessage: err.message || "Internal Server Error"
+		})
+	}
 })

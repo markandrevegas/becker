@@ -41,40 +41,5 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.video-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  aspect-ratio: 16 / 9;
-  background: #000;
-  position: relative;
-  overflow: hidden;
-}
 
-.main-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.video-credit {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  color: white;
-  font-size: 0.8rem;
-  opacity: 0.7;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 4px 8px;
-  border-radius: 4px;
-}
-
-.loader, .error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  color: white;
-  font-family: sans-serif;
-}
 </style>

@@ -5,6 +5,7 @@
 		"nuxtjs",
 		"ofetch",
 		"placehold",
+		"scrollability",
 		"vueuse"
 	]
 }

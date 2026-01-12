@@ -1,29 +1,29 @@
 <script setup lang="ts">
-	import { ref } from "vue"
-	// states
-	const isOpen = ref(false)
-	// helpers
-	function toggleMenu() {
-		isOpen.value = !isOpen.value
-	}
-	const scrollTo = (id: string) => {
-		const el = document.getElementById(id)
-		if (!el) return
+import { ref } from "vue"
+// states
+const isOpen = ref(false)
+// helpers
+function toggleMenu() {
+	isOpen.value = !isOpen.value
+}
+const scrollTo = (id: string) => {
+	const el = document.getElementById(id)
+	if (!el) return
 
-		toggleMenu()
-		setTimeout(() => {
-			el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-		}, 300)
-	}
+	toggleMenu()
+	setTimeout(() => {
+		el.scrollIntoView({ behavior: "smooth", block: "start" })
+	}, 300)
+}
 
-	const props = defineProps({
-		isScrolled: Boolean
-	})
+const props = defineProps({
+	isScrolled: Boolean
+})
 </script>
 
 <template>
 	<div>
-		<header :class="props.isScrolled ? 'backdrop-blur-xl text-white bg-abyssal/40' : 'backdrop-blur-md text-abyssal'" class="fixed right-0 top-0 z-40 flex h-[70px] w-full items-center justify-end px-4 transition-colors duration-300">
+		<header :class="props.isScrolled ? 'bg-abyssal/40 text-white backdrop-blur-xl' : 'text-abyssal backdrop-blur-md'" class="fixed right-0 top-0 z-40 flex h-[70px] w-full items-center justify-end px-4 transition-colors duration-300">
 			<button class="text-2xl uppercase tracking-tighter" :aria-expanded="isOpen" aria-haspopup="true" @click="toggleMenu"><MenuIcon /></button>
 		</header>
 		<!-- Drawer overlay -->
@@ -35,8 +35,18 @@
 				</div>
 				<div class="flex-1 overflow-y-scroll pb-[96px] pt-[70px]">
 					<ul class="menu px-4">
-						<li><NuxtLink to="#hero" @click.prevent="scrollTo('hero'); toggleMenu">Home</NuxtLink></li>
-						<li><NuxtLink to="#intro" @click.prevent="scrollTo('intro'); toggleMenu">Intro</NuxtLink></li>
+						<li>
+							<NuxtLink
+								to="#hero"
+								@click.prevent="scrollTo('hero'); toggleMenu"
+								>Home</NuxtLink
+							>
+						</li>
+						<li>
+							<NuxtLink to="#intro" @click.prevent="scrollTo('intro'); toggleMenu"
+								>Intro</NuxtLink
+							>
+						</li>
 					</ul>
 					<div class="grid h-[720px] flex-1 grid-cols-2 bg-sky-200">
 						<div class="bg-green-200"></div>
