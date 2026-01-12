@@ -1,0 +1,32 @@
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const isScrolled = ref(false)
+const scrollContainer = ref(null)
+function onScroll() {
+  if (!scrollContainer.value) return
+  isScrolled.value = scrollContainer.value.scrollTop > 70
+}
+
+onMounted(() => {
+  if (scrollContainer.value) {
+    scrollContainer.value.addEventListener('scroll', onScroll)
+  }
+})
+
+onBeforeUnmount(() => {
+  if (scrollContainer.value) {
+    scrollContainer.value.removeEventListener('scroll', onScroll)
+  }
+})
+
+</script>
+<template>
+	<div ref="scrollContainer" class="relative flex h-screen flex-col overflow-auto">
+		<MainMenuSidebar :is-scrolled="isScrolled" />
+		<!-- Main scroll area -->
+		<main class="flex flex-1 flex-col pt-[70px]">
+			<slot />
+		</main>
+	</div>
+</template>
