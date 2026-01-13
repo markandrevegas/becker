@@ -101,10 +101,6 @@ export default defineNuxtConfig({
 			{
 				name: "Cormorant Garamond",
 				weights: [300, 400]
-			},
-			{
-				name: "Montserrat",
-				weights: [300, 400]
 			}
 		]
 	},
