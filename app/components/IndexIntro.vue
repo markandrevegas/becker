@@ -9,11 +9,11 @@ onMounted(() => {
 </script>
 <template>
   <div>
-    <div class="p-8">
+    <div class="p-8 mt-24">
       <h2 class="text-2xl mb-4">Featuring...</h2>
       <p class="text-lg">Deana J. Becker is an accomplished performer whose work reflects a lifetime of dedication to the craft. A veteran of both the stage and commercial industry, her portfolio includes a wide array of guest and recurring roles in top-tier television dramas. She is currently a series regular on the CBS legal drama Matlock.</p>
     </div>
-    <div class="video-container">
+    <div class="video-container px-8">
       <div class="video-wrapper">
           <video class="main-video" autoplay muted playsinline title="Deana J. Becker" src="https://imdb-video.media-imdb.com/vi2536814873/1434659607842-pgv4ql-1501028571775.mp4?Expires=1768337488&Signature=kPTvJQ84syEbaApt608KNwIcsyhwj-1AXojjBh~mty2GOgeXHVfD7t~KwPIW7-uXIn9p~17HtbibSda-m9J5NTlOt2G-aVXr3X94riRt3XcPHF0UyY7T9o5wyRGBuGyqWs9FbYHe4A~EYqH7d-wxaQGZyCHpBqcmYuxeQK5Hps6B8OJaUzB0q~GuVqJqnfIlspykY~kfHYl9sqgiQIi4VMDM30fQmF19pxclf8LNEklePfJ6As1f1YsXxddMCc55Id7prWYQTSWhEOiv15CGnpsQS4l5yzyXBIOwLuK4YajgeXyWtnlFl7X~YR6Tpvrp1UetVLenO8eR9lZ-lx5MSw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"></video>
       </div>

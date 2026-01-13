@@ -19,7 +19,7 @@
 		scroll-margin-top: 70px;
 	}
 	body {
-		@apply bg-[#f6f6f6] text-abyssal dark:bg-slate-900 dark:text-yellow-50/90;
+		@apply bg-white text-abyssal dark:bg-abyssal dark:text-yellow-50/90;
 	}
 	h1,
 	h2,
@@ -33,9 +33,9 @@
 
 @layer components {
 	.menu {
-		@apply pt-4;
+		@apply space-y-8 pt-16;
 		li {
-			@apply font-sans font-medium;
+			@apply font-sans text-xl font-medium;
 			letter-spacing: -0.035em;
 		}
 	}
@@ -44,9 +44,11 @@
 		max-width: 1200px;
 		margin: 0 auto;
 		aspect-ratio: 16 / 9;
-		background: #000;
 		position: relative;
 		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 
 	.main-video {

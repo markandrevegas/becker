@@ -4,7 +4,6 @@ interface GalleryImage {
   id: number | string
   src: string
   alt: string
-  caption?: string
 }
 
 const images: GalleryImage[] = [
@@ -32,14 +31,10 @@ const images: GalleryImage[] = [
           quality="80"
           loading="lazy"
         />
-        
-        <div v-if="image.alt" class="absolute bottom-10 left-10 text-white z-50 bg-black/20 p-2 backdrop-blur-sm">
-           <p class="text-sm uppercase tracking-widest">{{ image.alt }}</p>
-        </div>
       </div>
     </div>
     
-    <div v-if="images.length === 0" class="mt-4 text-center text-gray-500 font-mono">
+    <div v-if="images.length === 0" class="mt-4 text-center">
       // NO_IMAGES_FOUND
     </div>
   </div>
