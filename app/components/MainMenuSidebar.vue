@@ -23,7 +23,7 @@ const props = defineProps({
 
 <template>
 	<div>
-		<header :class="props.isScrolled ? 'bg-abyssal/40 text-white backdrop-blur-xl' : 'text-abyssal backdrop-blur-md'" class="fixed right-0 top-0 z-40 flex h-[70px] w-full items-center justify-end px-4 transition-colors duration-300">
+		<header :class="props.isScrolled ? 'bg-abyssal/40 text-white backdrop-blur-xl' : 'text-abyssal backdrop-blur-md dark:text-yellow-50/90'" class="fixed right-0 top-0 z-40 flex h-[70px] w-full items-center justify-end px-4 transition-colors duration-300">
 			<button class="text-2xl uppercase tracking-tighter" :aria-expanded="isOpen" aria-haspopup="true" @click="toggleMenu"><MenuIcon /></button>
 		</header>
 		<!-- Drawer overlay -->
@@ -38,14 +38,24 @@ const props = defineProps({
 					<ul class="menu px-4">
 						<li>
 							<NuxtLink
-								to="#hero"
-								@click.prevent="scrollTo('hero'); toggleMenu"
+								to="#gallery"
+								@click.prevent="scrollTo('gallery'); toggleMenu"
 								>Home</NuxtLink
 							>
 						</li>
 						<li>
 							<NuxtLink to="#intro" @click.prevent="scrollTo('intro'); toggleMenu"
 								>Intro</NuxtLink
+							>
+						</li>
+						<li>
+							<NuxtLink to="#bio" @click.prevent="scrollTo('bio'); toggleMenu"
+								>Bio and Roles</NuxtLink
+							>
+						</li>
+						<li>
+							<NuxtLink to="#videos" @click.prevent="scrollTo('videos'); toggleMenu"
+								>Featured Videos</NuxtLink
 							>
 						</li>
 					</ul>

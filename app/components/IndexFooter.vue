@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 <template>
 	<div>
-		<footer class="h-72 bg-abyssal pt-8 px-8 pb-16 text-white text-sm">
+		<footer class="min-h-72 bg-abyssal pt-24 px-8 pb-16 text-white text-sm">
 			<div class="grid grid-cols-3 mb-8">
 				<div class="flex flex-col">
 					<span class="font-bold text-slate-500">Date of Birth</span>

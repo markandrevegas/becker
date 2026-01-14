@@ -61,7 +61,7 @@ export default defineNuxtConfig({
 	vite: {
 		plugins: [tsconfigPaths()]
 	},
-	modules: ["@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "@nuxt/fonts", "@nuxt/image", "@nuxt/eslint", "@nuxt/icon"],
+	modules: ["@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "@nuxt/fonts", "@nuxt/image", "@nuxt/eslint", "@nuxt/icon", "@nuxtjs/mcp-toolkit"],
 	image: {
 		providers: {
 			placehold: {
@@ -100,7 +100,8 @@ export default defineNuxtConfig({
 			},
 			{
 				name: "Cormorant Garamond",
-				weights: [300, 400]
+				weights: [300, 400, 500, 600, 700],
+				styles: ["normal", "italic"]
 			}
 		]
 	},
@@ -108,6 +109,15 @@ export default defineNuxtConfig({
 		preset: "node-server",
 		externals: {
 			inline: ["ipx", "ofetch"]
+		},
+		experimental: {
+			openAPI: true
+		}
+	},
+	hooks: {
+		// Optional: If you want to force the router to ignore it
+		"pages:extend"(pages) {
+			// No action usually needed here, but ensures /_mcp is clear
 		}
 	}
 })
