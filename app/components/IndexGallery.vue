@@ -10,8 +10,8 @@ interface GalleryImage {
 
 const images: GalleryImage[] = [
   { id: 1, src: '/gallery/one.jpg', alt: 'Fashion Film Production' },
-  { id: 2, src: '/gallery/two.jpg', alt: 'Editorial Portrait' },
-  { id: 3, src: '/gallery/three.jpg', alt: 'Studio Photography' },
+  { id: 2, src: '/gallery/5.jpg', alt: 'Editorial Portrait' },
+  { id: 3, src: '/gallery/7.jpg', alt: 'Studio Photography' },
   { id: 4, src: '/gallery/4.jpg', alt: 'On-set Behind the Scenes' }
 ]
 </script>
@@ -40,12 +40,12 @@ const images: GalleryImage[] = [
       <div v-if="images.length === 0" class="mt-4 text-center">
         // NO_IMAGES_FOUND
       </div>
-      <div class="flex-flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-start p-6 text-white">
+      <div class="flex-flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-start p-6 sm:p-16 text-white">
         <h1 class="text-4xl font-display font-bold uppercase">{{ header }}</h1>
         <p class="text-lg font-medium mt-2 max-w-md uppercase">{{ text }}</p>
       </div>
     </div>
-    <div class="p-8 flex flex-col gap-4 pt-16 pb-32">
+    <div class="p-8 sm:p-16 flex flex-col sm:flex-row gap-4 sm:gap-24 pt-16 pb-32">
       <p class="text-lg">Deana J. Becker is an accomplished performer whose work reflects a lifetime of dedication to the craft. A veteran of both the stage and commercial industry, her portfolio includes a wide array of guest and recurring roles in top-tier television dramas. She is currently a series regular on the CBS legal drama Matlock.</p>
       <p class="text-lg">
         Deana's versatility extends beyond acting; she is also a sought-after voiceover artist and model. Her dynamic presence and ability to connect with audiences have made her a favorite in commercials and print campaigns alike. In addition to her on-screen work, Deana is a passionate content creator, leveraging digital platforms to share her insights and experiences in the entertainment industry.
