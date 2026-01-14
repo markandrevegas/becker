@@ -47,13 +47,11 @@
 		position: relative;
 		overflow: hidden;
 	}
-
 	.main-video {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
-
 	.video-credit {
 		position: absolute;
 		bottom: 1rem;
@@ -65,7 +63,6 @@
 		padding: 4px 8px;
 		border-radius: 4px;
 	}
-
 	.loader,
 	.error {
 		display: flex;
@@ -75,6 +72,12 @@
 		height: 100%;
 		color: white;
 		font-family: sans-serif;
+	}
+	.content {
+		@apply p-8 py-24 flex flex-col sm:flex-row gap-4 sm:gap-24;
+		p {
+			@apply text-lg leading-10
+		}
 	}
 }
 

@@ -2,32 +2,17 @@
 <template>
 	<div>
 		<footer class="min-h-72 bg-abyssal pt-24 px-8 pb-16 text-white text-sm flex flex-col gap-8">
-			<div class="grid grid-cols-2">
-				<div class="flex flex-col">
-					<span class="font-bold text-slate-500">Email</span>
-					<a href="mailto:contact@example.com" class="hover:underline">contact@example.com</a>
+			<div class="grid grid-cols-2 gap-16">
+				<div class="flex flex-col col-span-2">
+					<span class="font-bold text-slate-500 block mb-2">Evolve Talent Management</span>
+					<span>Sandra Berney</span>
+					<a href="mailto:Sandra.evolvetalent@gmail.com" class="hover:underline">sandra.evolvetalent@gmail.com</a>
 				</div>
-				<div class="flex flex-col">
-					<span class="font-bold text-slate-500">Phone</span>
-					<a href="tel:+12125551234" class="hover:underline">+1 (212) 555-1234</a>
-				</div>
-			</div>
-			<div class="grid grid-cols-2 gap-8">
-				<div class="flex flex-col">
-					<span class="font-bold text-slate-500">Booking Agency</span>
-					<a href="#" class="hover:underline">Elite Talent Management</a>
-				</div>
-				<div class="flex flex-col">
-					<span class="font-bold text-slate-500">Agency Email</span>
-					<a href="mailto:bookings@elitetalent.com" class="hover:underline">bookings@elitetalent.com</a>
-				</div>
-				<div class="flex flex-col">
-					<span class="font-bold text-slate-500">Agency Phone</span>
-					<a href="tel:+12125559876" class="hover:underline">+1 (212) 555-9876</a>
-				</div>
-				<div class="flex flex-col">
-					<span class="font-bold text-slate-500">Agency Website</span>
-					<a href="https://www.elitetalent.com" class="hover:underline" target="_blank" rel="noopener noreferrer">elitetalent.com</a>
+				<div class="flex flex-col col-span-2">
+					<span class="font-bold text-slate-500 block mb-2">Evolve Talent Management COMM-Henderson Represents Inc. (HRI)</span>
+					<span>Michelle Henderson</span>
+					<a mailto="mhenderson@hritalent.com" class="hover:underline">mhenderson@hritalent.com</a>
+					<span>310-295-077</span>
 				</div>
 			</div>
 			<div class="flex items-center justify-start gap-4 mt-8">

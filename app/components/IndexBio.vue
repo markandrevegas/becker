@@ -43,13 +43,13 @@ interface TheaterRole {
   play: string
   director: string
   role: string
-  dates: string
+  award?: string
 }
 
 const theaterRoles: TheaterRole[] = [
-  { city: 'Minneapolis', play: 'A Midsummer Night\'s Dream', director: 'Jane Smith', role: 'Hermia', dates: 'March 2014 - April 2014' },
-  { city: 'St. Paul', play: 'The Glass Menagerie', director: 'John Doe', role: 'Laura Wingfield', dates: 'October 2015 - November 2015' },
-  { city: 'Chicago', play: 'Death of a Salesman', director: 'Mary Johnson', role: 'Linda Loman', dates: 'February 2017 - March 2017' }
+  { city: 'Minneapolis', play: 'A Midsummer Night\'s Dream', director: 'Jane Smith', role: 'Hermia' },
+  { city: 'St. Paul', play: 'The Glass Menagerie', director: 'John Doe', role: 'Laura Wingfield' },
+  { city: 'Chicago', play: 'Death of a Salesman', director: 'Mary Johnson', role: 'Linda Loman' }
 ]
 </script>
 <template>
@@ -79,7 +79,8 @@ const theaterRoles: TheaterRole[] = [
 					<li v-for="(role, index) in theaterRoles" :key="index" class="flex flex-col gap-1">
 						<span class="font-medium">{{ role.play }}</span>
 						<span class="text-gray-600">{{ role.role }} - Directed by {{ role.director }}</span>
-						<span class="text-sm text-gray-500">{{ role.city }} | {{ role.dates }}</span>
+						<span class="text-sm text-gray-500">{{ role.city }}</span>
+						<span v-if="role.award" class="text-sm text-gray-500">{{ role.award }}</span>
 					</li>
 				</ul>
 			</div>

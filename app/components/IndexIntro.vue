@@ -39,11 +39,8 @@ const images: GalleryImage[] = [
         <p class="text-2xl sm:text-4xl font-medium mt-2 max-w-md uppercase">{{ header }}</p>
       </div>
     </div>
-    <div class="p-8 sm:p-16 flex flex-col sm:flex-row gap-4 sm:gap-24 pt-16 pb-32">
-      <p class="text-lg">Deana J. Becker is an accomplished performer whose work reflects a lifetime of dedication to the craft. A veteran of both the stage and commercial industry, her portfolio includes a wide array of guest and recurring roles in top-tier television dramas. She is currently a series regular on the CBS legal drama Matlock.</p>
-      <p class="text-lg">
-        Deana's versatility extends beyond acting; she is also a sought-after voiceover artist and model. Her dynamic presence and ability to connect with audiences have made her a favorite in commercials and print campaigns alike. In addition to her on-screen work, Deana is a passionate content creator, leveraging digital platforms to share her insights and experiences in the entertainment industry.
-      </p>
+    <div class="content">
+      <p>Originally from Washington D.C., Deana grew up in a multi-cultural household, seventh of her father's nine children. "Coming from a multi-ethnic background has definitely provided me a unique perspective on people and cultures. I use this in my acting and writing all the time", she says. Her training began at Studio Theatre Acting Conservatory and after attending her first audition and booking a one-year tour, Deana headed to American Academy of Dramatic Arts in NYC. While in NYC, Deana appeared in several Off-Broadway shows Including "Harriett Tubman Visits a Therapist", which won the Samuel French Shorts competition. She also began her television and film career in NYC, working on "Law and Order", "The Chris Rock Show" and several others.</p>
     </div>
   </div>
 </template>
