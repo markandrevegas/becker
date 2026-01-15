@@ -18,24 +18,6 @@ declare module "nuxt/schema" {
 				[key: string]: unknown
 			}>
 		}
-		image?: {
-			quality?: number
-			domains?: string[]
-			providers?: {
-				[key: string]: {
-					name: string
-					provider: string
-					options?: {
-						baseURL?: string
-						[key: string]: unknown
-					}
-				}
-			}
-		}
-	}
-
-	interface NuxtOptions {
-		image?: NuxtConfig["image"]
 	}
 }
 
@@ -61,26 +43,19 @@ export default defineNuxtConfig({
 	vite: {
 		plugins: [tsconfigPaths()]
 	},
-	modules: ["@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "@nuxt/fonts", "@nuxt/image", "@nuxt/eslint", "@nuxt/icon", "@nuxtjs/mcp-toolkit", "nuxt-schema-org"],
-	image: {
-		providers: {
-			placehold: {
-				name: "placehold",
-				provider: "ipx",
-				options: {
-					baseURL: "https://placehold.co/48x48"
-				}
-			}
-		},
-		domains: ["placehold.co"],
-		quality: 80
-	},
+	modules: [
+		"@nuxtjs/color-mode",
+		"@nuxtjs/tailwindcss",
+		"@nuxt/fonts",
+		"@nuxt/image",
+		"@nuxt/eslint",
+		"@nuxt/icon",
+		"@nuxtjs/mcp-toolkit",
+		"nuxt-schema-org",
+		"@nuxt/scripts"
+	],
 	runtimeConfig: {
-		spotifyClientId: process.env.NUXT_SPOTIFY_CLIENT_ID,
-		spotifyClientSecret: process.env.NUXT_SPOTIFY_CLIENT_SECRET,
-		unsplashAccessKey: process.env.NUXT_UNSPLASH_ACCESS_KEY,
 		public: {
-			unsplashBase: process.env.NUXT_UNSPLASH_BASE || "https://api.unsplash.com",
 			fonts: {
 				selfHosted: false
 			}
@@ -115,9 +90,7 @@ export default defineNuxtConfig({
 		}
 	},
 	hooks: {
-		"pages:extend"(pages) {
-			// No action usually needed here, but ensures /_mcp is clear
-		}
+		"pages:extend"(pages) {}
 	},
 	site: {
 		url: "https://deanajbecker.com",
@@ -128,6 +101,16 @@ export default defineNuxtConfig({
 			type: "Organization",
 			name: "Deana J. Becker - SAG -AFTRA",
 			logo: "/logo.png"
+		}
+	},
+	scripts: {
+		registry: {
+			googleAnalytics: {
+				id: process.env.NUXT_PUBLIC_GTAG_ID,
+				queryParams: {
+					debug_mode: true
+				}
+			}
 		}
 	}
 })
