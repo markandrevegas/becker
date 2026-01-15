@@ -61,7 +61,7 @@ export default defineNuxtConfig({
 	vite: {
 		plugins: [tsconfigPaths()]
 	},
-	modules: ["@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "@nuxt/fonts", "@nuxt/image", "@nuxt/eslint", "@nuxt/icon", "@nuxtjs/mcp-toolkit"],
+	modules: ["@nuxtjs/color-mode", "@nuxtjs/tailwindcss", "@nuxt/fonts", "@nuxt/image", "@nuxt/eslint", "@nuxt/icon", "@nuxtjs/mcp-toolkit", "nuxt-schema-org"],
 	image: {
 		providers: {
 			placehold: {
@@ -106,7 +106,7 @@ export default defineNuxtConfig({
 		]
 	},
 	nitro: {
-		preset: "node-server",
+		preset: "static",
 		externals: {
 			inline: ["ipx", "ofetch"]
 		},
@@ -115,9 +115,19 @@ export default defineNuxtConfig({
 		}
 	},
 	hooks: {
-		// Optional: If you want to force the router to ignore it
 		"pages:extend"(pages) {
 			// No action usually needed here, but ensures /_mcp is clear
+		}
+	},
+	site: {
+		url: "https://deanajbecker.com",
+		name: "My Awesome App"
+	},
+	schemaOrg: {
+		identity: {
+			type: "Organization",
+			name: "Deana J. Becker - SAG -AFTRA",
+			logo: "/logo.png"
 		}
 	}
 })
