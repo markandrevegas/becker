@@ -39,6 +39,10 @@
 			letter-spacing: -0.035em;
 		}
 	}
+	video,
+	.video-wrapper {
+		@apply bg-white
+	}
 	.video-container {
 		width: 100%;
 		max-width: 1200px;
@@ -74,9 +78,9 @@
 		font-family: sans-serif;
 	}
 	.content {
-		@apply p-8 py-24 flex flex-col sm:flex-row gap-4 sm:gap-24;
+		@apply p-8 py-24 flex flex-col sm:flex-row md:flex-col gap-4 sm:gap-24 md:gap-16;
 		p {
-			@apply text-lg leading-10
+			@apply text-lg md:text-xl leading-10
 		}
 	}
 }

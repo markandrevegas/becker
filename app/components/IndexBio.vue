@@ -53,7 +53,7 @@ const theaterRoles: TheaterRole[] = [
 ]
 </script>
 <template>
-	<div class="flex flex-col gap-4">
+	<div class="flex flex-col md:flex-row md:items-center lg:items-start gap-4">
 		<div class="gallery-container relative">
       <div class="flex w-full overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar overflow-y-hidden">
         
@@ -69,9 +69,8 @@ const theaterRoles: TheaterRole[] = [
         <h2 class="text-2xl font-medium mt-2 max-w-md uppercase">{{ text }}</h2>
       </div>
     </div>
-		<div class="p-8 flex flex-col gap-16 mt-16 mb-24">
-			<div>
-        <h2 class="text-2xl font-display font-medium mb-8">Theater</h2>
+		<div class="content md:w-3/4">
+			<h2 class="text-3xl w-full md:visible text-2xl sm:text-4xl font-medium mt-2 max-w-md uppercase">Theater</h2>
 				<p class="text-lg mb-6">
 					Deana J. Becker holds a Bachelor of Fine Arts (BFA) degree in Theatre from the University of Minnesota, where she honed her acting skills and developed a deep appreciation for the performing arts. Her formal education provided a strong foundation for her successful career in television, film, and voiceover work.
 				</p>
@@ -83,7 +82,6 @@ const theaterRoles: TheaterRole[] = [
 						<span v-if="role.award" class="text-sm text-gray-500">{{ role.award }}</span>
 					</li>
 				</ul>
-			</div>
 			<div>
         <h2 class="text-2xl font-display font-medium mb-8">Cinema</h2>
 				<ul class="text-lg space-y-4">

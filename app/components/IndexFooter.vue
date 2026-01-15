@@ -2,13 +2,13 @@
 <template>
 	<div>
 		<footer class="min-h-72 bg-abyssal pt-24 px-8 pb-16 text-white text-sm flex flex-col gap-8">
-			<div class="grid grid-cols-2 gap-16">
-				<div class="flex flex-col col-span-2">
+			<div class="grid grid-cols-2 md:grid-cols-3 gap-16 md:gap-0">
+				<div class="flex flex-col col-span-2 md:col-span-1">
 					<span class="font-bold text-slate-500 block mb-2">Evolve Talent Management</span>
 					<span>Sandra Berney</span>
 					<a href="mailto:Sandra.evolvetalent@gmail.com" class="hover:underline">sandra.evolvetalent@gmail.com</a>
 				</div>
-				<div class="flex flex-col col-span-2">
+				<div class="flex flex-col col-span-2 md:col-span-1">
 					<span class="font-bold text-slate-500 block mb-2">Evolve Talent Management COMM-Henderson Represents Inc. (HRI)</span>
 					<span>Michelle Henderson</span>
 					<a mailto="mhenderson@hritalent.com" class="hover:underline">mhenderson@hritalent.com</a>

@@ -17,35 +17,27 @@ const images: GalleryImage[] = [
 </script>
 
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col md:flex-row md:items-center">
     <div class="gallery-container relative">
       <div class="flex w-full overflow-x-auto snap-x snap-mandatory scroll-smooth hide-scrollbar overflow-y-hidden">
-        
-        <div 
-          v-for="image in images" 
-          :key="image.id" 
-          class="w-full flex-shrink-0 snap-center relative"
-        >
-          <NuxtImg 
-            :src="image.src" 
-            :alt="image.alt"
-            class="w-full h-screen object-cover"
-            format="webp"
-            quality="80"
-            loading="lazy"
-          />
+        <div v-for="image in images" :key="image.id" class="w-full flex-shrink-0 snap-center relative">
+          <NuxtImg :src="image.src" :alt="image.alt" class="w-full h-screen object-cover" format="webp" quality="80" loading="lazy" />
         </div>
       </div>
       
       <div v-if="images.length === 0" class="mt-4 text-center">
         // NO_IMAGES_FOUND
       </div>
-      <div class="flex-flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-start p-6 sm:p-16 text-white">
+      <div class="md:hidden flex-flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-start p-6 sm:p-16 text-white">
         <h1 class="text-4xl font-display font-bold uppercase">{{ header }}</h1>
         <p class="text-lg font-medium mt-2 max-w-md uppercase">{{ text }}</p>
       </div>
     </div>
     <div class="content">
+      <div>
+        <h1 class="text-4xl font-display font-bold uppercase">{{ header }}</h1>
+        <p class="text-lg font-medium mt-2 max-w-md uppercase">{{ text }}</p>
+      </div>
       <p>Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk. She also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!</p>
     </div>
   </div>

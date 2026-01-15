@@ -38,7 +38,7 @@ const images: GalleryImage[] = [
         <p class="text-2xl sm:text-4xl font-medium mt-2 max-w-md uppercase">{{ text }}</p>
       </div>
     </div>
-    <div class="p-8 sm:px-16 flex flex-col sm:grid sm:grid-cols-2 gap-4 sm:gap-24 pt-16 sm:py-16">
+    <div class="p-8 sm:px-16 flex flex-col sm:grid sm:grid-cols-2 md:items-center gap-4 sm:gap-24 md:gap-16 pt-16 sm:py-16">
       <div class="content">
         <p>Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk. She also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!</p>
       </div>
@@ -49,7 +49,7 @@ const images: GalleryImage[] = [
       </div>
     </div>
     <Spacer></Spacer>
-    <div class="p-8 sm:px-16 flex flex-col sm:flex-row sm:flex-row-reverse sm:align-start gap-4 sm:gap-24 pb-32">
+    <div class="p-8 sm:px-16 flex flex-col sm:flex-row sm:flex-row-reverse sm:align-start gap-4 sm:gap-24 md:gap-16 pb-32">
       <div class="video-container sm:min-w-64">
         <div class="video-wrapper">
           <video class="main-video" autoplay muted playsinline src="https://imdb-video.media-imdb.com/vi2536814873/1434659607842-pgv4ql-1501028571775.mp4?Expires=1768508207&amp;Signature=DrpzT2e14MqKmQgK2RGC3tyDB8xaDSjGVDHZ7RjpezoZXpVcUT3oOBQHbtrmn8r23Fb8HUl4oshzaX8NXUSYmJWOj98854UnmRf0wYpYLzoq6x0YzpNEVNE-YjKjhWTk4gmYOZfahUNY0rhso6GFquwmcWEyVNxZG-YDMfF8Imj1ZgVwh8wSVZHyuZ51iGyEv0AnJujsexWdUkwzVfP9tPStt9dI0Ln~niLbTU8lBtZbIm7M-PD6PAuHVJvfrJz5DCpC8Z1AWr5bbYQ87rWaJQiVhCCD~Yf1C6pCfuZAD~rDTPY~AbtpLl9phXpiYtUwlcJmXukEvnXkmVTEjKk7ZQ__&amp;Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"></video>
