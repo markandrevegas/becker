@@ -66,18 +66,20 @@ onMounted(() => {
 </script>
 
 <template>
-	<div class="mx-auto flex h-[100vh] flex-1 flex-col lg:w-3/5">
-		<div id="gallery" class="md:pb-16">
-			<IndexGallery />
-		</div>
-		<div id="intro" class="md:pb-16">
-			<IndexIntro />
-		</div>
-		<div id="videos" class="pb-24">
-			<IndexVideos />
-		</div>
-		<div id="bio" class="md:pb-16">
-			<IndexBio />
+	<div class="h-[100vh]">
+		<div class="mx-auto flex flex-1 flex-col md:w-4/5">
+			<div id="gallery" class="md:pb-16">
+				<IndexGallery />
+			</div>
+			<div id="intro" class="md:pb-16">
+				<IndexIntro />
+			</div>
+			<div id="videos" class="pb-24">
+				<IndexVideos />
+			</div>
+			<div id="bio" class="md:pb-16">
+				<IndexBio />
+			</div>
 		</div>
 		<IndexFooter />
 	</div>

@@ -72,20 +72,23 @@ const theaterRoles: TheaterRole[] = [
 			</div>
 		</div>
 		<div class="content md:w-3/4">
-			<h2 class="mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl md:visible">Theater</h2>
+			<h2 class="mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl md:visible">Roles</h2>
 			<p class="mb-6 text-lg">
 				Deana J. Becker holds a Bachelor of Fine Arts (BFA) degree in Theatre from the University of Minnesota, where
 				she honed her acting skills and developed a deep appreciation for the performing arts. Her formal education
 				provided a strong foundation for her successful career in television, film, and voiceover work.
 			</p>
-			<ul class="space-y-4 text-lg">
-				<li v-for="(role, index) in theaterRoles" :key="index" class="flex flex-col gap-1">
-					<span class="font-medium">{{ role.play }}</span>
-					<span class="text-gray-600">{{ role.role }} - Directed by {{ role.director }}</span>
-					<span class="text-sm text-gray-500">{{ role.city }}</span>
-					<span v-if="role.award" class="text-sm text-gray-500">{{ role.award }}</span>
-				</li>
-			</ul>
+			<div>
+				<h2 class="text-2xl font-medium uppercase">Theater</h2>
+				<ul class="space-y-4 text-lg">
+					<li v-for="(role, index) in theaterRoles" :key="index" class="flex flex-col gap-1">
+						<span class="font-medium">{{ role.play }}</span>
+						<span class="text-gray-600">{{ role.role }} - Directed by {{ role.director }}</span>
+						<span class="text-sm text-gray-500">{{ role.city }}</span>
+						<span v-if="role.award" class="text-sm text-gray-500">{{ role.award }}</span>
+					</li>
+				</ul>
+			</div>
 			<div class="mt-8">
 				<h2 class="text-2xl font-medium uppercase">Cinema</h2>
 				<ul class="space-y-4 text-lg">
