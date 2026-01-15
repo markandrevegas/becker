@@ -1,7 +1,32 @@
 <template>
-	<div className="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center" role="button" tabindex="0">
-		<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-			<Motion is="line" v-for="(line, index) in lines" :key="`${line.x1}_${line.x2}_${line.y1}_${line.y2}`" :ref="(el) => (targetList[index] = el)" stroke="currentColor" :x1="line.x1" :y1="line.y1" :x2="line.x2" :y2="line.y2" :transform-origin="variants.transformOrigin[index]" />
+	<div
+		className="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center"
+		role="button"
+		tabindex="0"
+	>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="28"
+			height="28"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+		>
+			<Motion
+				is="line"
+				v-for="(line, index) in lines"
+				:key="`${line.x1}_${line.x2}_${line.y1}_${line.y2}`"
+				:ref="(el) => (targetList[index] = el)"
+				stroke="currentColor"
+				:x1="line.x1"
+				:y1="line.y1"
+				:x2="line.x2"
+				:y2="line.y2"
+				:transform-origin="variants.transformOrigin[index]"
+			/>
 		</svg>
 	</div>
 </template>

@@ -8,7 +8,7 @@
 		"generate": "nuxt generate",
 		"preview": "npx serve .output/public",
 		"postinstall": "nuxt prepare",
-		"format": "prettier --write **/*.{vue,ts,css}",
+		"format": "bunx prettier --write **/**/*.{vue,ts,css}",
 		"start": "node .output/server/index.mjs --hostname becker.local"
 	},
 	"dependencies": {

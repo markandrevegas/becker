@@ -3,7 +3,7 @@
 	"semi": false,
 	"useTabs": true,
 	"singleAttributePerLine": false,
-  "trailingComma": "none",
-	"printWidth": 999,
+	"trailingComma": "none",
+	"printWidth": 120,
 	"plugins": ["prettier-plugin-tailwindcss"]
 }
