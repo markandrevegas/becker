@@ -87,6 +87,9 @@ export default defineNuxtConfig({
 		},
 		experimental: {
 			openAPI: true
+		},
+		logging: {
+			level: 1
 		}
 	},
 	hooks: {
