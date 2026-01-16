@@ -89,17 +89,17 @@ onMounted(() => {
 
 <template>
 	<div class="h-[100vh]">
-		<div class="mx-auto flex flex-1 flex-col md:w-4/5">
+		<div class="mx-auto flex flex-1 flex-col">
 			<div id="gallery" class="md:pb-16">
 				<IndexGallery />
 			</div>
-			<div id="intro" class="md:pb-16">
+			<div id="intro" class="md:pb-16 md:w-4/5 md:mx-auto">
 				<IndexIntro />
 			</div>
-			<div id="videos" class="pb-24">
+			<div id="videos" class="pb-24 md:w-4/5 md:mx-auto">
 				<IndexVideos />
 			</div>
-			<div id="bio" class="md:pb-16">
+			<div id="bio" class="md:pb-16 md:w-4/5 md:mx-auto">
 				<IndexBio />
 			</div>
 		</div>

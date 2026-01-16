@@ -16,6 +16,9 @@ const config: Config = {
 			colors: {
 				palladian: "#EEE9DF",
 				abyssal: "#1B2632"
+			},
+			lineHeight: {
+				"12": "3rem"
 			}
 		}
 	},

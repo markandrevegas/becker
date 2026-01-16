@@ -34,10 +34,11 @@ const props = defineProps({
 					? 'bg-abyssal/40 text-white backdrop-blur-xl'
 					: 'text-abyssal backdrop-blur-md dark:text-yellow-50/90'
 			"
-			class="fixed right-0 top-0 z-40 flex h-[70px] w-full items-center justify-end md:justify-start px-4 md:pl-24 transition-colors duration-300"
+			class="fixed right-0 top-0 z-40 flex h-[70px] w-full items-center justify-end px-4 md:px-16 transition-colors duration-300"
 		>
-			<nav>
-				<ul class="menu-desktop px-4">
+			<nav class="w-full flex justify-between items-center">
+				<ColorModeToggle />
+				<ul class="menu-desktop">
 					<li class="flex justify-start md:hidden">
 						<NuxtLink to="#gallery" @click="handleClick('gallery', 'desktop')"><HouseIcon /></NuxtLink>
 					</li>

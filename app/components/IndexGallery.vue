@@ -3,48 +3,60 @@ const header = "Deana Becker"
 const text = "SAG AFTRA Actress"
 interface GalleryImage {
 	id: number | string
-	src: string
+	srcMobile: string
+	srcDesktop: string
 	alt: string
 }
 
 const images: GalleryImage[] = [
-	{ id: 2, src: "/gallery/10.jpg", alt: "Nurse" },
-	{ id: 4, src: "/gallery/4.jpg", alt: "On-set Behind the Scenes" },
-	{ id: 5, src: "/gallery/5.jpg", alt: "On-set Behind the Scenes" },
-	{ id: 6, src: "/gallery/1.jpg", alt: "On-set Behind the Scenes" }
+	{ id: 2,
+		srcDesktop: "/gallery/index.jpg",
+    srcMobile: "/gallery/7.jpg",
+		alt: "Deana J Becker" },
 ]
 </script>
 
 <template>
-	<div class="flex flex-col md:flex-row md:items-center">
+	<div class="flex flex-col">
 		<div class="gallery-container relative">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
-				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
-					<NuxtImg
-						:src="image.src"
-						:alt="image.alt"
-						class="h-screen w-full object-cover"
-						format="webp"
-						quality="80"
-						loading="lazy"
-					/>
-				</div>
+			<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
+				<!-- Mobile image -->
+				<NuxtImg
+					:src="image.srcMobile"
+					:alt="image.alt"
+					class="h-screen w-full object-cover md:hidden"
+					format="webp"
+					quality="80"
+					loading="lazy"
+				/>
+				<!-- Desktop image -->
+				<NuxtImg
+					:src="image.srcDesktop"
+					:alt="image.alt"
+					class="hidden h-screen w-full object-cover md:block"
+					format="webp"
+					quality="80"
+					loading="lazy"
+				/>
+			</div>
 			</div>
 
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
 			<div
-				class="flex-flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-start p-6 text-white sm:p-16 md:hidden"
+				class="flex flex-col justify-start items-start absolute bottom-0 left-0 right-0 z-30 h-96 p-6 pt-0 text-white sm:p-16 lg:pt-0"
 			>
-				<h1 class="font-display text-4xl font-bold uppercase">{{ header }}</h1>
-				<p class="mt-2 max-w-md text-lg font-medium uppercase">{{ text }}</p>
+				<h1 class="font-display text-6xl font-bold uppercase">{{ header }}</h1>
+				<p class="mt-2 max-w-md text-2xl font-medium uppercase">{{ text }}</p>
 			</div>
 		</div>
-		<div class="content">
-			<div>
-				<h1 class="font-display text-4xl font-bold uppercase">{{ header }}</h1>
-				<p class="mt-2 max-w-md text-lg font-medium uppercase">{{ text }}</p>
+		<div class="content md:w-1/2 md:mx-auto">
+			<div class="relative mx-auto my-4 flex w-full justify-center hidden md:flex">
+				<span class="absolute top-[-1.5rem] z-20 inline-block bg-white dark:bg-abyssal dark:text-yellow-50/90"
+					><h2 class="!text-3xl font-medium uppercase sm:text-4xl p-2 px-8">About {{ header }}</h2></span>
+				<div class="w-full border-2 border-t border-abyssal border-current"></div>
 			</div>
-			<p>
+			<p class="text-lg md:text-3xl  md:leading-12">
 				Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk. She
 				also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The
 				Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!

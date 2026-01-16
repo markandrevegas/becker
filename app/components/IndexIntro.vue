@@ -31,7 +31,7 @@ const images: GalleryImage[] = [{ id: 4, src: "/gallery/11.jpg", alt: "On-set Be
 			</div>
 		</div>
 		<div class="content md:w-3/4">
-			<h2 class="hidden md:block mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">{{ header }}</h2>
+			<h2 class="hidden mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">{{ header }}</h2>
 			<p>
 				Originally from Washington D.C., Deana grew up in a multi-cultural household, seventh of her father's nine
 				children. "Coming from a multi-ethnic background has definitely provided me a unique perspective on people and
