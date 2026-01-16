@@ -6,14 +6,16 @@ const isOpen = ref(false)
 function toggleMenu() {
 	isOpen.value = !isOpen.value
 }
-const handleClick = (id: string) => {
-	scrollTo(id)
+const handleClick = (id: string, res: string) => {
+	scrollTo(id, res)
 }
-const scrollTo = (id: string) => {
+const scrollTo = (id: string, res: string) => {
 	const el = document.getElementById(id)
 	if (!el) return
-
-	toggleMenu()
+	
+	if (res === 'mobile') {
+		toggleMenu()
+	}
 	setTimeout(() => {
 		el.scrollIntoView({ behavior: "smooth", block: "start" })
 	}, 300)
@@ -32,10 +34,26 @@ const props = defineProps({
 					? 'bg-abyssal/40 text-white backdrop-blur-xl'
 					: 'text-abyssal backdrop-blur-md dark:text-yellow-50/90'
 			"
-			class="fixed right-0 top-0 z-40 flex h-[70px] w-full items-center justify-end px-4 transition-colors duration-300"
+			class="fixed right-0 top-0 z-40 flex h-[70px] w-full items-center justify-end md:justify-start px-4 md:pl-24 transition-colors duration-300"
 		>
+			<nav>
+				<ul class="menu-desktop px-4">
+					<li class="flex justify-start md:hidden">
+						<NuxtLink to="#gallery" @click="handleClick('gallery', 'desktop')"><HouseIcon /></NuxtLink>
+					</li>
+					<li>
+						<NuxtLink to="#intro" @click="handleClick('intro', 'desktop')">Intro</NuxtLink>
+					</li>
+					<li>
+						<NuxtLink to="#bio" @click="handleClick('bio', 'desktop')">Bio and Roles</NuxtLink>
+					</li>
+					<li>
+						<NuxtLink to="#videos" @click="handleClick('videos', 'desktop')">Clips</NuxtLink>
+					</li>
+				</ul>
+			</nav>
 			<button
-				class="text-2xl uppercase tracking-tighter"
+				class="text-2xl uppercase tracking-tighter md:hidden"
 				:aria-expanded="isOpen"
 				aria-haspopup="true"
 				@click="toggleMenu"
@@ -56,16 +74,16 @@ const props = defineProps({
 				<div class="flex-1 overflow-y-scroll pt-[70px]">
 					<ul class="menu px-4">
 						<li class="flex justify-start">
-							<NuxtLink to="#gallery" @click="handleClick('gallery')"><HouseIcon /></NuxtLink>
+							<NuxtLink to="#gallery" @click="handleClick('gallery', 'mobile')"><HouseIcon /></NuxtLink>
 						</li>
 						<li>
-							<NuxtLink to="#intro" @click="handleClick('intro')">Intro</NuxtLink>
+							<NuxtLink to="#intro" @click="handleClick('intro', 'mobile')">Intro</NuxtLink>
 						</li>
 						<li>
-							<NuxtLink to="#bio" @click="handleClick('bio')">Bio and Roles</NuxtLink>
+							<NuxtLink to="#bio" @click="handleClick('bio', 'mobile')">Bio and Roles</NuxtLink>
 						</li>
 						<li>
-							<NuxtLink to="#videos" @click="handleClick('videos')">Clips</NuxtLink>
+							<NuxtLink to="#videos" @click="handleClick('videos', 'mobile')">Clips</NuxtLink>
 						</li>
 					</ul>
 					<div class="grid grid-cols-3 px-4 my-8">
