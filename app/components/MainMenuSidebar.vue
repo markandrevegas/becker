@@ -65,7 +65,7 @@ const props = defineProps({
 		<!-- Drawer overlay -->
 		<div v-if="isOpen" class="fixed inset-0 top-[70px] z-40 bg-black/50 backdrop-blur-sm" @click="toggleMenu"></div>
 		<nav
-			class="fixed right-0 top-[70px] z-50 h-full w-1/2 lg:w-1/5 bg-white text-abyssal transition-transform duration-300 dark:bg-abyssal dark:text-white"
+			class="fixed right-0 top-[70px] z-50 h-full w-2/3 lg:w-1/5 bg-white text-abyssal transition-transform duration-300 dark:bg-abyssal dark:text-white"
 			:class="isOpen ? 'translate-x-0' : 'translate-x-full'"
 		>
 			<div class="flex h-full flex-col">
@@ -74,11 +74,11 @@ const props = defineProps({
 				</div>
 				<div class="flex-1 overflow-y-scroll pt-[70px]">
 					<ul class="menu px-4">
-						<li class="flex justify-start">
-							<NuxtLink to="#gallery" @click="handleClick('gallery', 'mobile')"><HouseIcon /></NuxtLink>
+						<li class="flex justify-end" @click="handleClick('gallery', 'mobile')">
+							<NuxtLink to="#gallery"><HouseIcon /></NuxtLink>
 						</li>
 						<li>
-							<NuxtLink to="#intro" @click="handleClick('intro', 'mobile')">Intro</NuxtLink>
+							<NuxtLink to="#intro" @click="handleClick('intro', 'mobile')">Background</NuxtLink>
 						</li>
 						<li>
 							<NuxtLink to="#bio" @click="handleClick('bio', 'mobile')">Bio and Roles</NuxtLink>
@@ -87,11 +87,6 @@ const props = defineProps({
 							<NuxtLink to="#videos" @click="handleClick('videos', 'mobile')">Clips</NuxtLink>
 						</li>
 					</ul>
-					<div class="grid grid-cols-3 px-4 my-8">
-						<div>
-							<ColorModeToggle />
-						</div>
-					</div>
 				</div>
 			</div>
 		</nav>

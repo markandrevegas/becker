@@ -67,13 +67,13 @@ const theaterRoles: TheaterRole[] = [
 			</div>
 
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
-			<div class="flex-flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-start p-6 text-white">
-				<h2 class="mt-2 max-w-md text-6xl font-medium uppercase sm:text-4xl md:hidden">{{ text }}</h2>
+			<div class="flex flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-end px-8 pb-16 text-white sm:p-16 md:hidden">
+				<h2 class="mt-2 max-w-md text-4xl font-medium uppercase sm:text-4xl md:hidden">{{ text }}</h2>
 			</div>
 		</div>
 		<div class="content md:w-3/4">
-			<h2 class="mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl md:visible">Roles</h2>
-			<p class="mb-6 text-lg">
+			<h2 class="hidden md:flex mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">Roles</h2>
+			<p class="text-lg md:text-xl md:leading-12 mb-8">
 				Deana J. Becker holds a Bachelor of Fine Arts (BFA) degree in Theatre from the University of Minnesota, where
 				she honed her acting skills and developed a deep appreciation for the performing arts. Her formal education
 				provided a strong foundation for her successful career in television, film, and voiceover work.

@@ -6,7 +6,7 @@ interface GalleryImage {
 	alt: string
 }
 
-const images: GalleryImage[] = [{ id: 1, src: "/gallery/7.jpg", alt: "Editorial Portrait" }]
+const images: GalleryImage[] = [{ id: 1, src: "/gallery/10.jpg", alt: "Editorial Portrait" }]
 </script>
 <template>
 	<div class="flex flex-col md:flex-row gap-4">
@@ -24,18 +24,18 @@ const images: GalleryImage[] = [{ id: 1, src: "/gallery/7.jpg", alt: "Editorial 
 				</div>
 			</div>
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
-			<div class="flex flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-start p-6 text-white sm:p-16">
-				<h2 class="mt-2 max-w-md text-6xl font-medium uppercase sm:text-4xl md:hidden">{{ text }}</h2>
+			<div class="flex flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-end px-8 pb-16 text-white sm:p-16 md:hidden">
+				<h2 class="mt-2 max-w-md text-4xl font-medium uppercase sm:text-4xl md:hidden">{{ text }}</h2>
 			</div>
 		</div>
 		<div class="content md:w-3/5">
 			<h2 class="hidden md:block mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">{{ text }}</h2>
-			<p>
+			<p class="text-lg md:text-xl md:leading-12">
 				Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk.
 				She also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The
 				Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!
 			</p>
-			<div class="flex flex-col gap-16 px-8 w-full">
+			<div class="flex flex-col gap-8 py-8 w-full">
 				<div class="video-container">
 					<div class="video-wrapper">
 						<video
