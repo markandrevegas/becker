@@ -12,6 +12,28 @@ const loadLocalPhoto = () => {
 	}
 }
 
+useHead({
+	title: "Deana J Becker - SAG AFTRA Actress",
+	meta: [
+		{
+			name: "title",
+			content: "Deana J Becker - SAG AFTRA Actress"
+		},
+		{
+			name: "description",
+			content: "Professional acting portfolio, credits, and media for SAG AFTRA actress Deana J Becker."
+		},
+		{
+			property: "og:title",
+			content: "Deana J Becker - SAG AFTRA Actress"
+		},
+		{
+			property: "og:description",
+			content: "Professional acting portfolio, credits, and media for SAG AFTRA actress Deana J Becker."
+		}
+	]
+})
+
 useSchemaOrg([
 	defineWebPage({
 		name: "Official Website of Deana Becker",
