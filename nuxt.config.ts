@@ -18,6 +18,34 @@ declare module "nuxt/schema" {
 				[key: string]: unknown
 			}>
 		}
+		site?: {
+			url?: string
+			name?: string
+			[key: string]: unknown
+		}
+		schemaOrg?: {
+			identity?: {
+				type?: string
+				name?: string
+				logo?: string
+				[key: string]: unknown
+			}
+			[key: string]: unknown
+		}
+		scripts?: {
+			registry?: {
+				googleAnalytics?: {
+					id?: string
+					queryParams?: {
+						debug_mode?: boolean
+						[key: string]: unknown
+					}
+					[key: string]: unknown
+				}
+				[key: string]: unknown
+			}
+			[key: string]: unknown
+		}
 	}
 }
 
@@ -25,13 +53,13 @@ export default defineNuxtConfig({
 	app: {
 		head: {
 			link: [
-				{ rel: "icon", type: "image/png", href: "/favicon-96x96.png", sizes: "96x96" },
-				{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-				{ rel: "shortcut icon", href: "/favicon.ico" },
-				{ rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
-				{ rel: "manifest", href: "/site.webmanifest" }
+				{ rel: "icon", type: "image/png", href: "/assets/favicon-96x96.png", sizes: "96x96" },
+				{ rel: "icon", type: "image/svg+xml", href: "/assets/favicon.svg" },
+				{ rel: "shortcut icon", href: "/assets/favicon.ico" },
+				{ rel: "apple-touch-icon", sizes: "180x180", href: "/assets/apple-touch-icon.png" },
+				{ rel: "manifest", href: "/assets/site.webmanifest" }
 			],
-			meta: [{ name: "apple-mobile-web-app-title", content: "Scratch" }]
+			meta: [{ name: "apple-mobile-web-app-title", content: "Deana Becker" }]
 		}
 	},
 	future: {
@@ -87,9 +115,6 @@ export default defineNuxtConfig({
 		},
 		experimental: {
 			openAPI: true
-		},
-		logging: {
-			level: 1
 		}
 	},
 	hooks: {
