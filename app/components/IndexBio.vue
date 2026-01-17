@@ -8,20 +8,30 @@ interface GalleryImage {
 const images: GalleryImage[] = [{ id: 3, src: "/gallery/headshot.jpg", alt: "Studio Photography" }]
 
 interface TVRole {
-	date: string
 	show: string
-	episode?: string
-	role: string
-	type: "TV" | "Commercial"
+	role?: string
+	type?: string
+	producer?: string
 }
 
 const tvRoles: TVRole[] = [
-	{ date: "2015", show: "Grey's Anatomy", episode: "S12E08", role: "Nurse", type: "TV" },
-	{ date: "2016", show: "NCIS", episode: "S14E05", role: "Forensic Technician", type: "TV" },
-	{ date: "2017", show: "The Office", episode: "S9E12", role: "Office Worker", type: "TV" },
-	{ date: "2018", show: "Commercial", role: "Lead", type: "Commercial" },
-	{ date: "2019", show: "Commercial", role: "Featured", type: "Commercial" },
-	{ date: "2020", show: "Grey's Anatomy", episode: "S17E03", role: "Patient", type: "TV" }
+	{ show: "Matlock", role: "Judge Bjornstad", type: "Recurring" },
+	{ show: "Quarter", role: "Pediatric doctor", producer: "Arnon Manor/Kelsey Bascom" },
+	{ show: "Expats", role: "Nurse", producer: "LULU WANG" },
+	{ show: "Physical", role: "FEDCO Shopper #2", producer: "Stephanie Laing" },
+	{ show: "Fauk My Life", role: "Series regular", producer: "Stephanie Neroes" },
+	{ show: "Echo", role: "Supporting Lead", producer: "John Geronilla" },
+	{ show: "Diana Leigh", role: "Supporting Lead", producer: "Stephanie Houston" },
+	{ show: "What Really Matters", role: "Supporting Lead", producer: "William Bright" },
+	{ show: "Faux Pas", role: "Lead", producer: "Edward Chitate" },
+	{ show: "Don't Go To Strangers", role: "Supporting Lead", producer: "Nathan Osbourne" },
+	{ show: "Jungle To Jungle", role: "Statue Of Liberty Tourist", producer: "John Pasquin" },
+	{ show: "Chris Rock Show", role: "Recurring", producer: "HBO Productions" },
+	{ show: "New York's Burning", role: "Lead", producer: "Ron Riley" },
+	{ show: "Maternity Ward", role: "Lead", producer: "WHC Productions" },
+	{ show: "Notes is a Minor Key", role: "Supporting", producer: "Avery O. Williams/ADISA" },
+	{ show: "Lead Generation", role: "Army Sergeant/Lead", producer: "DLA Productions" },
+	{ show: "Law And Order", role: "Featured", producer: "WOLF Films" }
 ]
 
 interface CinemaRole {
@@ -39,20 +49,21 @@ const cinemaRoles: CinemaRole[] = [
 interface TheaterRole {
 	city: string
 	play: string
-	director: string
+	producer: string
 	role: string
 	award?: string
 }
 
 const theaterRoles: TheaterRole[] = [
-	{ city: "Minneapolis", play: "A Midsummer Night's Dream", director: "Jane Smith", role: "Hermia" },
-	{ city: "St. Paul", play: "The Glass Menagerie", director: "John Doe", role: "Laura Wingfield" },
-	{ city: "Chicago", play: "Death of a Salesman", director: "Mary Johnson", role: "Linda Loman" }
+	{ city: "Minneapolis", play: "A Midsummer Night's Dream", producer: "Jane Smith", role: "Hermia" },
+	{ city: "St. Paul", play: "The Glass Menagerie", producer: "John Doe", role: "Laura Wingfield" },
+	{ city: "Chicago", play: "Death of a Salesman", producer: "Mary Johnson", role: "Linda Loman" }
 ]
 </script>
 <template>
-	<div class="flex flex-col gap-4 md:flex-row md:items-center lg:items-start">
-		<div class="gallery-container relative">
+	<div class="flex flex-col gap-4">
+		<div class="md:w-full md:flex md:justify-start md:items-center">
+			<div class="gallery-container relative">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
 					<NuxtImg
@@ -78,38 +89,27 @@ const theaterRoles: TheaterRole[] = [
 				she honed her acting skills and developed a deep appreciation for the performing arts. Her formal education
 				provided a strong foundation for her successful career in television, film, and voiceover work.
 			</p>
+		</div>
+		</div>
+		<div class="md:w-3/4">
+			<div class="mt-8">
+				<h2 class="text-2xl font-medium uppercase mb-8">Film and Television</h2>
+				<ul class="text-lg grid grid-cols-2">
+					<li v-for="(role, index) in tvRoles" :key="index" class="flex flex-col justify-start">
+						<span class="font-medium">{{ role.show }}</span>
+						<span class="text-slate-500 dark:text-yellow-50/50">{{ role.role }}</span>
+						<span v-if="role.producer">{{ role.producer }}</span>
+					</li>
+				</ul>
+			</div>
 			<div>
 				<h2 class="text-2xl font-medium uppercase">Theater</h2>
 				<ul class="space-y-4 text-lg">
 					<li v-for="(role, index) in theaterRoles" :key="index" class="flex flex-col gap-1">
 						<span class="font-medium">{{ role.play }}</span>
-						<span class="text-slate-500 dark:text-yellow-50/50">{{ role.role }} - Directed by {{ role.director }}</span>
+						<span class="text-slate-500 dark:text-yellow-50/50">{{ role.role }} - Directed by {{ role.producer }}</span>
 						<span class="text-sm text-gray-500">{{ role.city }}</span>
 						<span v-if="role.award" class="text-sm text-gray-500">{{ role.award }}</span>
-					</li>
-				</ul>
-			</div>
-			<div class="mt-8">
-				<h2 class="text-2xl font-medium uppercase">Cinema</h2>
-				<ul class="space-y-4 text-lg">
-					<li v-for="(role, index) in cinemaRoles" :key="index" class="flex flex-col gap-1">
-						<span class="font-medium">{{ role.film }}</span>
-						<span class="text-slate-500 dark:text-yellow-50/50"
-							>{{ role.role }} <span class="text-sm">({{ role.date }})</span></span
-						>
-					</li>
-				</ul>
-			</div>
-			<div class="mt-8">
-				<h2 class="text-2xl font-medium uppercase">TV</h2>
-				<ul class="space-y-4 text-lg">
-					<li v-for="(role, index) in tvRoles" :key="index" class="flex flex-col gap-1">
-						<span class="font-medium"
-							>{{ role.show }}<span v-if="role.episode"> - {{ role.episode }}</span></span
-						>
-						<span class="text-slate-500 dark:text-yellow-50/50"
-							>{{ role.role }} <span class="text-sm">({{ role.date }})</span></span
-						>
 					</li>
 				</ul>
 			</div>
