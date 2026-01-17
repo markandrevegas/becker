@@ -83,7 +83,7 @@ const theaterRoles: TheaterRole[] = [
 				<ul class="space-y-4 text-lg">
 					<li v-for="(role, index) in theaterRoles" :key="index" class="flex flex-col gap-1">
 						<span class="font-medium">{{ role.play }}</span>
-						<span class="text-gray-600">{{ role.role }} - Directed by {{ role.director }}</span>
+						<span class="text-slate-500 dark:text-yellow-50/50">{{ role.role }} - Directed by {{ role.director }}</span>
 						<span class="text-sm text-gray-500">{{ role.city }}</span>
 						<span v-if="role.award" class="text-sm text-gray-500">{{ role.award }}</span>
 					</li>
@@ -94,7 +94,7 @@ const theaterRoles: TheaterRole[] = [
 				<ul class="space-y-4 text-lg">
 					<li v-for="(role, index) in cinemaRoles" :key="index" class="flex flex-col gap-1">
 						<span class="font-medium">{{ role.film }}</span>
-						<span class="text-gray-600"
+						<span class="text-slate-500 dark:text-yellow-50/50"
 							>{{ role.role }} <span class="text-sm">({{ role.date }})</span></span
 						>
 					</li>
@@ -107,7 +107,7 @@ const theaterRoles: TheaterRole[] = [
 						<span class="font-medium"
 							>{{ role.show }}<span v-if="role.episode"> - {{ role.episode }}</span></span
 						>
-						<span class="text-gray-600"
+						<span class="text-slate-500 dark:text-yellow-50/50"
 							>{{ role.role }} <span class="text-sm">({{ role.date }})</span></span
 						>
 					</li>

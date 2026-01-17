@@ -1,5 +1,5 @@
 <template>
-	<button :class="isDark ? 'bg-transparent text-yellow-50/90' : 'bg-transparent text-abyssal'" @click="toggle">
+	<button :class="isDark ? 'bg-transparent text-yellow-50/90' : 'bg-transparent'" @click="toggle">
 		<span v-if="isDark">
 			<SunIcon />
 		</span>
