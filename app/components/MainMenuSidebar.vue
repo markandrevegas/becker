@@ -36,18 +36,18 @@ const props = defineProps({
 			"
 			class="fixed right-0 top-0 z-40 flex h-[70px] w-full items-center justify-end px-4 md:px-16 transition-colors duration-300"
 		>
-			<nav class="w-full flex justify-end items-center gap-16">
+			<nav class="w-full flex justify-between items-center gap-16">
 				<ul class="menu-desktop">
 					<li class="flex justify-start md:hidden">
 						<NuxtLink to="#gallery" @click="handleClick('gallery', 'desktop')"><HouseIcon /></NuxtLink>
 					</li>
-					<li>
+					<li style="margin-left:0;padding-right:4rem;">
 						<NuxtLink to="#intro" @click="handleClick('intro', 'desktop')">Intro</NuxtLink>
 					</li>
-					<li>
+					<li style="margin-left:0;padding-right:4rem;">
 						<NuxtLink to="#bio" @click="handleClick('bio', 'desktop')">Bio and Roles</NuxtLink>
 					</li>
-					<li>
+					<li style="margin-left:0;padding-right:4rem;">
 						<NuxtLink to="#videos" @click="handleClick('videos', 'desktop')">Clips</NuxtLink>
 					</li>
 				</ul>

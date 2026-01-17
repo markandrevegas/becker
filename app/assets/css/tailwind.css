@@ -39,7 +39,7 @@
 			letter-spacing: -0.035em;
 		}
 		&-desktop {
-			@apply hidden md:flex flex-row justify-end space-x-8
+			@apply hidden md:flex flex-row justify-start space-x-8
 		}
 	}
 	video,
