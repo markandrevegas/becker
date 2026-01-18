@@ -62,6 +62,9 @@ export default defineNuxtConfig({
 			meta: [{ name: "apple-mobile-web-app-title", content: "Deana Becker" }]
 		}
 	},
+	image: {
+		provider: "ipx"
+	},
 	future: {
 		compatibilityVersion: 4
 	},

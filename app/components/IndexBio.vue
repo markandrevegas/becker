@@ -5,7 +5,7 @@ interface GalleryImage {
 	src: string
 	alt: string
 }
-const images: GalleryImage[] = [{ id: 3, src: "/gallery/headshot.jpg", alt: "Studio Photography" }]
+const images: GalleryImage[] = [{ id: 3, src: "/assets/gallery/1.webp", alt: "Studio Photography" }]
 
 interface TVRole {
 	show: string
@@ -86,32 +86,32 @@ const trainingItems: Training[] = [
 	<div class="flex flex-col gap-4 pb-24">
 		<div class="md:w-full md:flex md:justify-center md:items-center">
 			<div class="gallery-container relative">
-			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
-				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
-					<NuxtImg
-						:src="image.src"
-						:alt="image.alt"
-						class="h-screen w-full object-cover"
-						format="webp"
-						quality="80"
-						loading="lazy"
-					/>
+				<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
+					<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
+						<NuxtImg
+							:src="image.src"
+							:alt="image.alt"
+							class="h-screen w-full object-cover"
+							format="webp"
+							quality="80"
+							loading="lazy"
+						/>
+					</div>
+				</div>
+
+				<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
+				<div class="flex flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-end px-8 pb-16 text-white sm:p-16 md:hidden">
+					<h2 class="mt-2 max-w-md text-4xl font-medium uppercase sm:text-4xl md:hidden">{{ text }}</h2>
 				</div>
 			</div>
-
-			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
-			<div class="flex flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-end px-8 pb-16 text-white sm:p-16 md:hidden">
-				<h2 class="mt-2 max-w-md text-4xl font-medium uppercase sm:text-4xl md:hidden">{{ text }}</h2>
+			<div class="content md:w-1/2">
+				<h2 class="hidden md:flex mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">Roles</h2>
+				<p class="text-lg md:text-2xl md:leading-12 mb-8">
+					Deana J. Becker holds a Bachelor of Fine Arts (BFA) degree in Theatre from the University of Minnesota, where
+					she honed her acting skills and developed a deep appreciation for the performing arts. Her formal education
+					provided a strong foundation for her successful career in television, film, and voiceover work.
+				</p>
 			</div>
-		</div>
-		<div class="content md:w-1/2">
-			<h2 class="hidden md:flex mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">Roles</h2>
-			<p class="text-lg md:text-2xl md:leading-12 mb-8">
-				Deana J. Becker holds a Bachelor of Fine Arts (BFA) degree in Theatre from the University of Minnesota, where
-				she honed her acting skills and developed a deep appreciation for the performing arts. Her formal education
-				provided a strong foundation for her successful career in television, film, and voiceover work.
-			</p>
-		</div>
 		</div>
 		<div class="md:w-3/4 lg:mx-auto px-8">
 			<div class="mt-8">

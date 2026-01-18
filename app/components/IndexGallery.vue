@@ -3,43 +3,34 @@ const header = "Deana Becker"
 const text = "SAG AFTRA Actress"
 interface GalleryImage {
 	id: number | string
-	srcMobile: string
-	srcDesktop: string
+	src: string
 	alt: string
 }
 
 const images: GalleryImage[] = [
 	{ id: 2,
-		srcDesktop: "/gallery/index.jpg",
-    srcMobile: "/gallery/7.jpg",
+		src: "/assets/gallery/7.webp",
 		alt: "Deana J Becker" },
 ]
 </script>
 
 <template>
 	<div class="flex flex-col">
-		<div class="gallery-container relative">
+		<div class="gallery-container relative" style="height:100vh">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
-			<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
-				<!-- Mobile image -->
-				<NuxtImg
-					:src="image.srcMobile"
-					:alt="image.alt"
-					class="h-screen w-full object-cover md:hidden"
-					format="webp"
-					quality="80"
-					loading="lazy"
-				/>
-				<!-- Desktop image -->
-				<NuxtImg
-					:src="image.srcDesktop"
-					:alt="image.alt"
-					class="hidden h-screen w-full object-cover md:block"
-					format="webp"
-					quality="80"
-					loading="lazy"
-				/>
-			</div>
+				<div v-for="image in images" :key="image.id" class="relative w-full flex-1 flex-shrink-0 snap-center">
+					<NuxtImg
+						:src="image.src"
+						width="1920"
+						widths="360 430 640 768 1024 1280 1536 1920"
+						class="h-screen w-full object-cover"
+						format="webp"
+						quality="80"
+						alt="Deana J Becker"
+					/>
+
+
+				</div>
 			</div>
 
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>

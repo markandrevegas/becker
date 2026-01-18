@@ -1,5 +1,5 @@
 <script setup>
-import localHeroImage from "../assets/img/headshot.jpg"
+import localHeroImage from "/assets/gallery/headshot.webp"
 // state
 const photo = ref(null)
 const header = "Deana J Becker"

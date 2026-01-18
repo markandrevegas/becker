@@ -1,12 +1,15 @@
 <template>
-	<button :class="isDark ? 'bg-transparent text-yellow-50/90' : 'bg-transparent'" @click="toggle">
-		<span v-if="isDark">
-			<SunIcon />
-		</span>
-		<span v-else>
-			<MoonIcon />
-		</span>
-	</button>
+	<ClientOnly>
+		<button :class="isDark ? 'bg-transparent text-yellow-50/90' : 'bg-transparent'" @click="toggle">
+			<span v-if="isDark">
+				<SunIcon />
+			</span>
+			<span v-else>
+				<MoonIcon />
+			</span>
+		</button>
+	</ClientOnly>
+	
 </template>
 
 <script setup lang="ts">

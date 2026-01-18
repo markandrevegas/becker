@@ -6,7 +6,7 @@ interface GalleryImage {
 	alt: string
 }
 
-const images: GalleryImage[] = [{ id: 1, src: "/gallery/10.jpg", alt: "Editorial Portrait" }]
+const images: GalleryImage[] = [{ id: 1, src: "/assets/gallery/10.webp", alt: "Editorial Portrait" }]
 </script>
 <template>
 	<div class="flex flex-col md:flex-row gap-4">
