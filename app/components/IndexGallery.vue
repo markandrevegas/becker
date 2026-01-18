@@ -27,9 +27,9 @@ const images: GalleryImage[] = [
 						format="webp"
 						quality="80"
 						alt="Deana J Becker"
+						loading="eager"
+						fetchpriority="high"
 					/>
-
-
 				</div>
 			</div>
 

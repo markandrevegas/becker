@@ -1,6 +1,6 @@
 <template>
 	<ClientOnly>
-		<button :class="isDark ? 'bg-transparent text-yellow-50/90' : 'bg-transparent'" @click="toggle">
+		<button aria-label="Color Mode Toggle" :class="isDark ? 'bg-transparent text-yellow-50/90' : 'bg-transparent'" @click="toggle">
 			<span v-if="isDark">
 				<SunIcon />
 			</span>

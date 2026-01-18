@@ -4,6 +4,7 @@
     @mouseenter="mouseEnterHandler"
     @mouseleave="mouseLeaveHandler"
     role="button"
+    aria-label="Dark Mode Icon"
     tabindex="0"
   >
     <svg

@@ -4,6 +4,7 @@
 		@mouseenter="mouseEnterHandler"
 		@mouseleave="mouseLeaveHandler"
 		role="button"
+		aria-label="House Icon"
 		tabindex="0"
 	>
 		<svg

@@ -4,6 +4,7 @@
 		@mouseenter="mouseEnterHandler"
 		@mouseleave="mouseLeaveHandler"
 		role="button"
+		aria-label="Clap Icon"
 		tabindex="0"
 	>
 		<svg

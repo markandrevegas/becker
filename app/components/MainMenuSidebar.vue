@@ -54,6 +54,7 @@ const props = defineProps({
 				<ColorModeToggle />
 			</nav>
 			<button
+				aria-label="Menu Toggle"
 				class="text-2xl uppercase tracking-tighter md:hidden"
 				:aria-expanded="isOpen"
 				aria-haspopup="true"

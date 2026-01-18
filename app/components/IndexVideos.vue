@@ -15,11 +15,12 @@ const images: GalleryImage[] = [{ id: 1, src: "/assets/gallery/10.webp", alt: "E
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
 					<NuxtImg
 						:src="image.src"
-						:alt="image.alt"
+						width="1920"
+						widths="360 430 640 768 1024 1280 1536 1920"
 						class="h-screen w-full object-cover"
 						format="webp"
 						quality="80"
-						loading="lazy"
+						:alt="image.alt"
 					/>
 				</div>
 			</div>
