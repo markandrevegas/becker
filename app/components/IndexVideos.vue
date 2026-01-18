@@ -28,7 +28,7 @@ const images: GalleryImage[] = [{ id: 1, src: "/gallery/10.jpg", alt: "Editorial
 				<h2 class="mt-2 max-w-md text-4xl font-medium uppercase sm:text-4xl md:hidden">{{ text }}</h2>
 			</div>
 		</div>
-		<div class="content md:w-3/5">
+		<div class="content md:w-1/2">
 			<h2 class="hidden md:block mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">{{ text }}</h2>
 			<p class="text-lg md:text-xl md:leading-12">
 				Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk.

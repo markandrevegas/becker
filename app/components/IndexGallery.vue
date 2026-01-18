@@ -56,7 +56,7 @@ const images: GalleryImage[] = [
 					><h2 class="!text-3xl font-medium uppercase sm:text-4xl p-2 px-8">About {{ header }}</h2></span>
 				<div class="w-full border-2 border-t border-abyssal border-current"></div>
 			</div>
-			<p class="text-lg md:text-xl md:leading-12">
+			<p class="text-lg md:text-2xl md:leading-12">
 				Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk. She
 				also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The
 				Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!

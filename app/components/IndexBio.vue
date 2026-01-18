@@ -15,7 +15,6 @@ interface TVRole {
 }
 
 const tvRoles: TVRole[] = [
-	{ show: "Matlock", role: "Judge Bjornstad", type: "Recurring" },
 	{ show: "Quarter", role: "Pediatric doctor", producer: "Arnon Manor/Kelsey Bascom" },
 	{ show: "Expats", role: "Nurse", producer: "LULU WANG" },
 	{ show: "Physical", role: "FEDCO Shopper #2", producer: "Stephanie Laing" },
@@ -31,7 +30,8 @@ const tvRoles: TVRole[] = [
 	{ show: "Maternity Ward", role: "Lead", producer: "WHC Productions" },
 	{ show: "Notes is a Minor Key", role: "Supporting", producer: "Avery O. Williams/ADISA" },
 	{ show: "Lead Generation", role: "Army Sergeant/Lead", producer: "DLA Productions" },
-	{ show: "Law And Order", role: "Featured", producer: "WOLF Films" }
+	{ show: "Law And Order", role: "Featured", producer: "WOLF Films" },
+	{ show: "Matlock", role: "Judge Bjornstad", type: "Recurring" }
 ]
 
 interface CinemaRole {
@@ -47,22 +47,44 @@ const cinemaRoles: CinemaRole[] = [
 ]
 
 interface TheaterRole {
-	city: string
-	play: string
-	producer: string
-	role: string
-	award?: string
+	show: string
+	role?: string
+	type?: string
+	producer?: string
 }
 
 const theaterRoles: TheaterRole[] = [
-	{ city: "Minneapolis", play: "A Midsummer Night's Dream", producer: "Jane Smith", role: "Hermia" },
-	{ city: "St. Paul", play: "The Glass Menagerie", producer: "John Doe", role: "Laura Wingfield" },
-	{ city: "Chicago", play: "Death of a Salesman", producer: "Mary Johnson", role: "Linda Loman" }
+	{ show: "Ages of The Menopause", role: "Ms. Brown (2025)", producer: "Tymeka Coney, Director" },
+	{ show: "Color Of Love", role: "", producer: "" },
+	{ show: "Harriet Tubman Visits A Therapist", role: "Lead (Therapist)", producer: "Winner Samuel French Competition" },
+	{ show: "Escher’S Staircase", role: "Lead (Flight Commander)", producer: "Harold Clurman Theatre, NYC" },
+	{ show: "Evelyn and The Environment", role: "Supporting", producer: "Lovecreek Productions, NYC" },
+	{ show: "“Secrets” Tour", role: "Ensemble", producer: "Roberta Gasbarre, Director" },
+	{ show: "The Widows", role: "Supporting", producer: "Workhouse Theatre, NYC" },
+	{ show: "The Odd Couple", role: "Gwendolyn", producer: "Jubilee Fish Theatre, ALABAMA" },
+	{ show: "Grown Up’s Playground", role: "Improv Group", producer: "New York Comedy Club" },
+	{ show: "Hatful Of Rain", role: "Celia", producer: "Mary Margaret Theatre, NYC" },
+	{ show: "Andromache", role: "Hermione", producer: "Mary Margaret Theatre, NYC" }
 ]
+
+interface Training {
+	item: string
+}
+const trainingItems: Training[] = [
+	{ item: 'American Academy of Dramatic Arts - NYC' },
+	{ item: 'The Groundlings (Scholarship Winner)' },
+	{ item: 'Brian Reese Acting Studios - LA' },
+	{ item: 'Studio Theatre Acting Conservatory - Washington D.C.' },
+	{ item: 'Soap Opera Workshop / Gail Comacho - NYC' },
+	{ item: 'AIA Three Of Us / Delphi Harrington - NYC' },
+	{ item: 'Weist - Barron - NYC' },
+	{ item: 'Private Coaching with Nathan George' },
+	{ item: 'BA - Film Production' },
+] 
 </script>
 <template>
-	<div class="flex flex-col gap-4">
-		<div class="md:w-full md:flex md:justify-start md:items-center">
+	<div class="flex flex-col gap-4 pb-24">
+		<div class="md:w-full md:flex md:justify-center md:items-center">
 			<div class="gallery-container relative">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
@@ -82,34 +104,51 @@ const theaterRoles: TheaterRole[] = [
 				<h2 class="mt-2 max-w-md text-4xl font-medium uppercase sm:text-4xl md:hidden">{{ text }}</h2>
 			</div>
 		</div>
-		<div class="content md:w-3/4">
+		<div class="content md:w-1/2">
 			<h2 class="hidden md:flex mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">Roles</h2>
-			<p class="text-lg md:text-xl md:leading-12 mb-8">
+			<p class="text-lg md:text-2xl md:leading-12 mb-8">
 				Deana J. Becker holds a Bachelor of Fine Arts (BFA) degree in Theatre from the University of Minnesota, where
 				she honed her acting skills and developed a deep appreciation for the performing arts. Her formal education
 				provided a strong foundation for her successful career in television, film, and voiceover work.
 			</p>
 		</div>
 		</div>
-		<div class="md:w-3/4">
+		<div class="md:w-3/4 lg:mx-auto px-8">
 			<div class="mt-8">
 				<h2 class="text-2xl font-medium uppercase mb-8">Film and Television</h2>
-				<ul class="text-lg grid grid-cols-2">
+				<ul class="flex flex-col text-xl md:grid md:grid-cols-3 gap-4">
 					<li v-for="(role, index) in tvRoles" :key="index" class="flex flex-col justify-start">
-						<span class="font-medium">{{ role.show }}</span>
-						<span class="text-slate-500 dark:text-yellow-50/50">{{ role.role }}</span>
-						<span v-if="role.producer">{{ role.producer }}</span>
+						<span>
+							<span class="font-semibold">{{ role.show }} - </span>
+							<span>{{ role.role }}</span>
+						</span>
+						<span v-if="role.producer" class="opacity-70">Producer: {{ role.producer }}</span>
+						<span v-if="role.type" class="opacity-70">Role: {{ role.type }}</span>
 					</li>
 				</ul>
 			</div>
-			<div>
-				<h2 class="text-2xl font-medium uppercase">Theater</h2>
-				<ul class="space-y-4 text-lg">
+			<div class="mt-8">
+				<h2 class="text-2xl font-medium uppercase mb-8">Theatre</h2>
+				<ul class="text-xl flex flex-col md:grid md:grid-cols-2 gap-4">
 					<li v-for="(role, index) in theaterRoles" :key="index" class="flex flex-col gap-1">
-						<span class="font-medium">{{ role.play }}</span>
-						<span class="text-slate-500 dark:text-yellow-50/50">{{ role.role }} - Directed by {{ role.producer }}</span>
-						<span class="text-sm text-gray-500">{{ role.city }}</span>
-						<span v-if="role.award" class="text-sm text-gray-500">{{ role.award }}</span>
+						<span>
+							<span class="font-semibold">{{ role.show }} - </span>
+							<span>{{ role.role }}</span>
+						</span>
+						<span v-if="role.producer" class="opacity-70">Producer: {{ role.producer }}</span>
+						<span v-if="role.type" class="opacity-70">Role: {{ role.type }}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="md:w-3/4 lg:mx-auto px-8">
+			<div class="mt-8">
+				<h2 class="text-2xl font-medium uppercase mb-8">Training</h2>
+				<ul class="text-xl flex flex-col lg:grid lg:grid-cols-2 gap-4">
+					<li v-for="(i, index) in trainingItems" :key="index" class="flex flex-col justify-start">
+						<span>
+							<span>{{ i.item }}</span>
+						</span>
 					</li>
 				</ul>
 			</div>

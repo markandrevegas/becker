@@ -10,8 +10,8 @@ interface GalleryImage {
 const images: GalleryImage[] = [{ id: 4, src: "/gallery/11.jpg", alt: "On-set Behind the Scenes" }]
 </script>
 <template>
-	<div class="flex flex-col gap-4 md:flex-row md:flex-row-reverse md:items-center">
-		<div class="gallery-container relative">
+	<div class="flex flex-col gap-4 md:grid md:grid-cols-2 md:items-center md:flex-row-reverse">
+		<div class="gallery-container relative col-span-1">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
 					<NuxtImg
@@ -30,9 +30,9 @@ const images: GalleryImage[] = [{ id: 4, src: "/gallery/11.jpg", alt: "On-set Be
 				<h2 class="mt-2 max-w-md text-4xl font-medium uppercase sm:text-4xl md:hidden">{{ header }}</h2>
 			</div>
 		</div>
-		<div class="content md:w-3/4">
+		<div class="content col-span-1">
 			<h2 class="hidden mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">{{ header }}</h2>
-			<p class="text-lg md:text-xl md:leading-12">
+			<p class="text-lg md:text-2xl md:leading-12">
 				Originally from Washington D.C., Deana grew up in a multi-cultural household, seventh of her father's nine
 				children. "Coming from a multi-ethnic background has definitely provided me a unique perspective on people and
 				cultures. I use this in my acting and writing all the time", she says. Her training began at Studio Theatre
