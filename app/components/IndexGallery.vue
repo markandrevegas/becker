@@ -3,13 +3,15 @@ const header = "Deana Becker"
 const text = "SAG AFTRA Actress"
 interface GalleryImage {
 	id: number | string
-	src: string
+	srcMobile: string
+	srcDesktop: string
 	alt: string
 }
 
 const images: GalleryImage[] = [
 	{ id: 2,
-		src: "/assets/gallery/7.webp",
+		srcMobile: "/assets/gallery/7.webp",
+		srcDesktop: "/assets/gallery/index.webp",
 		alt: "Deana J Becker" },
 ]
 </script>
@@ -20,10 +22,21 @@ const images: GalleryImage[] = [
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-1 flex-shrink-0 snap-center">
 					<NuxtImg
-						:src="image.src"
-						width="1920"
+						:src="image.srcMobile"
+						width="1536"
 						widths="360 430 640 768 1024 1280 1536 1920"
-						class="h-screen w-full object-cover"
+						class="h-screen w-full object-cover md:hidden"
+						format="webp"
+						quality="80"
+						alt="Deana J Becker"
+						loading="eager"
+						fetchpriority="high"
+					/>
+					<NuxtImg
+						:src="image.srcDesktop"
+						width="1536"
+						widths="360 430 640 768 1024 1280 1536 1920"
+						class="hidden h-screen w-full object-cover md:block"
 						format="webp"
 						quality="80"
 						alt="Deana J Becker"

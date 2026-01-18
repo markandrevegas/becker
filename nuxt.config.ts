@@ -52,6 +52,9 @@ declare module "nuxt/schema" {
 export default defineNuxtConfig({
 	app: {
 		head: {
+			htmlAttrs: {
+				lang: "en"
+			}, 	
 			link: [
 				{ rel: "icon", type: "image/png", href: "/assets/favicon-96x96.png", sizes: "96x96" },
 				{ rel: "icon", type: "image/svg+xml", href: "/assets/favicon.svg" },
@@ -98,16 +101,19 @@ export default defineNuxtConfig({
 		families: [
 			{
 				name: "Jost",
-				weights: [100, 200, 300, 400, 500, 600, 700]
+				weights: [100, 200, 300, 400, 500, 600, 700],
+				display: "swap"
 			},
 			{
 				name: "Inter",
-				weights: [100, 200, 300, 400, 500, 600, 700, 800, 900]
+				weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+				display: "swap"
 			},
 			{
 				name: "Cormorant Garamond",
 				weights: [300, 400, 500, 600, 700],
-				styles: ["normal", "italic"]
+				styles: ["normal", "italic"],
+				display: "swap"
 			}
 		]
 	},
