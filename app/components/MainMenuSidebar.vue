@@ -39,7 +39,7 @@ const props = defineProps({
 			<nav class="w-full flex justify-between items-center gap-16">
 				<ul class="menu-desktop">
 					<li class="flex justify-start md:hidden">
-						<NuxtLink to="#gallery" @click="handleClick('gallery', 'desktop')"><HouseIcon /></NuxtLink>
+						<NuxtLink to="#gallery" @click="handleClick('gallery', 'desktop')"><CircleChevronUpIcon /></NuxtLink>
 					</li>
 					<li style="margin-left:0;padding-right:4rem;">
 						<NuxtLink to="#intro" @click="handleClick('intro', 'desktop')">Intro</NuxtLink>
@@ -78,8 +78,8 @@ const props = defineProps({
 				</div>
 				<div class="flex-1 overflow-y-scroll pt-[70px]">
 					<ul class="menu px-4">
-						<li class="flex justify-end" @click="handleClick('gallery', 'mobile')">
-							<NuxtLink to="#gallery"><HouseIcon /></NuxtLink>
+						<li class="flex justify-start" @click="handleClick('gallery', 'mobile')">
+							<NuxtLink to="#gallery"><CircleChevronUpIcon /></NuxtLink>
 						</li>
 						<li>
 							<NuxtLink to="#intro" @click="handleClick('intro', 'mobile')">Background</NuxtLink>

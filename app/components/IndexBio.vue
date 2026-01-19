@@ -106,7 +106,7 @@ const trainingItems: Training[] = [
 			</div>
 			<div class="content md:w-1/2">
 				<h2 class="hidden md:flex mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">Roles</h2>
-				<p class="text-lg md:text-2xl md:leading-12 mb-8">
+				<p class="text-lg leading-8 md:text-2xl md:leading-12">
 					Deana J. Becker holds a Bachelor of Fine Arts (BFA) degree in Theatre from the University of Minnesota, where
 					she honed her acting skills and developed a deep appreciation for the performing arts. Her formal education
 					provided a strong foundation for her successful career in television, film, and voiceover work.

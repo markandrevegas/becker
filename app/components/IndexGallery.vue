@@ -48,10 +48,10 @@ const images: GalleryImage[] = [
 
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
 			<div
-				class="flex flex-col justify-start items-start absolute bottom-0 left-0 right-0 z-30 h-96 p-6 pt-0 text-white sm:p-16 lg:pt-0"
+				class="flex flex-col justify-start items-start absolute bottom-0 left-0 right-0 z-30 h-72 p-6 pt-0 text-white sm:p-16 lg:pt-0"
 			>
-				<h1 class="font-display text-6xl font-bold uppercase">{{ header }}</h1>
-				<p class="mt-2 max-w-md text-2xl font-medium uppercase">{{ text }}</p>
+				<h1 class="font-display text-6xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ header }}</h1>
+				<p class="mt-2 max-w-md text-2xl font-regular uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ text }}</p>
 			</div>
 		</div>
 		<div class="content md:w-3/5 md:mx-auto md:mt-24">
@@ -60,7 +60,7 @@ const images: GalleryImage[] = [
 					><h2 class="!text-3xl font-medium uppercase sm:text-4xl p-2 px-8">About {{ header }}</h2></span>
 				<div class="w-full border-2 border-t border-abyssal border-current"></div>
 			</div>
-			<p class="text-lg md:text-2xl md:leading-12">
+			<p class="text-lg leading-8 md:text-2xl md:leading-12">
 				Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk. She
 				also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The
 				Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!

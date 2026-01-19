@@ -6,7 +6,29 @@ interface GalleryImage {
 	alt: string
 }
 
-const images: GalleryImage[] = [{ id: 1, src: "/assets/gallery/10.webp", alt: "Editorial Portrait" }]
+interface FilmClip {
+	id: number | string
+	src: string
+	title: string
+	desc: string
+}
+
+const images: GalleryImage[] = [{ id: 1, src: "/assets/gallery/10.webp", alt: "D. Becker" }]
+
+const filmClips: FilmClip[] = [
+	{
+		id: 1,
+		src: "https://imdb-video.media-imdb.com/vi2536814873/1434659607842-pgv4ql-1501028571775.mp4?Expires=1768595813&Signature=X6YBfz2FleNiQEkeV6mnooRSJUgWkbaYTH4Bzy4cbTMKDBZniuKmzJZwUmgu-hNDqM0GpD62-iq4V~Jb39xejVED-KMWPREpQhrLTTNlJnr67qsLTQs9ZEF44t0zmWAEkT4idm1BRfMJ~-2ZlwhASnF9MU3XcJQKCKqKAd0BvUCay4YuJY0QHAPD79lZnWoeBRB3cv3mys-wwQ2-9lL4nvwsAQngfwIu-mami4oI0oO7C52E~8TxW63e2NApylTkj9iGPCBC65SCIBgjRR4nhu6otLBzYBS3RQCLnsZzJsIVE-F~0dz8lj-YfGuNmYZIKr6fK4bYwevchsVWDQ4xqA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
+		title: "Example Title",
+		desc: "Example description text"
+	},
+	{
+		id: 2,
+		src: "https://imdb-video.media-imdb.com/vi2536814873/1434659607842-pgv4ql-1501028571775.mp4?Expires=1768595813&Signature=X6YBfz2FleNiQEkeV6mnooRSJUgWkbaYTH4Bzy4cbTMKDBZniuKmzJZwUmgu-hNDqM0GpD62-iq4V~Jb39xejVED-KMWPREpQhrLTTNlJnr67qsLTQs9ZEF44t0zmWAEkT4idm1BRfMJ~-2ZlwhASnF9MU3XcJQKCKqKAd0BvUCay4YuJY0QHAPD79lZnWoeBRB3cv3mys-wwQ2-9lL4nvwsAQngfwIu-mami4oI0oO7C52E~8TxW63e2NApylTkj9iGPCBC65SCIBgjRR4nhu6otLBzYBS3RQCLnsZzJsIVE-F~0dz8lj-YfGuNmYZIKr6fK4bYwevchsVWDQ4xqA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
+		title: "Sample Title",
+		desc: "Sample description text"
+	}
+]
 </script>
 <template>
 	<div class="flex flex-col md:flex-row gap-4">
@@ -26,38 +48,30 @@ const images: GalleryImage[] = [{ id: 1, src: "/assets/gallery/10.webp", alt: "E
 			</div>
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
 			<div class="flex flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-end px-8 pb-16 text-white sm:p-16 md:hidden">
-				<h2 class="mt-2 max-w-md text-4xl font-medium uppercase sm:text-4xl md:hidden">{{ text }}</h2>
+				<h2 class="mt-2 max-w-md text-4xl font-medium uppercase sm:text-4xl">{{ text }}</h2>
 			</div>
 		</div>
 		<div class="content md:w-1/2">
 			<h2 class="hidden md:block mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">{{ text }}</h2>
-			<p class="text-lg md:text-xl md:leading-12">
+			<p class="text-lg leading-8 md:text-2xl md:leading-12">
 				Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk.
 				She also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The
 				Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!
 			</p>
-			<div class="flex flex-col gap-8 py-8 w-full">
-				<div class="video-container">
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-8 gap-8 w-full">
+				<div v-for="clip in filmClips" :key="clip.id" class="video-container">
 					<div class="video-wrapper">
 						<video
 							class="main-video"
 							autoplay
 							muted
 							playsinline
-							src="https://imdb-video.media-imdb.com/vi2536814873/1434659607842-pgv4ql-1501028571775.mp4?Expires=1768595813&Signature=X6YBfz2FleNiQEkeV6mnooRSJUgWkbaYTH4Bzy4cbTMKDBZniuKmzJZwUmgu-hNDqM0GpD62-iq4V~Jb39xejVED-KMWPREpQhrLTTNlJnr67qsLTQs9ZEF44t0zmWAEkT4idm1BRfMJ~-2ZlwhASnF9MU3XcJQKCKqKAd0BvUCay4YuJY0QHAPD79lZnWoeBRB3cv3mys-wwQ2-9lL4nvwsAQngfwIu-mami4oI0oO7C52E~8TxW63e2NApylTkj9iGPCBC65SCIBgjRR4nhu6otLBzYBS3RQCLnsZzJsIVE-F~0dz8lj-YfGuNmYZIKr6fK4bYwevchsVWDQ4xqA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
+							:src="clip.src"
 						></video>
 					</div>
-				</div>
-				<Spacer></Spacer>
-				<div class="video-container">
-					<div class="video-wrapper">
-						<video
-							class="main-video"
-							autoplay
-							muted
-							playsinline
-							src="https://imdb-video.media-imdb.com/vi2536814873/1434659607842-pgv4ql-1501028571775.mp4?Expires=1768595813&Signature=X6YBfz2FleNiQEkeV6mnooRSJUgWkbaYTH4Bzy4cbTMKDBZniuKmzJZwUmgu-hNDqM0GpD62-iq4V~Jb39xejVED-KMWPREpQhrLTTNlJnr67qsLTQs9ZEF44t0zmWAEkT4idm1BRfMJ~-2ZlwhASnF9MU3XcJQKCKqKAd0BvUCay4YuJY0QHAPD79lZnWoeBRB3cv3mys-wwQ2-9lL4nvwsAQngfwIu-mami4oI0oO7C52E~8TxW63e2NApylTkj9iGPCBC65SCIBgjRR4nhu6otLBzYBS3RQCLnsZzJsIVE-F~0dz8lj-YfGuNmYZIKr6fK4bYwevchsVWDQ4xqA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
-						></video>
+					<div class="mt-4">
+						<p class="font-medium">{{ clip.title }}</p>
+						<p class="text-gray-600 dark:text-gray-400">{{ clip.desc }}</p>
 					</div>
 				</div>
 			</div>
