@@ -79,7 +79,7 @@ const props = defineProps({
 				<div class="flex-1 overflow-y-scroll pt-[70px]">
 					<ul class="menu px-4">
 						<li class="flex justify-start" @click="handleClick('gallery', 'mobile')">
-							<NuxtLink to="#gallery"><CircleChevronUpIcon /></NuxtLink>
+							<NuxtLink aria-label="Back to Top" to="#gallery"><CircleChevronUpIcon /></NuxtLink>
 						</li>
 						<li>
 							<NuxtLink to="#intro" @click="handleClick('intro', 'mobile')">Background</NuxtLink>
