@@ -50,6 +50,9 @@ const props = defineProps({
 					<li style="margin-left:0;padding-right:4rem;">
 						<NuxtLink to="#videos" @click="handleClick('videos', 'desktop')">Clips</NuxtLink>
 					</li>
+					<li class="hidden" style="margin-left:0;padding-right:4rem;">
+						<NuxtLink to="/features">Features</NuxtLink>
+					</li>
 				</ul>
 				<ColorModeToggle />
 			</nav>
