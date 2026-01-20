@@ -67,6 +67,7 @@ const filmClips: FilmClip[] = [
 						<video
 							class="main-video"
 							muted
+							controls
 							playsinline
 							:src="clip.src"
 						></video>
