@@ -1,19 +1,27 @@
 <script setup lang="ts">
-const header = "Deana Becker"
-const text = "SAG AFTRA Actress"
-interface GalleryImage {
-	id: number | string
-	srcMobile: string
-	srcDesktop: string
-	alt: string
-}
+	import type { OnePagerResponse } from '~/types/onePager'
 
-const images: GalleryImage[] = [
-	{ id: 2,
-		srcMobile: "/assets/gallery/7.webp",
-		srcDesktop: "/assets/gallery/index.webp",
-		alt: "Deana J Becker" },
-]
+	const { fetchOnePager } = useOnePager()
+	const { data: onePager } = await useAsyncData<OnePagerResponse>(
+		'onePager',
+		fetchOnePager
+	)
+	const header = "Deana Becker"
+	const text = "SAG AFTRA Actress"
+
+	interface GalleryImage {
+		id: number | string
+		srcMobile: string
+		srcDesktop: string
+		alt: string
+	}
+
+	const images: GalleryImage[] = [
+		{ id: 2,
+			srcMobile: "/assets/gallery/7.webp",
+			srcDesktop: "/assets/gallery/index.webp",
+			alt: "Deana J Becker" },
+	]
 </script>
 
 <template>
@@ -46,11 +54,11 @@ const images: GalleryImage[] = [
 				</div>
 			</div>
 
-			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
-			<div
+			<!--<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>-->
+			<div v-if="onePager?.data"
 				class="flex flex-col justify-start items-start absolute bottom-0 left-0 right-0 z-30 h-72 p-6 pt-0 text-white sm:p-16 lg:pt-0"
 			>
-				<h1 class="font-display text-6xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ header }}</h1>
+				<h1 class="font-display text-6xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ onePager.data.Title }}</h1>
 				<p class="mt-2 max-w-md text-2xl font-regular uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ text }}</p>
 			</div>
 		</div>

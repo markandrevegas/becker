@@ -106,6 +106,7 @@ export default defineNuxtConfig({
 	],
 	runtimeConfig: {
 		public: {
+			strapiUrl: process.env.STRAPI_URL || 'http://localhost:1337',
 			fonts: {
 				selfHosted: false
 			}
@@ -159,10 +160,7 @@ export default defineNuxtConfig({
 	scripts: {
 		registry: {
 			googleAnalytics: {
-				id: process.env.NUXT_PUBLIC_GTAG_ID,
-				queryParams: {
-					debug_mode: true
-				}
+				id: process.env.NUXT_PUBLIC_GTAG_ID
 			}
 		}
 	}
