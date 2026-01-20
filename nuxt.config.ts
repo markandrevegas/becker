@@ -46,6 +46,20 @@ declare module "nuxt/schema" {
 			}
 			[key: string]: unknown
 		}
+		image?: {
+			quality?: number
+			domains?: string[]
+			providers?: {
+				[key: string]: {
+					name: string
+					provider: string
+					options?: {
+						baseURL?: string
+						[key: string]: unknown
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -66,7 +80,9 @@ export default defineNuxtConfig({
 		}
 	},
 	image: {
-		provider: "ipx"
+		providers: {
+			provider: 'ipx'
+		}
 	},
 	future: {
 		compatibilityVersion: 4

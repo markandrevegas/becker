@@ -11,6 +11,7 @@ interface FilmClip {
 	src: string
 	title: string
 	desc: string
+	url?: string
 }
 
 const images: GalleryImage[] = [{ id: 1, src: "/assets/gallery/10.webp", alt: "D. Becker" }]
@@ -19,14 +20,16 @@ const filmClips: FilmClip[] = [
 	{
 		id: 1,
 		src: "https://imdb-video.media-imdb.com/vi2536814873/1434659607842-pgv4ql-1501028571775.mp4?Expires=1768595813&Signature=X6YBfz2FleNiQEkeV6mnooRSJUgWkbaYTH4Bzy4cbTMKDBZniuKmzJZwUmgu-hNDqM0GpD62-iq4V~Jb39xejVED-KMWPREpQhrLTTNlJnr67qsLTQs9ZEF44t0zmWAEkT4idm1BRfMJ~-2ZlwhASnF9MU3XcJQKCKqKAd0BvUCay4YuJY0QHAPD79lZnWoeBRB3cv3mys-wwQ2-9lL4nvwsAQngfwIu-mami4oI0oO7C52E~8TxW63e2NApylTkj9iGPCBC65SCIBgjRR4nhu6otLBzYBS3RQCLnsZzJsIVE-F~0dz8lj-YfGuNmYZIKr6fK4bYwevchsVWDQ4xqA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
-		title: "Example Title",
-		desc: "Example description text"
+		title: "Deana J Becker Dramatic Reel",
+		desc: 'This is my new dramatic acting reel, starting with a scene from the forthcoming film "What Really Matters", directed by William Bright. The second clip comes from the web series Fauk My Life, directed by Stephanie Neroes, which has won official selection to over ten festivals in 2017, and won in HIMPFF and Accolade Global Film Competition. Fauk My Life was also a Semi-Finalist at Los Angeles Cinefest. The final clip is from the DGA Student Film Awards 2014 Jury Award winner, "Diana Leigh", directed by Stephanie Hosten. The film has also screened at numerous film festivals.',
+		url: ''
 	},
 	{
 		id: 2,
-		src: "https://imdb-video.media-imdb.com/vi2536814873/1434659607842-pgv4ql-1501028571775.mp4?Expires=1768595813&Signature=X6YBfz2FleNiQEkeV6mnooRSJUgWkbaYTH4Bzy4cbTMKDBZniuKmzJZwUmgu-hNDqM0GpD62-iq4V~Jb39xejVED-KMWPREpQhrLTTNlJnr67qsLTQs9ZEF44t0zmWAEkT4idm1BRfMJ~-2ZlwhASnF9MU3XcJQKCKqKAd0BvUCay4YuJY0QHAPD79lZnWoeBRB3cv3mys-wwQ2-9lL4nvwsAQngfwIu-mami4oI0oO7C52E~8TxW63e2NApylTkj9iGPCBC65SCIBgjRR4nhu6otLBzYBS3RQCLnsZzJsIVE-F~0dz8lj-YfGuNmYZIKr6fK4bYwevchsVWDQ4xqA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA",
-		title: "Sample Title",
-		desc: "Sample description text"
+		src: "https://imdb-video-wab.media-imdb.com/vi414319897/1434659607842-pgv4ql-1750502969372.mp4?Expires=1768987533&Signature=aM2hZwHC27SJcG9AeGJzvdiM4wY~MBynBXcCqbKwi060IXVXj7A5s9EV6K9SWFKCzgxvbMu5fGlwtHH45WtNGbMO6xyUtemSOB3M0~TVdNbqV3QxQNCtPlrtGFR~tZsL4Z1z~sL94aravLc9VAv5hDSPov3S1~1qfO~W0yRVVSOFI5EaaszNZbR9ivMqIwXyacVh7HtShBJHDAe6btTJUlYf-fDq8hjCZD4lJs0uWF5p0MsopFIyhP0GtH0Cyay0sSPbLmDeC3szZ5vmJA6drC87mwT6gzHlI5UV6RXSD3zIpT613uy7MJXt9U-MD-WXT2-zWwrSfPZ3hEkcrFQSog__&Key-Pair-Id=APKAJLOTGGE6P3RA3PTA",
+		title: "Don't Go To Strangers",
+		desc: "A love-starved bachelor in desperate straights unknowingly picks up a transsexual in a local bar who turns out to be a former welter weight boxer.",
+		url: 'https://www.imdb.com/title/tt1466467/?ref_=vp_ov_btn'
 	}
 ]
 </script>
@@ -58,20 +61,20 @@ const filmClips: FilmClip[] = [
 				She also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The
 				Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!
 			</p>
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-8 gap-8 w-full">
+			<div class="flex justify-start py-8 gap-8 w-full">
 				<div v-for="clip in filmClips" :key="clip.id" class="video-container">
 					<div class="video-wrapper">
 						<video
 							class="main-video"
-							autoplay
 							muted
 							playsinline
 							:src="clip.src"
 						></video>
 					</div>
-					<div class="mt-4">
+					<div class="mt-8">
 						<p class="font-medium">{{ clip.title }}</p>
-						<p class="text-gray-600 dark:text-gray-400">{{ clip.desc }}</p>
+						<p class="text-gray-600 dark:text-gray-400 mb-4">{{ clip.desc }}</p>
+						<a v-if="clip.url" :href="clip.url"><p>IMDB</p></a>
 					</div>
 				</div>
 			</div>
