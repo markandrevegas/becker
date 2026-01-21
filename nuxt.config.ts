@@ -105,7 +105,10 @@ export default defineNuxtConfig({
 		"@nuxt/scripts"
 	],
 	runtimeConfig: {
+    contentfulDeliveryToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
 		public: {
+			contentfulSpaceId: process.env.CONTENTFUL_SPACE_ID,
+      contentfulEnv: process.env.CONTENTFUL_ENV || 'master',
 			strapiUrl: process.env.STRAPI_URL || 'http://localhost:1337',
 			fonts: {
 				selfHosted: false
