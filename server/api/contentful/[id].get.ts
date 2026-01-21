@@ -1,4 +1,4 @@
-import { getContentfulClient } from '../utils/contentful'
+import { getContentfulClient } from '../../utils/contentful'
 
 export default defineEventHandler(async (event) => {
   const { id } = getRouterParams(event)

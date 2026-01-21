@@ -1,19 +1,8 @@
 <script setup lang="ts">
 	// import type { OnePagerResponse } from '~/types/onePager'
-	const { data: hero } = await useAsyncData('hero', () =>
-		$fetch('/api/contentful/entry/tvmagv98WHR9YBjGRhG4k')
-	)
-
-	/*const { fetchOnePager } = useOnePager()
-	const { data: onePager } = await useAsyncData<OnePagerResponse>(
-		'onePager',
-		fetchOnePager
-	)*/
-	
-	/*const { data: entry } = await useAsyncData('onePager', () =>
-		getEntry('tvmagv98WHR9YBjGRhG4k')
-	)*/
-	console.log(hero.value)
+	const ENTRY_ID = 'tvmagv98WHR9YBjGRhG4k'
+	const { data, pending, error } = await useFetch(`/api/contentful/${ENTRY_ID}`)
+	console.log(data.value)
 	const header = "Deana Becker"
 	const text = "SAG AFTRA Actress"
 
