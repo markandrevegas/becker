@@ -162,9 +162,14 @@ export default defineNuxtConfig({
 	},
 	scripts: {
 		registry: {
-			googleAnalytics: {
-				id: process.env.NUXT_PUBLIC_GTAG_ID
-			}
+    googleAnalytics: process.env.NODE_ENV === 'production'
+      ? {
+          id: process.env.NUXT_PUBLIC_GTAG_ID,
+          queryParams: {
+            debug_mode: false
+          }
+        }
+      : undefined
 		}
 	}
 })

@@ -1,10 +1,20 @@
 <script setup lang="ts">
 	// import type { OnePagerResponse } from '~/types/onePager'
 	const ENTRY_ID = 'tvmagv98WHR9YBjGRhG4k'
-	const { data, pending, error } = await useFetch(`/api/contentful/${ENTRY_ID}`)
-	console.log(data.value)
+	const { data, pending, error } = await useFetch<ContentfulData>('/api/contentful/' + ENTRY_ID)
+	onMounted(async () => {
+		console.log(data.value)
+	})
 	const header = "Deana Becker"
 	const text = "SAG AFTRA Actress"
+
+	interface ContentfulData {
+		fields: {
+			title: string
+			desc: string
+			image: string
+		}
+	}
 
 	interface GalleryImage {
 		id: number | string
@@ -51,13 +61,13 @@
 				</div>
 			</div>
 
-			<!--<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>-->
-			<!--<div v-if="onePager?.data"
+			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
+			<div v-if="data"
 				class="flex flex-col justify-start items-start absolute bottom-0 left-0 right-0 z-30 h-72 p-6 pt-0 text-white sm:p-16 lg:pt-0"
 			>
-				<h1 class="font-display text-6xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ onePager.data.Title }}</h1>
-				<p class="mt-2 max-w-md text-2xl font-regular uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ text }}</p>
-			</div>-->
+				<h1 class="font-display text-6xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ data.fields.title }}</h1>
+				<p class="mt-2 max-w-md text-2xl font-regular uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ data.fields.desc }}</p>
+			</div>
 		</div>
 		<div class="content md:w-3/5 md:mx-auto md:mt-24">
 			<div class="relative mx-auto my-4 flex w-full justify-center hidden md:flex">
