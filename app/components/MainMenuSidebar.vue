@@ -27,14 +27,15 @@ const props = defineProps({
 </script>
 
 <template>
-	<div>
+	<div
+		:class="
+		props.isScrolled
+		? 'bg-abyssal/40 text-white backdrop-blur-xl'
+		: 'text-abyssal backdrop-blur-md dark:text-yellow-50/90'
+	" class="fixed right-0 top-0 left-0 z-40"
+	>
 		<header
-			:class="
-				props.isScrolled
-					? 'bg-abyssal/40 text-white backdrop-blur-xl'
-					: 'text-abyssal backdrop-blur-md dark:text-yellow-50/90'
-			"
-			class="fixed right-0 top-0 z-40 flex h-[70px] w-full items-center justify-end px-4 md:px-16 transition-colors duration-300"
+			class="max-w-wrapper flex h-[70px] w-full items-center justify-end transition-colors duration-300"
 		>
 			<nav class="w-full flex justify-between items-center gap-16">
 				<ul class="menu-desktop">

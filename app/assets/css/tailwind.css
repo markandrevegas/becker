@@ -32,6 +32,9 @@
 }
 
 @layer components {
+	.max-w-wrapper {
+		@apply mx-auto max-w-6xl;
+	}
 	.menu {
 		@apply space-y-8 pt-16;
 		li {
@@ -83,7 +86,6 @@
 		@apply flex flex-col gap-4 p-8 py-24 sm:flex-row sm:gap-24 md:flex-col md:gap-16;
 	}
 }
-
 .slide-horizontal-enter-active,
 .slide-horizontal-leave-active {
 	transition:
