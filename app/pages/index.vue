@@ -93,13 +93,13 @@ onMounted(() => {
 			<div id="gallery" class="md:pb-16">
 				<IndexGallery />
 			</div>
-			<div id="intro" class="md:pb-16 md:w-4/5 md:mx-auto">
+			<div id="intro" class="md:pb-16">
 				<IndexIntro />
 			</div>
-			<div id="videos" class="pb-24 md:w-4/5 md:mx-auto">
+			<div id="videos" class="pb-24">
 				<IndexVideos />
 			</div>
-			<div id="bio" class="md:pb-16 md:w-4/5 md:mx-auto">
+			<div id="bio" class="md:pb-16">
 				<IndexBio />
 			</div>
 		</div>

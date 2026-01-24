@@ -34,7 +34,7 @@
 	]
 </script>
 <template>
-	<div class="flex flex-col md:flex-row gap-4">
+	<div class="max-w-wrapper flex flex-col md:flex-row gap-4">
 		<div class="gallery-container relative">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
@@ -54,7 +54,7 @@
 				<h2 class="mt-2 max-w-md text-4xl font-medium uppercase sm:text-4xl">{{ text }}</h2>
 			</div>
 		</div>
-		<div class="content md:w-1/2">
+		<div class="content">
 			<h2 class="hidden md:block mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">{{ text }}</h2>
 			<p class="text-lg leading-8 md:text-2xl md:leading-12">
 				Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk.
