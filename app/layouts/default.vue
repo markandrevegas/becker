@@ -24,8 +24,8 @@ onBeforeUnmount(() => {
 	<div ref="scrollContainer" class="relative flex h-screen flex-col overflow-auto">
 		<MainMenuSidebar :is-scrolled="isScrolled" />
 		<!-- Main scroll area -->
-		<main class="max-w-wrapper mx-auto flex flex-1 flex-col pt-[70px]">
-			<slot />
+		<main class="flex flex-1 flex-col pt-[70px]">
+			<slot></slot>
 		</main>
 	</div>
 </template>
