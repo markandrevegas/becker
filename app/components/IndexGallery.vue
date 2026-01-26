@@ -88,10 +88,10 @@
 		<div class="content md:w-3/5 md:mx-auto md:mt-24">
 			<div class="relative mx-auto my-4 flex w-full justify-center hidden md:flex">
 				<span class="absolute top-[-1.5rem] z-20 inline-block bg-white dark:bg-abyssal dark:text-yellow-50/90"
-					><h2 class="!text-3xl font-medium uppercase sm:text-4xl p-2 px-8">{{entry?.fields.aboutHeader}}</h2></span>
+					><h2>{{entry?.fields.aboutHeader}}</h2></span>
 				<div class="w-full border-2 border-t border-abyssal border-current"></div>
 			</div>
-			<p class="text-lg leading-8 md:text-2xl md:leading-12">
+			<p>
 				Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk. She
 				also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The
 				Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!

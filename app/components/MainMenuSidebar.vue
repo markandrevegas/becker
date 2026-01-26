@@ -70,7 +70,7 @@ const props = defineProps({
 		<!-- Drawer overlay -->
 		<div v-if="isOpen" aria-label="Menu Toggle" class="fixed inset-0 top-[70px] z-40 bg-black/50 backdrop-blur-sm" @click="toggleMenu"></div>
 		<nav
-			class="fixed right-0 top-[70px] z-50 h-full w-2/3 lg:w-1/5 bg-white text-abyssal transition-transform duration-300 dark:bg-abyssal dark:text-white"
+			class="fixed right-0 top-[70px] z-50 min-h-screen w-2/3 lg:w-1/5 text-abyssal transition-transform duration-300 dark:bg-abyssal dark:text-white"
 			:class="isOpen ? 'translate-x-0' : 'translate-x-full'"
 		>
 			<div class="flex h-full flex-col">

@@ -56,12 +56,12 @@
 		</div>
 		<div class="content">
 			<h2 class="hidden md:block mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">{{ text }}</h2>
-			<p class="text-lg leading-8 md:text-2xl md:leading-12">
+			<p>
 				Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk.
 				She also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The
 				Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!
 			</p>
-			<div class="flex justify-start py-8 gap-8 w-full">
+			<div class="flex flex-col justify-start py-8 gap-8 w-full">
 				<div v-for="clip in filmClips" :key="clip.id" class="video-container">
 					<div class="video-wrapper">
 						<video

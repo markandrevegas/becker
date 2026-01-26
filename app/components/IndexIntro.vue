@@ -33,7 +33,7 @@ const images: GalleryImage[] = [{ id: 4, src: "/assets/gallery/5.webp", alt: "On
 		</div>
 		<div class="content col-span-1">
 			<h2 class="hidden mt-2 w-full max-w-md text-2xl text-3xl font-medium uppercase sm:text-4xl">{{ header }}</h2>
-			<p class="text-lg leading-8 md:text-2xl md:leading-12">
+			<p>
 				Originally from Washington D.C., Deana grew up in a multi-cultural household, seventh of her father's nine
 				children. "Coming from a multi-ethnic background has definitely provided me a unique perspective on people and
 				cultures. I use this in my acting and writing all the time", she says. Her training began at Studio Theatre
