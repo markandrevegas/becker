@@ -1,36 +1,17 @@
 <script setup lang="ts">
-	// import type { OnePagerResponse } from '~/types/onePager'
-	const ENTRY_ID = 'tvmagv98WHR9YBjGRhG4k'
-	// const { data, pending, error } = await useFetch<ContentfulData>('/api/contentful/' + ENTRY_ID)
+	import type { OnePager } from '~/types/contentful'
+	const onePager = inject<Ref<OnePager | null>>('onePager')
+	const pending = inject<Ref<boolean>>('onePagerPending')
+	const error = inject<Ref<any>>('onePagerError')
 
-	interface ContentfulData {
-		fields: {
-			title: string
-			desc: string
-			image: string
-			aboutHeader: string
-		}
+	if (!onePager) {
+		throw new Error('onePager not provided')
 	}
 
-	const entry = ref<ContentfulData | null>(null)
-	const pending = ref(true)
-	const error = ref<any>(null)
-
-	onMounted(async () => {
-		try {
-			pending.value = true
-			// fetch from your server API endpoint
-			entry.value = await $fetch<ContentfulData>('/api/contentful/' + ENTRY_ID)
-		} catch (err) {
-			error.value = err
-			console.error(err)
-		} finally {
-			pending.value = false
-		}
-
-		// debug
-		console.log('Contentful entry:', entry.value)
-	})
+	const title = computed(() => onePager.value?.title ?? '')
+	const desc = computed(() => onePager.value?.desc ?? '')
+	const aboutHeader = computed(() => onePager.value?.aboutHeader ?? '')
+	const aboutTeaser = computed(() => onePager.value?.aboutTeaser ?? '')
 
 	interface GalleryImage {
 		id: number | string
@@ -78,34 +59,19 @@
 			</div>
 
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
-			<div v-if="entry"
-				class="max-w-wrapper relative bottom-[24rem] z-30 h-72 text-white"
+			<div
+				class="max-w-wrapper px-8 relative bottom-[16rem] md:bottom-[32rem] z-30 text-white"
 			>
-				<h1 class="font-display text-6xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ entry.fields.title }}</h1>
-				<p class="mt-2 max-w-md text-2xl font-regular uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ entry.fields.desc }}</p>
+				<h1 class="font-display text-6xl font-bold drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ title }}</h1>
+				<p class="mt-2 max-w-md text-xl font-regular uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ desc }}</p>
 			</div>
 		</div>
-		<div class="content md:w-3/5 md:mx-auto md:mt-24">
-			<div class="relative mx-auto my-4 flex w-full justify-center hidden md:flex">
-				<span class="absolute top-[-1.5rem] z-20 inline-block bg-white dark:bg-abyssal dark:text-yellow-50/90"
-					><h2>{{entry?.fields.aboutHeader}}</h2></span>
-				<div class="w-full border-2 border-t border-abyssal border-current"></div>
+		<div class="max-w-wrapper">
+			<div class="content gap-8 px-8 py-24">
+				<p>
+					{{aboutTeaser }}
+				</p>
 			</div>
-			<p>
-				Deana can be seen in the award winning Web-series, "Fauk My Life", where she plays the role of Mrs. Fauk. She
-				also just wrapped the film "What Really Matters", and she was recently awarded a scholarship for The
-				Groundlings. Yes, she's funny too! Be on the lookout for much more to come from Deana!
-			</p>
 		</div>
 	</div>
 </template>
-
-<style scoped>
-.hide-scrollbar::-webkit-scrollbar {
-	display: none;
-}
-.hide-scrollbar {
-	-ms-overflow-style: none;
-	scrollbar-width: none;
-}
-</style>

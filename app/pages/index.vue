@@ -1,4 +1,12 @@
 <script setup>
+const ENTRY_ID = 'tvmagv98WHR9YBjGRhG4k'
+
+const { getOnePager } = useContentful()
+const { data: onePager, pending, error } = getOnePager(ENTRY_ID)
+provide('onePager', onePager)
+provide('onePagerPending', pending)
+provide('onePagerError', error)
+
 import localHeroImage from "/assets/gallery/headshot.webp"
 // state
 const photo = ref(null)
@@ -90,16 +98,16 @@ onMounted(() => {
 <template>
 	<div class="h-[100vh]">
 		<div class="mx-auto flex flex-1 flex-col">
-			<div id="gallery" class="md:pb-16">
+			<div v-if="onePager" id="gallery" class="md:pb-16">
 				<IndexGallery />
 			</div>
-			<div id="intro" class="md:pb-16">
+			<div v-if="onePager" id="intro" class="md:pb-16">
 				<IndexIntro />
 			</div>
-			<div id="videos" class="pb-24">
+			<div v-if="onePager" id="videos" class="pb-24">
 				<IndexVideos />
 			</div>
-			<div id="bio" class="md:pb-16">
+			<div v-if="onePager" id="bio" class="md:pb-16">
 				<IndexBio />
 			</div>
 		</div>

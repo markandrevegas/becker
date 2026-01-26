@@ -100,7 +100,6 @@ export default defineNuxtConfig({
 		"@nuxt/image",
 		"@nuxt/eslint",
 		"@nuxt/icon",
-		"@nuxtjs/mcp-toolkit",
 		"nuxt-schema-org",
 		"@nuxt/scripts"
 	],
@@ -130,9 +129,9 @@ export default defineNuxtConfig({
 				display: "swap"
 			},
 			{
-				name: "Cormorant Garamond",
-				weights: [300, 400, 500, 600, 700],
-				styles: ["normal", "italic"],
+				name: "Corinthia",
+				weights: [400, 700],
+				styles: ["normal"],
 				display: "swap"
 			}
 		]

@@ -35,7 +35,7 @@ const props = defineProps({
 	" class="fixed right-0 top-0 left-0 z-40"
 	>
 		<header
-			class="max-w-wrapper flex h-[70px] w-full items-center justify-end transition-colors duration-300"
+			class="max-w-wrapper px-8 flex h-[70px] w-full items-center justify-end transition-colors duration-300"
 		>
 			<nav class="w-full flex justify-between items-center gap-16">
 				<ul class="menu-desktop">
@@ -70,7 +70,7 @@ const props = defineProps({
 		<!-- Drawer overlay -->
 		<div v-if="isOpen" aria-label="Menu Toggle" class="fixed inset-0 top-[70px] z-40 bg-black/50 backdrop-blur-sm" @click="toggleMenu"></div>
 		<nav
-			class="fixed right-0 top-[70px] z-50 min-h-screen w-2/3 lg:w-1/5 text-abyssal transition-transform duration-300 dark:bg-abyssal dark:text-white"
+			class="fixed right-0 top-[70px] z-50 min-h-screen w-2/3 lg:w-1/5 text-abyssal bg-white transition-transform duration-300 dark:bg-abyssal dark:text-white"
 			:class="isOpen ? 'translate-x-0' : 'translate-x-full'"
 		>
 			<div class="flex h-full flex-col">

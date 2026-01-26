@@ -13,7 +13,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         sans: ["Jost", "sans-serif"],
-        display: ["Cormorant Garamond"]
+        display: ["Corinthia", "serif"]
       },
       letterSpacing: {
         widest: ".25em"
