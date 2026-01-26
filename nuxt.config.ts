@@ -64,6 +64,7 @@ declare module "nuxt/schema" {
 }
 
 export default defineNuxtConfig({
+	ssr: true,
 	app: {
 		head: {
 			htmlAttrs: {
@@ -74,7 +75,8 @@ export default defineNuxtConfig({
 				{ rel: "icon", type: "image/svg+xml", href: "/assets/favicon.svg" },
 				{ rel: "shortcut icon", href: "/assets/favicon.ico" },
 				{ rel: "apple-touch-icon", sizes: "180x180", href: "/assets/apple-touch-icon.png" },
-				{ rel: "manifest", href: "/assets/site.webmanifest" }
+				{ rel: "manifest", href: "/assets/site.webmanifest" },
+				{ rel: "preconnect", href: "https://m.imdb.com", crossorigin: "" }
 			],
 			meta: [{ name: "apple-mobile-web-app-title", content: "Deana Becker" }]
 		}
@@ -105,6 +107,10 @@ export default defineNuxtConfig({
 	],
 	runtimeConfig: {
     contentfulDeliveryToken: process.env.CONTENTFUL_DELIVERY_TOKEN,
+		contentful: {
+      spaceId: process.env.CONTENTFUL_SPACE_ID,
+      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+    },
 		public: {
 			contentfulSpaceId: process.env.CONTENTFUL_SPACE_ID,
       contentfulEnv: process.env.CONTENTFUL_ENV || 'master',
@@ -138,6 +144,10 @@ export default defineNuxtConfig({
 	},
 	nitro: {
 		preset: "static",
+		prerender: {
+			crawlLinks: true,
+      routes: ['/']
+    },
 		externals: {
 			inline: ["ipx", "ofetch"]
 		},

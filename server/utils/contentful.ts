@@ -1,11 +1,12 @@
 import { createClient } from 'contentful'
 
-export const getContentfulClient = () => {
+export function serverQueryContentful(entryId: string) {
   const config = useRuntimeConfig()
 
-  return createClient({
-    space: config.public.contentfulSpaceId,
-    environment: config.public.contentfulEnv,
-    accessToken: config.contentfulDeliveryToken
+  const client = createClient({
+    space: config.contentful.spaceId,
+    accessToken: config.contentful.accessToken
   })
+
+  return client.getEntry(entryId)
 }

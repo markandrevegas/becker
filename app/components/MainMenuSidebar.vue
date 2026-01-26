@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue"
+import LineInstagram from "./LineInstagram.vue"
 // states
 const isOpen = ref(false)
 // helpers
@@ -55,7 +56,9 @@ const props = defineProps({
 						<NuxtLink to="/features">Features</NuxtLink>
 					</li>
 				</ul>
-				<ColorModeToggle />
+				<div class="flex justify-start items-center gap-8">
+					<ColorModeToggle />
+				</div>
 			</nav>
 			<button
 				aria-label="Menu Toggle"
@@ -80,18 +83,25 @@ const props = defineProps({
 				<div class="flex-1 overflow-y-scroll pt-[70px]">
 					<ul class="menu px-4">
 						<li class="flex justify-start" @click="handleClick('gallery', 'mobile')">
-							<NuxtLink aria-label="Back to Top" to="#gallery"><CircleChevronUpIcon /></NuxtLink>
+							<NuxtLink aria-label="Back to Top" to="#gallery"><HouseIcon aria-hidden="true" focusable="false" /></NuxtLink>
 						</li>
 						<li>
-							<NuxtLink to="#intro" @click="handleClick('intro', 'mobile')">Background</NuxtLink>
+							<NuxtLink aria-label="Intro" to="#intro" @click="handleClick('intro', 'mobile')">Background</NuxtLink>
 						</li>
 						<li>
-							<NuxtLink to="#bio" @click="handleClick('bio', 'mobile')">Bio and Roles</NuxtLink>
+							<NuxtLink aria-label="Biography and Roles" to="#bio" @click="handleClick('bio', 'mobile')">Catalog</NuxtLink>
 						</li>
 						<li>
-							<NuxtLink to="#videos" @click="handleClick('videos', 'mobile')">Clips</NuxtLink>
+							<NuxtLink aria-label="Videos" to="#videos" @click="handleClick('videos', 'mobile')">Film and TV</NuxtLink>
 						</li>
 					</ul>
+					<div class="md:hidden px-4 mt-16 flex justify-between items-center">
+						<h3 class="flex-1 font-medium text-xl m-0">Follow me</h3>
+						<div class="flex justify-start items-center gap-8">
+							<LineLinkedin />
+							<LineInstagram />
+						</div>
+					</div>
 				</div>
 			</div>
 		</nav>

@@ -1,11 +1,10 @@
-import { getContentfulClient } from '../../utils/contentful'
+import { serverQueryContentful } from '../../utils/contentful'
 
 export default defineEventHandler(async (event) => {
-  const { id } = event.context.params!
+  const id = getRouterParam(event, 'id')
   if (!id) {
-    throw createError({ statusCode: 400, statusMessage: 'Missing id' })
+    throw createError({ statusCode: 400, statusMessage: 'Missing entry id' })
   }
 
-  const client = getContentfulClient()
-  return await client.getEntry(id)
+  return await serverQueryContentful(id)
 })
