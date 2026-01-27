@@ -89,6 +89,9 @@ export default defineNuxtConfig({
 	future: {
 		compatibilityVersion: 4
 	},
+	features: {
+    inlineStyles: true
+  },
 	compatibilityDate: "2025-01-12",
 	devtools: { enabled: true },
 	css: ["@/assets/css/tailwind.css"],
@@ -114,34 +117,19 @@ export default defineNuxtConfig({
 		public: {
 			contentfulSpaceId: process.env.CONTENTFUL_SPACE_ID,
       contentfulEnv: process.env.CONTENTFUL_ENV || 'master',
-			strapiUrl: process.env.STRAPI_URL || 'http://localhost:1337',
-			fonts: {
-				selfHosted: false
-			}
+			strapiUrl: process.env.STRAPI_URL || 'http://localhost:1337'
 		}
 	},
 	fonts: {
-		provider: "google",
-		assets: {},
-		families: [
-			{
-				name: "Jost",
-				weights: [100, 200, 300, 400, 500, 600, 700],
-				display: "swap"
-			},
-			{
-				name: "Inter",
-				weights: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-				display: "swap"
-			},
-			{
-				name: "Corinthia",
-				weights: [400, 700],
-				styles: ["normal"],
-				display: "swap"
-			}
-		]
-	},
+    families: [
+      { name: 'Jost', provider: 'google' },
+      { name: 'Corinthia', provider: 'google' }
+    ],
+    defaults: {
+      display: 'swap',
+      preload: true
+    }
+  },
 	nitro: {
 		preset: "static",
 		prerender: {
@@ -153,7 +141,15 @@ export default defineNuxtConfig({
 		},
 		experimental: {
 			openAPI: true
-		}
+		},
+		routeRules: {
+      '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
+			'/**': {
+        headers: {
+          'Content-Security-Policy': "style-src 'self' 'unsafe-inline'"
+        }
+      }
+    }
 	},
 	hooks: {
 		"pages:extend"(pages) {}

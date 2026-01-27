@@ -26,8 +26,7 @@ const images: GalleryImage[] = [{ id: 4, src: "/assets/gallery/5.webp", alt: "On
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
 					<NuxtImg
 						:src="image.src"
-						width="1920"
-						widths="360 430 640 768 820 1024 1280 1536 1920"
+						sizes="100vw sm:100vw md:100vw"
 						class="h-screen w-full object-cover object-top"
 						format="webp"
 						quality="80"

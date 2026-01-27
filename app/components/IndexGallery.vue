@@ -35,8 +35,7 @@
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-1 flex-shrink-0 snap-center">
 					<NuxtImg
 						:src="image.srcMobile"
-						width="1536"
-						widths="360 430 640 768 1024 1280 1536 1920"
+						sizes="100vw sm:100vw md:100vw"
 						class="h-screen w-full object-cover md:hidden"
 						format="webp"
 						quality="80"

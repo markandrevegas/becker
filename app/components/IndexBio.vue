@@ -97,6 +97,7 @@ const trainingItems: Training[] = [
 						<NuxtImg
 							:src="image.src"
 							:alt="image.alt"
+							sizes="100vw sm:100vw md:100vw"
 							class="h-screen w-full object-cover object-top"
 							format="webp"
 							quality="80"
