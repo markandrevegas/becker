@@ -57,7 +57,7 @@
 		<footer class="flex min-h-72 flex-col gap-8 bg-abyssal pt-24 pb-32 text-lg md:text-xl text-white dark:text-yellow-50/90">
 			
 			<div class="max-w-wrapper px-16">
-				<h2 class="hidden lg:flex mt-2 mb-8 w-full max-w-md text-2xl text-3xl font-medium sm:text-4xl">{{agentsHeader}}</h2>
+				<h2 class="hidden lg:flex mt-2 mb-8 max-w-md text-2xl text-3xl font-medium sm:text-4xl">{{agentsHeader}}</h2>
 				<div class="grid grid-cols-2 gap-16">
 					<div class="col-span-1 flex flex-col">
 						<span class="mb-2 block font-semibold text-slate-200 dark:text-yellow-50/50">Evolve Talent Management</span>

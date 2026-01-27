@@ -45,7 +45,7 @@
 </script>
 <template>
 	<div class="w-full flex flex-col">
-		<div class="flex flex-col gap-4 items-start">
+		<div class="flex flex-col gap-4 lg:flex-row">
 			<div class="gallery-container relative w-full">
 				<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 					<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
@@ -53,7 +53,7 @@
 							:src="image.src"
 							width="1920"
 							widths="360 430 640 768 1024 1280 1536 1920"
-							class="h-screen w-full object-cover"
+							class="h-screen w-full object-cover object-top"
 							format="webp"
 							quality="80"
 							:alt="image.alt"
@@ -70,18 +70,18 @@
 				<p>
 					{{ content }}
 				</p>
-			</div>
-		</div>
-		<div class="max-w-wrapper flex flex-col md:flex-row justify-start w-full px-8 gap-16 py-16">
-			<div v-for="clip in filmClips" :key="clip.id" class="video-container">
-				<div class="video-wrapper">
-					<iframe
-						:src="'https://www.imdb.com/video/imdb/' + clip.videoId + '/imdb/embed'"
-						width="640"
-						height="360"
-						frameborder="0"
-						allowfullscreen
-					></iframe>
+				<div class="w-full flex flex-col gap-4 lg:flex-row my-8 lg:my-16">
+					<div v-for="clip in filmClips" :key="clip.id" class="video-container">
+						<div class="video-wrapper">
+							<iframe
+								:src="'https://www.imdb.com/video/imdb/' + clip.videoId + '/imdb/embed'"
+								width="640"
+								height="360"
+								frameborder="0"
+								allowfullscreen
+							></iframe>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

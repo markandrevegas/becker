@@ -33,7 +33,7 @@
 
 @layer components {
 	.max-w-wrapper {
-		@apply mx-auto max-w-6xl md:px-8;
+		@apply mx-auto max-w-6xl;
 	}
 	.menu {
 		@apply space-y-8 pt-16;

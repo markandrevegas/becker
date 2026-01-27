@@ -90,14 +90,14 @@ const trainingItems: Training[] = [
 </script>
 <template>
 	<div class="w-full flex flex-col gap-4 pb-24">
-		<div class="flex flex-col gap-4">
+		<div class="flex flex-col lg:flex-row lg:flex-row-reverse gap-4">
 			<div class="gallery-container relative w-full">
 				<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 					<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
 						<NuxtImg
 							:src="image.src"
 							:alt="image.alt"
-							class="h-screen w-full object-cover"
+							class="h-screen w-full object-cover object-top"
 							format="webp"
 							quality="80"
 							loading="lazy"
@@ -110,12 +110,13 @@ const trainingItems: Training[] = [
 					<h2 class="mt-2 max-w-md text-4xl font-medium sm:text-4xl lg:hidden drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ header }}</h2>
 				</div>
 			</div>
-			<div class="content px-16 py-24">
+			<div class="content px-16 py-24 lg:max-w-5xl">
+				<h2 class="hidden lg:block mt-2 mb-16 w-full max-w-md text-xl">{{ header }}</h2>
 				<p>{{ paragraph }}
 				</p>
 			</div>
 		</div>
-		<div class="max-w-wrapper px-16">
+		<div class="px-16 flex flex-col lg:flex-row lg:gap-24 lg:mt-24">
 			<div class="mt-8">
 				<h2 class="text-2xl font-medium uppercase mb-8">Film and Television</h2>
 				<ul class="flex flex-col text-xl md:grid md:grid-cols-3 gap-4">
@@ -143,7 +144,7 @@ const trainingItems: Training[] = [
 				</ul>
 			</div>
 		</div>
-		<div class="max-w-wrapper px-16">
+		<div class="px-16">
 			<div class="mt-8">
 				<h2 class="text-2xl font-medium uppercase mb-8">Training</h2>
 				<ul class="text-xl flex flex-col lg:grid lg:grid-cols-2 gap-4">

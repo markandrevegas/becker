@@ -20,15 +20,15 @@ interface GalleryImage {
 const images: GalleryImage[] = [{ id: 4, src: "/assets/gallery/5.webp", alt: "On-set Behind the Scenes" }]
 </script>
 <template>
-	<div class="flex flex-col gap-4">
-		<div class="gallery-container relative lg:col-span-1">
+	<div class="flex flex-col gap-4 lg:flex-row lg:flex-row-reverse">
+		<div class="gallery-container relative lg:w-1/2">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
 					<NuxtImg
 						:src="image.src"
 						width="1920"
 						widths="360 430 640 768 820 1024 1280 1536 1920"
-						class="h-screen w-full object-cover"
+						class="h-screen w-full object-cover object-top"
 						format="webp"
 						quality="80"
 						:alt="image.alt"
@@ -41,7 +41,7 @@ const images: GalleryImage[] = [{ id: 4, src: "/assets/gallery/5.webp", alt: "On
 				<h2 class="mt-2 max-w-md text-4xl font-medium sm:text-4xl lg:hidden drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ header }}</h2>
 			</div>
 		</div>
-		<div class="content lg:col-span-1 px-16 py-24">
+		<div class="content lg:w-1/2 px-16 py-24">
 			<h2 class="hidden lg:block mt-2 mb-16 w-full max-w-md text-xl">{{ header }}</h2>
 			<p>{{ paragraph }}</p>
 		</div>
