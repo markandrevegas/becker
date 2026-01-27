@@ -90,8 +90,8 @@ const trainingItems: Training[] = [
 </script>
 <template>
 	<div class="w-full flex flex-col gap-4 pb-24">
-		<div class="max-w-wrapper flex flex-col gap-4">
-			<div class="gallery-container relative">
+		<div class="flex flex-col gap-4">
+			<div class="gallery-container relative w-full">
 				<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 					<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
 						<NuxtImg
@@ -106,16 +106,16 @@ const trainingItems: Training[] = [
 				</div>
 
 				<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
-				<div class="flex flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-end px-8 pb-16 text-white sm:p-16 md:hidden">
-					<h2 class="mt-2 max-w-md text-4xl font-medium sm:text-4xl">{{ header }}</h2>
+				<div class="flex flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-end px-8 pb-16 text-white sm:p-16 lg:hidden">
+					<h2 class="mt-2 max-w-md text-4xl font-medium sm:text-4xl lg:hidden drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ header }}</h2>
 				</div>
 			</div>
-			<div class="content px-8 py-24">
+			<div class="content px-16 py-24">
 				<p>{{ paragraph }}
 				</p>
 			</div>
 		</div>
-		<div class="md:w-3/4 lg:mx-auto px-8">
+		<div class="max-w-wrapper px-16">
 			<div class="mt-8">
 				<h2 class="text-2xl font-medium uppercase mb-8">Film and Television</h2>
 				<ul class="flex flex-col text-xl md:grid md:grid-cols-3 gap-4">
@@ -143,7 +143,7 @@ const trainingItems: Training[] = [
 				</ul>
 			</div>
 		</div>
-		<div class="md:w-3/4 lg:mx-auto px-8">
+		<div class="max-w-wrapper px-16">
 			<div class="mt-8">
 				<h2 class="text-2xl font-medium uppercase mb-8">Training</h2>
 				<ul class="text-xl flex flex-col lg:grid lg:grid-cols-2 gap-4">
