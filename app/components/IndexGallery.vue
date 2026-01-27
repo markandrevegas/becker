@@ -60,7 +60,7 @@
 
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
 			<div
-				class="max-w-wrapper px-8 relative bottom-[16rem] md:bottom-[32rem] z-30 text-white"
+				class="max-w-wrapper px-8 relative bottom-[16rem] md:bottom-[32rem] z-30 text-white dark:text-yellow-50/90"
 			>
 				<h1 class="font-display text-6xl font-bold drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ title }}</h1>
 				<p class="mt-2 max-w-md text-xl font-regular uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ desc }}</p>
