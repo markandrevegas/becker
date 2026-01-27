@@ -71,7 +71,7 @@
 				</p>
 			</div>
 		</div>
-		<div class="flex flex-col md:flex-row justify-start w-full px-8 gap-16">
+		<div class="max-w-wrapper flex flex-col md:flex-row justify-start w-full px-8 gap-16 py-16">
 			<div v-for="clip in filmClips" :key="clip.id" class="video-container">
 				<div class="video-wrapper">
 					<iframe
