@@ -1,16 +1,18 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue"
 
-const isScrolled = ref(false)
 const scrollContainer = ref(null)
-function onScroll() {
-	if (!scrollContainer.value) return
-	isScrolled.value = scrollContainer.value.scrollTop > 70
+const isScrolled = ref(false)
+const onScroll = (e) => {
+  // Use a threshold that doesn't require "measuring" the whole container
+  const top = e.target.scrollTop
+  if (top > 70 && !isScrolled.value) isScrolled.value = true
+  else if (top <= 70 && isScrolled.value) isScrolled.value = false
 }
 
 onMounted(() => {
 	if (scrollContainer.value) {
-		scrollContainer.value.addEventListener("scroll", onScroll)
+		scrollContainer.value.addEventListener("scroll", onScroll, { passive: true })
 	}
 })
 
@@ -21,7 +23,11 @@ onBeforeUnmount(() => {
 })
 </script>
 <template>
-	<div ref="scrollContainer" class="relative flex h-screen flex-col overflow-auto">
+	<div 
+    ref="scrollContainer" 
+    class="relative flex h-screen flex-col overflow-auto"
+    @scroll.passive="onScroll"
+  >
 		<MainMenuSidebar :is-scrolled="isScrolled" />
 		<!-- Main scroll area -->
 		<main class="flex flex-1 flex-col pt-[70px]">

@@ -29,12 +29,16 @@ const props = defineProps({
 
 <template>
 	<div
-		:class="
-		props.isScrolled
-		? 'bg-abyssal/40 text-white backdrop-blur-xl'
-		: 'text-abyssal backdrop-blur-md dark:text-yellow-50/90'
-	" class="fixed right-0 top-0 left-0 z-40"
-	>
+    class="fixed inset-x-0 top-0 z-40 transition-colors duration-500 ease-in-out"
+    :style="{
+      '--header-blur': props.isScrolled ? '24px' : '12px',
+      '--header-bg': props.isScrolled ? 'rgba(27, 38, 50, 0.4)' : 'transparent'
+    }"
+    :class="[
+      'backdrop-blur-[var(--header-blur)] bg-[var(--header-bg)]',
+      props.isScrolled ? 'text-white' : 'text-abyssal dark:text-yellow-50/90'
+    ]"
+  >
 		<header
 			class="max-w-wrapper px-8 flex h-[70px] w-full items-center justify-end transition-colors duration-300"
 		>

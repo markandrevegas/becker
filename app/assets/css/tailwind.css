@@ -52,7 +52,10 @@
   position: relative;
   aspect-ratio: 16 / 9;
 }
-
+.fixed.top-0 {
+  contain: layout;
+  will-change: backdrop-filter, background-color;
+}
 .video-wrapper {
   position: absolute;
   top: 0;
