@@ -23,7 +23,8 @@ const config: Config = {
         abyssal: "#1B2632"
       },
       lineHeight: {
-        "12": "3rem"
+        'extra-loose': '2.5',
+        '12': '3rem',
       }
     }
   },

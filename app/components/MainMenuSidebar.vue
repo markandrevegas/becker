@@ -104,8 +104,13 @@ const props = defineProps({
 					<div class="md:hidden px-4 mt-16 flex justify-between items-center">
 						<h3 class="flex-1 font-medium text-xl m-0">Follow me</h3>
 						<div class="flex justify-start items-center gap-8">
-							<LineLinkedin />
-							<LineInstagram />
+							<a href="https://www.linkedin.com/in/deana-becker-5630545/" target="_blank">
+								<LineLinkedin />
+							</a>
+							<a href="">
+								<LineInstagram />
+							</a>
+							
 						</div>
 					</div>
 				</div>
