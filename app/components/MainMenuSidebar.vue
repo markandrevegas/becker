@@ -61,8 +61,12 @@ const props = defineProps({
 					</li>
 				</ul>
 				<div class="flex justify-start items-center gap-8">
-					<LineFacebook />
-					<LineInstagram />
+					<a href="https://www.instagram.com/deanajbecker/" target="_blank">
+						<LineInstagram />
+					</a>
+					<a href="https://www.linkedin.com/in/deana-becker-5630545/" target="_blank">
+						<LineLinkedin />
+					</a>
 					<ColorModeToggle />
 				</div>
 			</nav>
@@ -107,10 +111,9 @@ const props = defineProps({
 							<a href="https://www.linkedin.com/in/deana-becker-5630545/" target="_blank">
 								<LineLinkedin />
 							</a>
-							<a href="">
+							<a href="https://www.instagram.com/deanajbecker/" target="_blank">
 								<LineInstagram />
 							</a>
-							
 						</div>
 					</div>
 				</div>
