@@ -61,6 +61,8 @@ const props = defineProps({
 					</li>
 				</ul>
 				<div class="flex justify-start items-center gap-8">
+					<LineFacebook />
+					<LineInstagram />
 					<ColorModeToggle />
 				</div>
 			</nav>
