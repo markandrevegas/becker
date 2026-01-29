@@ -6,6 +6,7 @@
 		"build": "npx nuxi build",
 		"dev": "nuxt dev",
 		"generate": "nuxt generate",
+		"deploy": "nuxt generate && rsync -avz --delete .output/public/ u265563377@46.202.199.88:/home/u265563377/domains/deanajbecker.com/public_html/",
 		"preview": "npx serve .output/public",
 		"postinstall": "nuxt prepare",
 		"format": "bunx prettier --write **/**/*.{vue,ts,css}",
