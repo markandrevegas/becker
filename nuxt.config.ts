@@ -108,9 +108,6 @@ export default defineNuxtConfig({
 			crawlLinks: true,
       routes: ['/']
     },
-		externals: {
-			inline: ["ipx"]
-		},
 		routeRules: {
       '/_nuxt/**': { headers: { 'cache-control': 'public, max-age=31536000, immutable' } },
 			'/**': {
