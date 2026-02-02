@@ -97,13 +97,14 @@ export default defineNuxtConfig({
 		"@nuxt/scripts"
 	],
 	runtimeConfig: {
-		contentfulAccessToken: process.env.NUXT_CONTENTFUL_ACCESS_TOKEN,
+		contentfulAccessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 		contentful: {
       spaceId: process.env.CONTENTFUL_SPACE_ID,
       accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     },
 		public: {
-			contentfulSpaceId: process.env.NUXT_CONTENTFUL_SPACE_ID,
+			contentfulSpaceId: process.env.CONTENTFUL_SPACE_ID,
+			contentfulAccessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 		}
 	},
 	nitro: {
