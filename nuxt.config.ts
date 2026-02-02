@@ -1,22 +1,9 @@
 import { defineNuxtConfig } from "nuxt/config"
+import type { NitroRouteConfig } from 'nitropack'
 
 // Extend the NuxtConfig type
 declare module "nuxt/schema" {
 	interface NuxtConfig {
-		fonts?: {
-			provider?: string
-			assets?: {
-				[key: string]: unknown
-			}
-			families?: Array<{
-				name: string
-				weights?: number[]
-				styles?: string[]
-				subsets?: string[]
-				variants?: string[]
-				[key: string]: unknown
-			}>
-		}
 		site?: {
 			url?: string
 			name?: string
@@ -46,18 +33,23 @@ declare module "nuxt/schema" {
 			[key: string]: unknown
 		}
 		image?: {
+			provider: string
 			quality?: number
 			domains?: string[]
-			providers?: {
-				[key: string]: {
-					name: string
-					provider: string
-					options?: {
-						baseURL?: string
-						[key: string]: unknown
-					}
-				}
+		}
+		nitro?: {
+			preset?: string
+			prerender?: {
+				crawlLinks?: boolean
+				routes?: string[]
 			}
+			externals?: {
+				inline?: string[]
+			}
+			experimental?: {
+				openAPI?: boolean
+			}
+			routeRules?: Record<string, NitroRouteConfig>
 		}
 	}
 }
@@ -82,10 +74,9 @@ export default defineNuxtConfig({
 		},
 	},
 	image: {
-		providers: {
-			provider: 'ipx'
-		}
-	},
+    provider: 'ipx', 
+    domains: ['images.ctfassets.net', 'm.imdb.com']
+  },
 	future: {
 		compatibilityVersion: 4
 	},
@@ -112,21 +103,12 @@ export default defineNuxtConfig({
       accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
     },
 		public: {
-			contentfulSpaceId: process.env.CONTENTFUL_SPACE_ID,
+			contentfulSpaceId: process.env.NUXT_PUBLIC_CONTENTFUL_SPACE_ID,
+      contentfulAccessToken: process.env.NUXT_PUBLIC_CONTENTFUL_ACCESS_KEY,
       contentfulEnv: process.env.CONTENTFUL_ENV || 'master',
 			strapiUrl: process.env.STRAPI_URL || 'http://localhost:1337'
 		}
 	},
-	fonts: {
-    families: [
-      { name: 'Jost', provider: 'google' },
-      { name: 'Corinthia', provider: 'google' }
-    ],
-    defaults: {
-      display: 'swap',
-      preload: true
-    }
-  },
 	nitro: {
 		preset: "static",
 		prerender: {

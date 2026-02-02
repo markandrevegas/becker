@@ -21,6 +21,9 @@ jobs:
 
       - name: Static Site Generation
         run: npx nuxt generate
+        env: 
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          CONTENTFUL_ACCESS_KEY: ${{ secrets.CONTENTFUL_ACCESS_KEY }}
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
