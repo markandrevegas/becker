@@ -11,12 +11,7 @@ export const useContentful = () => {
     space: config.public.contentfulSpaceId as string,
     accessToken: config.public.contentfulAccessToken as string
   })
-
-  /**
-   * Generic fetcher that can be used for any content type
-   */
   const getEntry = <T>(id: string, parser: (entry: any) => T) => {
-    // Nuxt 4 de-duplicates requests based on this key
     return useAsyncData<T>(`contentful:${id}`, async () => {
       const entry = await client.getEntry(id)
       
