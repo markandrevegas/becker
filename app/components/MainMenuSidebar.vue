@@ -1,29 +1,34 @@
 <script setup lang="ts">
-import { ref } from "vue"
-import LineInstagram from "./LineInstagram.vue"
-// states
+import { ref } from 'vue'
+import LineInstagram from './LineInstagram.vue'
+
 const isOpen = ref(false)
-// helpers
+
 function toggleMenu() {
-	isOpen.value = !isOpen.value
+  isOpen.value = !isOpen.value
 }
+
 const handleClick = (id: string, res: string) => {
-	scrollTo(id, res)
+  scrollTo(id, res)
 }
+
 const scrollTo = (id: string, res: string) => {
-	const el = document.getElementById(id)
-	if (!el) return
-	
-	if (res === 'mobile') {
-		toggleMenu()
-	}
-	setTimeout(() => {
-		el.scrollIntoView({ behavior: "smooth", block: "start" })
-	}, 300)
+  if (!import.meta.client) return
+
+  const el = document.getElementById(id)
+  if (!el) return
+
+  if (res === 'mobile') {
+    toggleMenu()
+  }
+
+  setTimeout(() => {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, 300)
 }
 
 const props = defineProps({
-	isScrolled: Boolean
+  isScrolled: Boolean
 })
 </script>
 

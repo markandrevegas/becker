@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 const { data: onePager, status, error } = await useOnePager()
 provide('onePager', onePager)
 provide('onePagerStatus', status)
