@@ -5,29 +5,24 @@ import { parseOnePager } from '../utils/contentfulParser'
 
 export const useContentful = () => {
   const config = useRuntimeConfig()
+  const spaceId = config.public.contentfulSpaceId as string
+  const accessToken = config.public.contentfulAccessToken as string
 
-  // Initialize client
+  if (!spaceId || !accessToken) {
+    throw new Error('Contentful configuration missing. SpaceId: '+ !!spaceId + 'Token: ' + !!accessToken)
+  }
+
   const client = createClient({
-    space: config.public.contentfulSpaceId as string,
-    accessToken: config.public.contentfulAccessToken as string
+    space: spaceId,
+    accessToken: accessToken
   })
-  const getEntry = <T>(id: string, parser: (entry: any) => T) => {
-    return useAsyncData<T>(`contentful:${id}`, async () => {
+  const getOnePager = (id: string) => {
+    return useAsyncData<OnePager>('contentful-' + id, async () => {
       const entry = await client.getEntry(id)
-      
-      if (!entry) {
-        throw createError({
-          statusCode: 404,
-          statusMessage: `Contentful entry ${id} not found`,
-        })
-      }
-
-      return parser(entry)
+      if (!entry) throw new Error('Entry' + id + ' not found')
+      return parseOnePager(entry)
     })
   }
 
-  return {
-    client,
-    getOnePager: (id: string) => getEntry<OnePager>(id, parseOnePager)
-  }
+  return { getOnePager }
 }
