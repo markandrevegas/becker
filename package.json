@@ -10,7 +10,8 @@
 		"preview": "npx serve .output/public",
 		"postinstall": "nuxt prepare",
 		"format": "bunx prettier --write **/**/*.{vue,ts,css}",
-		"start": "node .output/server/index.mjs --hostname becker.local"
+		"start": "node .output/server/index.mjs --hostname becker.local",
+		"gh": "nuxt generate && gh-pages -d .output/public"
 	},
 	"dependencies": {
 		"@nuxt/eslint": "1.8.0",

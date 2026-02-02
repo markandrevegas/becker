@@ -66,6 +66,7 @@ declare module "nuxt/schema" {
 export default defineNuxtConfig({
 	ssr: true,
 	app: {
+		baseURL: '/becker/',
 		head: {
 			htmlAttrs: {
 				lang: "en"
@@ -79,7 +80,7 @@ export default defineNuxtConfig({
 				{ rel: "preconnect", href: "https://m.imdb.com", crossorigin: "" }
 			],
 			meta: [{ name: "apple-mobile-web-app-title", content: "Deana Becker" }]
-		}
+		},
 	},
 	image: {
 		providers: {
