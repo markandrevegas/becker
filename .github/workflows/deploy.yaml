@@ -10,20 +10,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v2
         with:
-          node-version: "20"
-          cache: 'npm'
+          bun-version: latest
 
-      - name: Install dependencies
-        run: npm install
+      - run: bun install
 
-      - name: Static Site Generation
-        run: npx nuxt generate
-        env: 
+      - name: Build and Generate
+        run: bun run generate
+        env:
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_ACCESS_KEY: ${{ secrets.CONTENTFUL_ACCESS_KEY }}
+          NUXT_APP_BASE_URL: /becker/
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4

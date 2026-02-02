@@ -112,7 +112,7 @@ export default defineNuxtConfig({
 		}
 	},
 	nitro: {
-		preset: "static",
+		preset: "github-pages",
 		prerender: {
 			crawlLinks: true,
       routes: ['/']
