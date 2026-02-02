@@ -25,14 +25,13 @@ jobs:
       - name: Generate static site
         run: bun run generate
         env:
-          # IMPORTANT: Check if your nuxt.config.ts uses these EXACT names
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .output/public # Nuxt 4 static output folder
+          path: .output/public
 
   deploy:
     needs: build
