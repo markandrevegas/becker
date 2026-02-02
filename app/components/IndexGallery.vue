@@ -1,8 +1,8 @@
 <script setup lang="ts">
 	import type { OnePager } from '~/types/contentful'
 	const onePager = inject<Ref<OnePager | null>>('onePager')
-	const pending = inject<Ref<boolean>>('onePagerPending')
-	const error = inject<Ref<any>>('onePagerError')
+	// const pending = inject<Ref<boolean>>('onePagerPending')
+	// const error = inject<Ref<any>>('onePagerError')
 
 	if (!onePager) {
 		throw new Error('onePager not provided')
@@ -10,7 +10,7 @@
 
 	const title = computed(() => onePager.value?.title ?? '')
 	const desc = computed(() => onePager.value?.desc ?? '')
-	const aboutHeader = computed(() => onePager.value?.aboutHeader ?? '')
+	// const aboutHeader = computed(() => onePager.value?.aboutHeader ?? '')
 	const aboutTeaser = computed(() => onePager.value?.aboutTeaser ?? '')
 
 	interface GalleryImage {
@@ -21,7 +21,7 @@
 	}
 
 	const images: GalleryImage[] = [
-		{ id: 2,
+		{ id: '2',
 			srcMobile: "/assets/gallery/7.webp",
 			srcDesktop: "/assets/gallery/index.webp",
 			alt: "Deana J Becker" },

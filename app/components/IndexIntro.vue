@@ -17,7 +17,7 @@ interface GalleryImage {
 	alt: string
 }
 
-const images: GalleryImage[] = [{ id: 4, src: "/assets/gallery/5.webp", alt: "On-set Behind the Scenes" }]
+const images: GalleryImage[] = [{ id: '4', src: "/assets/gallery/5.webp", alt: "On-set Behind the Scenes" }]
 </script>
 <template>
 	<div class="flex flex-col gap-4 lg:flex-row sm:flex-row-reverse items-start md:items-center">

@@ -5,7 +5,7 @@
 	const error = inject<Ref<any>>('onePagerError')
 
 	const agentsHeader = computed(() => onePager?.value?.agentsHeader)
-	const agentsInfo = computed(() => onePager?.value?.agentsInfo)
+	// const agentsInfo = computed(() => onePager?.value?.agentsInfo)
 	interface GalleryImage {
 		id: number | string
 		srcMobile: string
@@ -13,7 +13,7 @@
 		alt: string
 	}
 	const images: GalleryImage[] = [
-		{ id: 2,
+		{ id: '2',
 			srcMobile: "/assets/gallery/7.webp",
 			srcDesktop: "/assets/gallery/index.webp",
 			alt: "Deana J Becker" },
