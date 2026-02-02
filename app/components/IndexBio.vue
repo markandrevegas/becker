@@ -7,11 +7,11 @@
 	const header = computed(() => onePager?.value?.bioHeader)
 	const paragraph = computed(() => onePager?.value?.bioParagraph)
 	interface GalleryImage {
-		id: number | string
+		id: string
 		src: string
 		alt: string
 	}
-	const images: GalleryImage[] = [{ id: 3, src: "/assets/gallery/1.webp", alt: "Studio Photography" }]
+	const images: GalleryImage[] = [{ id: '3', src: "/assets/gallery/1.webp", alt: "Studio Photography" }]
 
 	interface TVRole {
 		show: string

@@ -14,7 +14,7 @@
 	const aboutTeaser = computed(() => onePager.value?.aboutTeaser ?? '')
 
 	interface GalleryImage {
-		id: number | string
+		id: string
 		srcMobile: string
 		srcDesktop: string
 		alt: string

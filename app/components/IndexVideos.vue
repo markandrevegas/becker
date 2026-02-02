@@ -11,13 +11,13 @@
 		throw new Error('onePager not provided')
 	}
 	interface GalleryImage {
-		id: number | string
+		id: string
 		src: string
 		alt: string
 	}
 
 	interface FilmClip {
-		id: number | string
+		id: string
 		videoId: number | string
 		title: string
 		desc: string
@@ -28,14 +28,14 @@
 
 	const filmClips: FilmClip[] = [
 		{
-			id: 1,
+			id: '1',
 			videoId: 'vi2536814873',
 			title: "Deana J Becker Dramatic Reel",
 			desc: 'This is my new dramatic acting reel, starting with a scene from the forthcoming film "What Really Matters", directed by William Bright. The second clip comes from the web series Fauk My Life, directed by Stephanie Neroes, which has won official selection to over ten festivals in 2017, and won in HIMPFF and Accolade Global Film Competition. Fauk My Life was also a Semi-Finalist at Los Angeles Cinefest. The final clip is from the DGA Student Film Awards 2014 Jury Award winner, "Diana Leigh", directed by Stephanie Hosten. The film has also screened at numerous film festivals.',
 			url: ''
 		},
 		{
-			id: 2,
+			id: '2',
 			videoId: 'vi414319897', // https://www.imdb.com/video/vi414319897/?ref_=vp_rv_vi_1
 			title: "Don't Go To Strangers",
 			desc: "A love-starved bachelor in desperate straights unknowingly picks up a transsexual in a local bar who turns out to be a former welter weight boxer.",

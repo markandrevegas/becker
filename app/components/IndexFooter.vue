@@ -7,7 +7,7 @@
 	const agentsHeader = computed(() => onePager?.value?.agentsHeader)
 	// const agentsInfo = computed(() => onePager?.value?.agentsInfo)
 	interface GalleryImage {
-		id: number | string
+		id: string
 		srcMobile: string
 		srcDesktop: string
 		alt: string

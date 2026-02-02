@@ -12,7 +12,7 @@
 
 // const text = "SAG AFTRA Actress"
 interface GalleryImage {
-	id: number | string
+	id: string
 	src: string
 	alt: string
 }
