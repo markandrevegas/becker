@@ -1,5 +1,4 @@
 import { defineNuxtConfig } from "nuxt/config"
-import tsconfigPaths from "vite-tsconfig-paths"
 
 // Extend the NuxtConfig type
 declare module "nuxt/schema" {
@@ -96,9 +95,6 @@ export default defineNuxtConfig({
 	compatibilityDate: "2025-01-12",
 	devtools: { enabled: true },
 	css: ["@/assets/css/tailwind.css"],
-	vite: {
-		plugins: [tsconfigPaths()]
-	},
 	modules: [
 		"@nuxtjs/color-mode",
 		"@nuxtjs/tailwindcss",
