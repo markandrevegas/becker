@@ -4,27 +4,17 @@ on:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - uses: oven-sh/setup-bun@v2
+      - uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest
 
-      - run: bun install
+      - name: Install dependencies
+        run: bun install --frozen-lockfile # This ensures exact versions
 
-      - name: Build and Generate
+      - name: Generate static site
         run: bun run generate
-        env:
-          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
-          CONTENTFUL_ACCESS_KEY: ${{ secrets.CONTENTFUL_ACCESS_KEY }}
-          NUXT_APP_BASE_URL: /becker/
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: .output/public
-          branch: gh-pages
