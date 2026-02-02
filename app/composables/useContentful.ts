@@ -1,25 +1,31 @@
 // composables/useContentful.ts
 import { createClient } from 'contentful'
+import type { EntrySkeletonType } from 'contentful'
 
 export const useContentful = () => {
   const config = useRuntimeConfig()
+
   const spaceId = config.public.contentfulSpaceId
   const accessToken = config.public.contentfulAccessToken
 
   if (!spaceId || !accessToken) {
-    throw new Error('Contentful configuration missing. SpaceId: '+ !!spaceId + 'Token: ' + !!accessToken)
+    throw new Error('Contentful configuration missing')
   }
 
   const client = createClient({
-    space: spaceId || '',
-    accessToken: accessToken || ''
+    space: spaceId,
+    accessToken
   })
-  const getOnePager = (id: string) => {
-    return useAsyncData('contentful-' + id, async () => {
-      const entry = await client.getEntry(id)
-      return entry
-    })
+
+  const getEntry = <T extends EntrySkeletonType>(id: string) => {
+    return useAsyncData(
+      'contentful-entry-' + id,
+      () => client.getEntry<T>(id),
+      { server: true }
+    )
   }
 
-  return { getOnePager }
+  return {
+    getEntry
+  }
 }

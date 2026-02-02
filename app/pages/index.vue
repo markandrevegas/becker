@@ -1,8 +1,9 @@
 <script setup lang="ts">
 const { data: onePager, status, error } = await useOnePager()
 provide('onePager', onePager)
-provide('onePagerStatus', status)
-provide('onePagerError', error)
+provide('onePagerPending', status.value)
+provide('onePagerError', error.value)
+console.log(onePager.value)
 
 import localHeroImage from "/assets/gallery/headshot.webp"
 // state

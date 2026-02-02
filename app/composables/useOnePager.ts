@@ -1,7 +1,7 @@
 // composables/useOnePager.ts
 export const useOnePager = () => {
-  const { getOnePager } = useContentful()
+  const { getEntry } = useContentful()
   const ENTRY_ID = 'tvmagv98WHR9YBjGRhG4k'
 
-  return getOnePager(ENTRY_ID)
+  return getEntry(ENTRY_ID)
 }
