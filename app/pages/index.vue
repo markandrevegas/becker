@@ -1,15 +1,12 @@
 <script setup>
-const ENTRY_ID = 'tvmagv98WHR9YBjGRhG4k'
-
-const { getOnePager } = useContentful()
-const { data: onePager, pending, error } = getOnePager(ENTRY_ID)
+const { onePager, status, error } = await useOnePager()
 provide('onePager', onePager)
-provide('onePagerPending', pending)
+provide('onePagerStatus', status)
 provide('onePagerError', error)
 
 import localHeroImage from "/assets/gallery/headshot.webp"
 // state
-const photo = ref(null)
+const photo = ref<{ urls: { full: string }, alt: string } | null>(null)
 const header = "Deana J Becker"
 const text = "SAG AFTRA Actress"
 

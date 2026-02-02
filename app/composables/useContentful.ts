@@ -6,27 +6,33 @@ import { parseOnePager } from '../utils/contentfulParser'
 export const useContentful = () => {
   const config = useRuntimeConfig()
 
+  // Initialize client
   const client = createClient({
-    space: String(config.public.contentfulSpaceId),
-    accessToken: String(config.public.contentfulAccessToken)
+    space: config.public.contentfulSpaceId as string,
+    accessToken: config.public.contentfulAccessToken as string
   })
 
-  const getOnePager = (id: string) => {
-    return useAsyncData<OnePager>(
-      `contentful-onepager-${id}`,
-      async () => {
-        const entry = await client.getEntry(id)
-        
-        if (!entry) {
-          throw new Error(`Contentful entry ${id} not found`)
-        }
-
-        return parseOnePager(entry)
+  /**
+   * Generic fetcher that can be used for any content type
+   */
+  const getEntry = <T>(id: string, parser: (entry: any) => T) => {
+    // Nuxt 4 de-duplicates requests based on this key
+    return useAsyncData<T>(`contentful:${id}`, async () => {
+      const entry = await client.getEntry(id)
+      
+      if (!entry) {
+        throw createError({
+          statusCode: 404,
+          statusMessage: `Contentful entry ${id} not found`,
+        })
       }
-    )
+
+      return parser(entry)
+    })
   }
 
   return {
-    getOnePager
+    client,
+    getOnePager: (id: string) => getEntry<OnePager>(id, parseOnePager)
   }
 }
