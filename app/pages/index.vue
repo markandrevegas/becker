@@ -1,5 +1,5 @@
 <script setup>
-const { onePager, status, error } = await useOnePager()
+const { data: onePager, status, error } = await useOnePager()
 provide('onePager', onePager)
 provide('onePagerStatus', status)
 provide('onePagerError', error)
