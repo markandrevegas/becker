@@ -11,6 +11,30 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        fadeSlideUp: {
+          '0%': { opacity: '0', transform: 'translateY(30px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' }
+        },
+        slideFadeRight: {
+          '0%': { opacity: '0', transform: 'translateX(50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' }
+        },
+        slideFadeLeft: {
+          '0%': { opacity: '0', transform: 'translateX(-50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' }
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        }
+      },
+      animation: {
+        'fade-slide-up': 'fadeSlideUp 1s ease-out forwards',
+        'slide-fade-right': 'slideFadeRight 1s ease-out forwards',
+        'slide-fade-left': 'slideFadeLeft 1s ease-out forwards',
+        'fade-in': 'fadeIn 1s ease-out forwards'
+      },
       fontFamily: {
         sans: ["Jost", "sans-serif"],
         display: ["Corinthia", "serif"]

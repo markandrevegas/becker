@@ -11,7 +11,7 @@
 
 		/* body / ui (Jost) */
 		--fs-body-sm: clamp(0.875rem, 0.85rem + 0.2vw, 1rem);        /* 14 → 16 */
-		--fs-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);         /* 16 → 18 */
+		--fs-body: clamp(1.25rem, 1.25rem + 0.25vw, 1.125rem);         /* 16 → 18 */
 		--fs-body-lg: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);    /* 18 → 20 */
 
 		/* headings (Jost) */
@@ -117,7 +117,7 @@
 			@apply text-display-md font-display;
 		}
 		p {
-			@apply sm:text-body-lg
+			@apply animate-slide-fade-right delay-500 text-body md:text-body-lg;
 		}
 	}
 }

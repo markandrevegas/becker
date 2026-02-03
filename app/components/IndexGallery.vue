@@ -32,7 +32,7 @@
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-1 flex-shrink-0 snap-center">
 					<NuxtImg
 						:src="image.srcMobile"
-						class="h-screen w-full object-cover md:hidden"
+						class="h-screen w-full object-cover md:hidden animate-fade-slide-up delay-500"
 						alt="Deana J Becker"
 						loading="eager"
 						fetchpriority="high"
@@ -40,7 +40,7 @@
 					<NuxtImg
 						:src="image.srcDesktop"
 						width="1536"
-						class="hidden h-screen w-full object-cover md:block"
+						class="hidden h-screen w-full object-cover md:block animate-fade-slide-up delay-500"
 						alt="Deana J Becker"
 						loading="eager"
 						fetchpriority="high"
@@ -52,13 +52,13 @@
 			<div
 				class="max-w-wrapper px-8 relative bottom-[20rem] lg:bottom-[32rem] z-30 text-white dark:text-yellow-50/90"
 			>
-				<h1 class="font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ HeroTitle }}</h1>
-				<p class="mt-2 max-w-md text-xl font-regular uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ HeroDesc }}</p>
+				<h1 class="animate-slide-fade-left font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ HeroTitle }}</h1>
+				<p class="animate-fade-in delay-300 mt-2 max-w-md text-xl font-regular uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]">{{ HeroDesc }}</p>
 			</div>
 		</div>
 		<div class="max-w-wrapper">
 			<div class="content gap-8 px-8 py-24">
-				<p class="text-body-lg">
+				<p class="!text-xl sm:!text-2l md:!text-3xl md:!leading-loose">
 					{{ HeroAboutTeaser }}
 				</p>
 			</div>
