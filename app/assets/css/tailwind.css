@@ -2,11 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-::root {
-	--abyssal: #1b2632;
-	--palladian: #eee9df;
-}
 @layer base {
+	:root {
+		--abyssal: #1b2632;
+		--palladian: #eee9df;
+		/* 8px baseline reference */
+		--baseline: 0.5rem; /* 8px */
+
+		/* body / ui (Jost) */
+		--fs-body-sm: clamp(0.875rem, 0.85rem + 0.2vw, 1rem);        /* 14 → 16 */
+		--fs-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);         /* 16 → 18 */
+		--fs-body-lg: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);    /* 18 → 20 */
+
+		/* headings (Jost) */
+		--fs-h-sm: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);         /* 20 → 24 */
+		--fs-h-md: clamp(1.5rem, 1.35rem + 0.6vw, 1.875rem);       /* 24 → 30 */
+		--fs-h-lg: clamp(2rem, 1.75rem + 1vw, 2.5rem);             /* 32 → 40 */
+
+		/* display (Corinthia) */
+		--fs-display-sm: clamp(2.5rem, 2.2rem + 1.5vw, 3.25rem);   /* 40 → 52 */
+		--fs-display-md: clamp(3.25rem, 2.8rem + 2.2vw, 4.25rem);  /* 52 → 68 */
+		--fs-display-lg: clamp(4.5rem, 3.8rem + 3vw, 6rem);        /* 72 → 96 */
+
+		/* line heights (8px-aligned multiples) */
+		--lh-tight: 1;       /* display */
+		--lh-snug: 1.25;     /* headings */
+		--lh-normal: 1.5;    /* body */
+		--lh-relaxed: 1.75;  /* long reads */
+	}
 	html,
 	body {
 		height: auto;
@@ -20,17 +43,6 @@
 	}
 	body {
 		@apply bg-white text-abyssal dark:bg-abyssal dark:text-yellow-50/90;
-	}
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		@apply font-sans;
-	}
-	p {
-		@apply text-xl leading-extra-loose lg:text-3xl lg:leading-extra-loose;
 	}
 }
 
