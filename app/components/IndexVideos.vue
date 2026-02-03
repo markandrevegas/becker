@@ -22,7 +22,7 @@
 		url?: string
 	}
 
-	const images: GalleryImage[] = [{ id: '1', src: "public/assets/gallery/10.webp", alt: "D. Becker" }]
+	const images: GalleryImage[] = [{ id: '1', src: "becker/public/assets/gallery/10.webp", alt: "D. Becker" }]
 
 	const filmClips: FilmClip[] = [
 		{
