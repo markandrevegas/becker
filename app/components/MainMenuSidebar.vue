@@ -56,10 +56,10 @@ const props = defineProps({
 						<NuxtLink to="#intro" @click="handleClick('intro', 'desktop')">Intro</NuxtLink>
 					</li>
 					<li style="margin-left:0;padding-right:4rem;">
-						<NuxtLink to="#bio" @click="handleClick('bio', 'desktop')">Bio and Roles</NuxtLink>
+						<NuxtLink to="#bio" @click="handleClick('bio', 'desktop')">Film, TV, Theatre</NuxtLink>
 					</li>
 					<li style="margin-left:0;padding-right:4rem;">
-						<NuxtLink to="#videos" @click="handleClick('videos', 'desktop')">Clips</NuxtLink>
+						<NuxtLink to="#videos" @click="handleClick('videos', 'desktop')">Reels</NuxtLink>
 					</li>
 					<li class="hidden" style="margin-left:0;padding-right:4rem;">
 						<NuxtLink to="/features">Features</NuxtLink>
@@ -98,16 +98,16 @@ const props = defineProps({
 				<div class="flex-1 overflow-y-scroll pt-[70px]">
 					<ul class="menu px-4">
 						<li class="flex justify-start" @click="handleClick('gallery', 'mobile')">
-							<NuxtLink aria-label="Back to Top" to="#gallery"><HouseIcon aria-hidden="true" focusable="false" /></NuxtLink>
+							<NuxtLink aria-label="Back to Top" to="#gallery"><CircleChevronUpIcon aria-hidden="true" focusable="false"  /></NuxtLink>
 						</li>
 						<li>
-							<NuxtLink aria-label="Intro" to="#intro" @click="handleClick('intro', 'mobile')">Background</NuxtLink>
+							<NuxtLink aria-label="Intro" to="#intro" @click="handleClick('intro', 'mobile')">Intro</NuxtLink>
 						</li>
 						<li>
-							<NuxtLink aria-label="Biography and Roles" to="#bio" @click="handleClick('bio', 'mobile')">Catalog</NuxtLink>
+							<NuxtLink aria-label="Biography and Roles" to="#bio" @click="handleClick('bio', 'mobile')">Film, TV, Theatre</NuxtLink>
 						</li>
 						<li>
-							<NuxtLink aria-label="Videos" to="#videos" @click="handleClick('videos', 'mobile')">Film and TV</NuxtLink>
+							<NuxtLink aria-label="Videos" to="#videos" @click="handleClick('videos', 'mobile')">Reels</NuxtLink>
 						</li>
 					</ul>
 					<div class="md:hidden px-4 mt-16 flex justify-between items-center">
