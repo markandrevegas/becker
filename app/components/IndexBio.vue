@@ -9,7 +9,7 @@
 		src: string
 		alt: string
 	}
-	const images: GalleryImage[] = [{ id: '3', src: "becker/public/assets/gallery/1.webp", alt: "Studio Photography" }]
+	const images: GalleryImage[] = [{ id: '3', src: "/becker/assets/gallery/1.webp", alt: "Studio Photography" }]
 
 	interface TVRole {
 		show: string
