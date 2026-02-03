@@ -95,10 +95,7 @@ const trainingItems: Training[] = [
 						<NuxtImg
 							:src="image.src"
 							:alt="image.alt"
-							sizes="100vw sm:100vw md:100vw"
 							class="h-screen w-full object-cover object-top"
-							format="webp"
-							quality="80"
 							loading="lazy"
 						/>
 					</div>
@@ -106,11 +103,11 @@ const trainingItems: Training[] = [
 
 				<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
 				<div class="flex flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-end px-8 pb-16 text-white sm:p-16 sm:hidden">
-					<h2 class="mt-2 max-w-md text-4xl font-medium sm:text-4xl lg:hidden drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ BioHeader }}</h2>
+					<h2 class="font-display text-display-lg mt-2 max-w-md lg:hidden drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ BioHeader }}</h2>
 				</div>
 			</div>
 			<div class="content px-8 py-24 sm:w-4/5">
-				<h2 class="hidden sm:block mt-2 mb-16 w-full max-w-md text-xl">{{ BioHeader }}</h2>
+				<h2 class="hidden sm:block mt-2 mb-16 w-full max-w-md font-display text-display-lg">{{ BioHeader }}</h2>
 				<p>{{ BioParagraph }}
 				</p>
 			</div>
