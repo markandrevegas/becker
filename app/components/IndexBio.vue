@@ -1,11 +1,9 @@
 <script setup lang="ts">
 	import type { OnePager } from '~/types/contentful'
 	const onePager = inject<Ref<OnePager | null>>('onePager')
-	const pending = inject<Ref<boolean>>('onePagerPending')
-	const error = inject<Ref<any>>('onePagerError')
 
-	const header = computed(() => onePager?.value?.bioHeader)
-	const paragraph = computed(() => onePager?.value?.bioParagraph)
+	const BioHeader = computed(() => onePager?.value?.bioHeader)
+	const BioParagraph = computed(() => onePager?.value?.bioParagraph)
 	interface GalleryImage {
 		id: string
 		src: string
@@ -108,12 +106,12 @@ const trainingItems: Training[] = [
 
 				<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
 				<div class="flex flex-col absolute bottom-0 left-0 right-0 z-30 h-72 justify-end px-8 pb-16 text-white sm:p-16 sm:hidden">
-					<h2 class="mt-2 max-w-md text-4xl font-medium sm:text-4xl lg:hidden drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ header }}</h2>
+					<h2 class="mt-2 max-w-md text-4xl font-medium sm:text-4xl lg:hidden drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">{{ BioHeader }}</h2>
 				</div>
 			</div>
 			<div class="content px-8 py-24 sm:w-4/5">
-				<h2 class="hidden sm:block mt-2 mb-16 w-full max-w-md text-xl">{{ header }}</h2>
-				<p>{{ paragraph }}
+				<h2 class="hidden sm:block mt-2 mb-16 w-full max-w-md text-xl">{{ BioHeader }}</h2>
+				<p>{{ BioParagraph }}
 				</p>
 			</div>
 		</div>

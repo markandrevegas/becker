@@ -3,7 +3,7 @@ const { data: onePager, status, error } = await useOnePager()
 provide('onePager', onePager)
 provide('onePagerPending', status.value)
 provide('onePagerError', error.value)
-console.log(onePager.value)
+// console.log(onePager.value)
 const mapped = computed(() => {
   const entry = onePager.value
   if (!entry) return null
@@ -11,7 +11,12 @@ const mapped = computed(() => {
   return {
     title: entry.fields.title,
     desc: entry.fields.desc,
-    aboutTeaser: entry.fields.aboutTeaser
+    aboutTeaser: entry.fields.aboutTeaser,
+		aboutHeader: entry.fields.aboutHeader,
+		aboutParagraph: entry.fields.aboutParagraph,
+		videoHeader: entry.fields.videoHeader,
+		bioHeader: entry.fields.bioHeader,
+		bioParagraph: entry.fields.bioParagraph
   }
 })
 
@@ -19,15 +24,12 @@ provide('onePager', mapped)
 
 
 import localHeroImage from "/assets/gallery/headshot.webp"
-// state
 const photo = ref<{ urls: { full: string }, alt: string } | null>(null)
-const header = "Deana J Becker"
-const text = "SAG AFTRA Actress"
 
 const loadLocalPhoto = () => {
 	photo.value = {
 		urls: { full: localHeroImage },
-		alt: "Local fashion photography"
+		alt: "Deana J. Becker"
 	}
 }
 
