@@ -49,10 +49,7 @@
 					<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
 						<NuxtImg
 							:src="image.src"
-							sizes="100vw sm:100vw md:100vw"
 							class="h-screen w-full object-cover object-top"
-							format="webp"
-							quality="80"
 							:alt="image.alt"
 						/>
 					</div>

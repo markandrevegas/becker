@@ -27,13 +27,9 @@
 					<NuxtImg
 						:src="image.srcMobile"
 						width="1536"
-						widths="360 430 640 768 1024 1280 1536 1920"
 						class="h-screen w-full object-cover md:hidden"
-						format="webp"
-						quality="80"
 						alt="Deana J Becker"
-						loading="eager"
-						fetchpriority="high"
+						loading="lazy"
 					/>
 					<NuxtImg
 						:src="image.srcDesktop"

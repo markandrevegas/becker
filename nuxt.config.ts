@@ -74,7 +74,7 @@ export default defineNuxtConfig({
 		},
 	},
 	image: {
-    provider: 'static', 
+    provider: 'none', 
     domains: ['images.ctfassets.net', 'm.imdb.com']
   },
 	future: {
