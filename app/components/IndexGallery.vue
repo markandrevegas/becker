@@ -58,7 +58,7 @@
 		</div>
 		<div class="max-w-wrapper">
 			<div class="content gap-8 px-8 py-24">
-				<p>
+				<p class="text-body-lg">
 					{{ HeroAboutTeaser }}
 				</p>
 			</div>

@@ -114,13 +114,13 @@ onMounted(() => {
 			<div v-if="onePager" id="gallery" class="md:pb-16">
 				<IndexGallery />
 			</div>
-			<div v-if="onePager" id="intro" class="md:pb-16">
+			<div v-if="onePager" id="intro" class="md:pb-16 px-24">
 				<IndexIntro />
 			</div>
-			<div v-if="onePager" id="videos" class="pb-24">
+			<div v-if="onePager" id="videos" class="pb-24 px-24">
 				<IndexVideos />
 			</div>
-			<div v-if="onePager" id="bio" class="md:pb-16">
+			<div v-if="onePager" id="bio" class="md:pb-16 px-24">
 				<IndexBio />
 			</div>
 		</div>

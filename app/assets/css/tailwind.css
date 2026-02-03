@@ -114,7 +114,10 @@
 	.content { 
 		@apply flex flex-col sm:flex-row md:flex-col;
 		h2 {
-			@apply text-4xl font-medium;
+			@apply text-display-md font-display;
+		}
+		p {
+			@apply sm:text-body-lg
 		}
 	}
 }
