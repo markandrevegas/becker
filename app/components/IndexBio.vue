@@ -38,53 +38,41 @@
 		{ show: "Matlock", role: "Judge Bjornstad", type: "Recurring" }
 	]
 
-	interface CinemaRole {
-		date: string
-		film: string
-		role: string
+	interface TheaterRole {
+		show: string
+		role?: string
+		type?: string
+		producer?: string
 	}
 
-const cinemaRoles: CinemaRole[] = [
-	{ date: "2016", film: "Independent Feature", role: "Supporting Character" },
-	{ date: "2018", film: "Short Film", role: "Lead" },
-	{ date: "2021", film: "Feature Film", role: "Supporting Role" }
-]
+	const theaterRoles: TheaterRole[] = [
+		{ show: "Ages of The Menopause", role: "Ms. Brown (2025)", producer: "Tymeka Coney, Director" },
+		{ show: "Color Of Love", role: "", producer: "" },
+		{ show: "Harriet Tubman Visits A Therapist", role: "Lead (Therapist)", producer: "Winner Samuel French Competition" },
+		{ show: "Escher’S Staircase", role: "Lead (Flight Commander)", producer: "Harold Clurman Theatre, NYC" },
+		{ show: "Evelyn and The Environment", role: "Supporting", producer: "Lovecreek Productions, NYC" },
+		{ show: "“Secrets” Tour", role: "Ensemble", producer: "Roberta Gasbarre, Director" },
+		{ show: "The Widows", role: "Supporting", producer: "Workhouse Theatre, NYC" },
+		{ show: "The Odd Couple", role: "Gwendolyn", producer: "Jubilee Fish Theatre, ALABAMA" },
+		{ show: "Grown Up’s Playground", role: "Improv Group", producer: "New York Comedy Club" },
+		{ show: "Hatful Of Rain", role: "Celia", producer: "Mary Margaret Theatre, NYC" },
+		{ show: "Andromache", role: "Hermione", producer: "Mary Margaret Theatre, NYC" }
+	]
 
-interface TheaterRole {
-	show: string
-	role?: string
-	type?: string
-	producer?: string
-}
-
-const theaterRoles: TheaterRole[] = [
-	{ show: "Ages of The Menopause", role: "Ms. Brown (2025)", producer: "Tymeka Coney, Director" },
-	{ show: "Color Of Love", role: "", producer: "" },
-	{ show: "Harriet Tubman Visits A Therapist", role: "Lead (Therapist)", producer: "Winner Samuel French Competition" },
-	{ show: "Escher’S Staircase", role: "Lead (Flight Commander)", producer: "Harold Clurman Theatre, NYC" },
-	{ show: "Evelyn and The Environment", role: "Supporting", producer: "Lovecreek Productions, NYC" },
-	{ show: "“Secrets” Tour", role: "Ensemble", producer: "Roberta Gasbarre, Director" },
-	{ show: "The Widows", role: "Supporting", producer: "Workhouse Theatre, NYC" },
-	{ show: "The Odd Couple", role: "Gwendolyn", producer: "Jubilee Fish Theatre, ALABAMA" },
-	{ show: "Grown Up’s Playground", role: "Improv Group", producer: "New York Comedy Club" },
-	{ show: "Hatful Of Rain", role: "Celia", producer: "Mary Margaret Theatre, NYC" },
-	{ show: "Andromache", role: "Hermione", producer: "Mary Margaret Theatre, NYC" }
-]
-
-interface Training {
-	item: string
-}
-const trainingItems: Training[] = [
-	{ item: 'American Academy of Dramatic Arts - NYC' },
-	{ item: 'The Groundlings (Scholarship Winner)' },
-	{ item: 'Brian Reese Acting Studios - LA' },
-	{ item: 'Studio Theatre Acting Conservatory - Washington D.C.' },
-	{ item: 'Soap Opera Workshop / Gail Comacho - NYC' },
-	{ item: 'AIA Three Of Us / Delphi Harrington - NYC' },
-	{ item: 'Weist - Barron - NYC' },
-	{ item: 'Private Coaching with Nathan George' },
-	{ item: 'BA - Film Production' },
-] 
+	interface Training {
+		item: string
+	}
+	const trainingItems: Training[] = [
+		{ item: 'American Academy of Dramatic Arts - NYC' },
+		{ item: 'The Groundlings (Scholarship Winner)' },
+		{ item: 'Brian Reese Acting Studios - LA' },
+		{ item: 'Studio Theatre Acting Conservatory - Washington D.C.' },
+		{ item: 'Soap Opera Workshop / Gail Comacho - NYC' },
+		{ item: 'AIA Three Of Us / Delphi Harrington - NYC' },
+		{ item: 'Weist - Barron - NYC' },
+		{ item: 'Private Coaching with Nathan George' },
+		{ item: 'BA - Film Production' },
+	] 
 </script>
 <template>
 	<div class="w-full flex flex-col gap-4 pb-24">
@@ -112,7 +100,7 @@ const trainingItems: Training[] = [
 				</p>
 			</div>
 		</div>
-		<div class="px-8 flex flex-col lg:flex-row lg:gap-24 lg:mt-24">
+		<div class="hidden px-8 flex flex-col lg:flex-row lg:gap-24 lg:mt-24">
 			<div class="mt-8">
 				<h2 class="text-2xl font-medium uppercase mb-8">Film and Television</h2>
 				<ul class="flex flex-col text-xl md:grid md:grid-cols-3 gap-4">
@@ -140,7 +128,56 @@ const trainingItems: Training[] = [
 				</ul>
 			</div>
 		</div>
-		<div class="px-8">
+		<section class="space-y-12 px-8">
+			<div>
+				<h2 class="text-body-lg mt-8 mb-2 tracking-wide uppercase">Film & Television</h2>
+
+				<div class="grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+					<div v-for="role in tvRoles" :key="role.show" class="space-y-1">
+						<p class="text-body text-neutral-900">
+							{{ role.show }} <span v-if="role.role">– {{ role.role }}</span>
+						</p>
+
+						<p v-if="role.producer">
+							Producer: {{ role.producer }}
+						</p>
+					</div>
+				</div>
+			</div>
+			<div>
+				<h2 class="text-body-lg mt-8 mb-2 tracking-wide uppercase">
+					Theatre
+				</h2>
+
+				<div class="grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+					<div
+						v-for="role in theaterRoles"
+						:key="role.show"
+						class="space-y-1"
+					>
+						<p class="text-body md:text-body-lg">
+							{{ role.show }} <span v-if="role.role">– {{ role.role }}</span>
+						</p>
+
+						<p
+							v-if="role.producer"
+							class="text-sm text-neutral-500"
+						>
+							Producer: {{ role.producer }}
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="px-8">
+			<h2 class="text-body-lg mt-8 mb-2 tracking-wide uppercase">Training</h2>
+			<ul class="grid gap-y-3 sm:grid-cols-2 sm:gap-x-10">
+				<li v-for="training in trainingItems" :key="training.item" class="text-body md:text-body-lg">
+					{{ training.item }}
+				</li>
+			</ul>
+		</section>
+		<div class="hidden px-8">
 			<div class="mt-8">
 				<h2 class="text-2xl font-medium uppercase mb-8">Training</h2>
 				<ul class="text-xl flex flex-col lg:grid lg:grid-cols-2 gap-4">

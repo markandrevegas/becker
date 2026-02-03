@@ -18,7 +18,7 @@
 </script>
 <template>
 	<div class="flex flex-col gap-4 lg:flex-row sm:flex-row-reverse items-start md:items-center">
-		<div class="gallery-container relative sm:w-1/2">
+		<div class="gallery-container relative w-full sm:w-1/2">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
 					<NuxtImg
