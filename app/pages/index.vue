@@ -4,6 +4,19 @@ provide('onePager', onePager)
 provide('onePagerPending', status.value)
 provide('onePagerError', error.value)
 console.log(onePager.value)
+const mapped = computed(() => {
+  const entry = onePager.value
+  if (!entry) return null
+
+  return {
+    title: entry.fields.title,
+    desc: entry.fields.desc,
+    aboutTeaser: entry.fields.aboutTeaser
+  }
+})
+
+provide('onePager', mapped)
+
 
 import localHeroImage from "/assets/gallery/headshot.webp"
 // state
