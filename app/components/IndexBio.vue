@@ -88,7 +88,7 @@ const trainingItems: Training[] = [
 </script>
 <template>
 	<div class="w-full flex flex-col gap-4 pb-24">
-		<div class="flex flex-col sm:flex-row sm:flex-row-reverse sm:items-center gap-4">
+		<div class="flex flex-col sm:flex-row sm:items-center gap-4">
 			<div class="gallery-container relative w-full">
 				<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 					<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">

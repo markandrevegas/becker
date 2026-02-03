@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { useInViewport } from '~/composables/useInViewport'
 const introRef = ref<HTMLElement | null>(null)
-const { isVisible } = useInViewport(introRef)
+const videoRef = ref<HTMLElement | null>(null)
+const bioRef = ref<HTMLElement | null>(null)
+
+const { isVisible: isIntroVisible } = useInViewport(introRef)
+const { isVisible: isVideoVisible } = useInViewport(videoRef)
+const { isVisible: isBioVisible } = useInViewport(bioRef)
 
 const { data: onePager, status, error } = await useOnePager()
 provide('onePager', onePager)
 provide('onePagerPending', status.value)
 provide('onePagerError', error.value)
-// console.log(onePager.value)
+console.log(onePager.value)
 const mapped = computed(() => {
   const entry = onePager.value
   if (!entry) return null
@@ -20,7 +25,8 @@ const mapped = computed(() => {
 		aboutParagraph: entry.fields.aboutParagraph,
 		videoHeader: entry.fields.videoHeader,
 		bioHeader: entry.fields.bioHeader,
-		bioParagraph: entry.fields.bioParagraph
+		bioParagraph: entry.fields.bioParagraph,
+		agentsHeader: entry.fields.agentsHeader
   }
 })
 
@@ -119,13 +125,13 @@ onMounted(() => {
 				<IndexGallery />
 			</div>
 			<div v-if="onePager" id="intro" ref="introRef"
-    :class="['md:pb-16 md:px-24 transition-opacity duration-1000 delay-500', isVisible ? 'animate-fade-slide-up' : 'opacity-0']">
+    :class="['md:pb-16 md:px-24 transition-opacity duration-1000 delay-500', isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0']">
 				<IndexIntro />
 			</div>
-			<div v-if="onePager" id="videos" class="pb-24 md:px-24">
+			<div v-if="onePager" id="videos" ref="videoRef" :class="['md:pb-16 md:px-24 transition-opacity duration-1000 delay-500', isVideoVisible ? 'animate-slide-fade-right' : 'opacity-0']">
 				<IndexVideos />
 			</div>
-			<div v-if="onePager" id="bio" class="md:pb-16 md:px-24">
+			<div v-if="onePager" id="bio" ref="bioRef" :class="['md:pb-16 md:px-24 transition-opacity duration-1000 delay-500', isBioVisible ? 'animate-slide-fade-left' : 'opacity-0']">
 				<IndexBio />
 			</div>
 		</div>

@@ -43,7 +43,7 @@
 </script>
 <template>
 	<div class="w-full flex flex-col">
-		<div class="flex flex-col gap-4 sm:flex-row sm:items-center">
+		<div class="flex flex-col gap-4 sm:flex-row sm:flex-row-reverse sm:items-center">
 			<div class="gallery-container relative w-full">
 				<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 					<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
