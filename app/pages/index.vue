@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useInViewport } from '~/composables/useInViewport'
+const introRef = ref<HTMLElement | null>(null)
+const { isVisible } = useInViewport(introRef)
+
 const { data: onePager, status, error } = await useOnePager()
 provide('onePager', onePager)
 provide('onePagerPending', status.value)
@@ -114,7 +118,8 @@ onMounted(() => {
 			<div v-if="onePager" id="gallery" class="md:pb-16">
 				<IndexGallery />
 			</div>
-			<div v-if="onePager" id="intro" class="md:pb-16 md:px-24">
+			<div v-if="onePager" id="intro" ref="introRef"
+    :class="['md:pb-16 md:px-24 transition-opacity duration-1000 delay-500', isVisible ? 'animate-fade-slide-up' : 'opacity-0']">
 				<IndexIntro />
 			</div>
 			<div v-if="onePager" id="videos" class="pb-24 md:px-24">
