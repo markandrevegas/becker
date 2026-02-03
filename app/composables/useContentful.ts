@@ -21,7 +21,13 @@ export const useContentful = () => {
     return useAsyncData(
       'contentful-entry-' + id,
       () => client.getEntry<T>(id),
-      { server: true }
+      { 
+        getCachedData: (key, nuxtApp) => {
+          return undefined
+        },
+        server: false,
+        lazy: true
+      }
     )
   }
 
