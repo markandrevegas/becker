@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useInViewport } from '~/composables/useInViewport'
+import { useInViewport } from "~/composables/useInViewport"
 const introRef = ref<HTMLElement | null>(null)
 const videoRef = ref<HTMLElement | null>(null)
 const bioRef = ref<HTMLElement | null>(null)
@@ -9,32 +9,31 @@ const { isVisible: isVideoVisible } = useInViewport(videoRef)
 const { isVisible: isBioVisible } = useInViewport(bioRef)
 
 const { data: onePager, status, error } = await useOnePager()
-provide('onePager', onePager)
-provide('onePagerPending', status.value)
-provide('onePagerError', error.value)
+provide("onePager", onePager)
+provide("onePagerPending", status.value)
+provide("onePagerError", error.value)
 console.log(onePager.value)
 const mapped = computed(() => {
-  const entry = onePager.value
-  if (!entry) return null
+	const entry = onePager.value
+	if (!entry) return null
 
-  return {
-    title: entry.fields.title,
-    desc: entry.fields.desc,
-    aboutTeaser: entry.fields.aboutTeaser,
+	return {
+		title: entry.fields.title,
+		desc: entry.fields.desc,
+		aboutTeaser: entry.fields.aboutTeaser,
 		aboutHeader: entry.fields.aboutHeader,
 		aboutParagraph: entry.fields.aboutParagraph,
 		videoHeader: entry.fields.videoHeader,
 		bioHeader: entry.fields.bioHeader,
 		bioParagraph: entry.fields.bioParagraph,
 		agentsHeader: entry.fields.agentsHeader
-  }
+	}
 })
 
-provide('onePager', mapped)
-
+provide("onePager", mapped)
 
 import localHeroImage from "/assets/gallery/headshot.webp"
-const photo = ref<{ urls: { full: string }, alt: string } | null>(null)
+const photo = ref<{ urls: { full: string }; alt: string } | null>(null)
 
 const loadLocalPhoto = () => {
 	photo.value = {
@@ -120,10 +119,15 @@ onMounted(() => {
 
 <template>
 	<div class="h-[100vh]">
-		<ul id="cards">
-			<li class="card">
+		<ul id="cards" class="flex flex-1 flex-col">
+			<li id="intro" class="card">
 				<div class="card__content">
 					<p>lorem ipsum dolor sit amet</p>
+					<div class="scroll-downs grid w-full place-items-center">
+						<div class="mousey">
+							<div class="scroller"></div>
+						</div>
+					</div>
 				</div>
 			</li>
 			<li class="card">
@@ -136,7 +140,7 @@ onMounted(() => {
 					<p>lorem ipsum dolor sit amet</p>
 				</div>
 			</li>
-			<li class="card">
+			<li id="bio" class="card">
 				<div class="card__content">
 					<p>lorem ipsum dolor sit amet</p>
 				</div>
@@ -145,18 +149,41 @@ onMounted(() => {
 		<footer>
 			<h1>The End.</h1>
 		</footer>
-		<div class="hidden mx-auto flex flex-1 flex-col">
+		<div class="mx-auto flex hidden flex-1 flex-col">
 			<div v-if="onePager" id="gallery" class="md:pb-16">
 				<IndexGallery />
 			</div>
-			<div v-if="onePager" id="intro" ref="introRef"
-    :class="['md:pb-16 md:px-24 transition-opacity duration-1000 delay-500', isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0']">
+			<div
+				v-if="onePager"
+				id="intro"
+				ref="introRef"
+				:class="[
+					'transition-opacity delay-500 duration-1000 md:px-24 md:pb-16',
+					isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0'
+				]"
+			>
 				<IndexIntro />
 			</div>
-			<div v-if="onePager" id="videos" ref="videoRef" :class="['md:pb-16 md:px-24 transition-opacity duration-1000 delay-500', isVideoVisible ? 'animate-slide-fade-right' : 'opacity-0']">
+			<div
+				v-if="onePager"
+				id="videos"
+				ref="videoRef"
+				:class="[
+					'transition-opacity delay-500 duration-1000 md:px-24 md:pb-16',
+					isVideoVisible ? 'animate-slide-fade-right' : 'opacity-0'
+				]"
+			>
 				<IndexVideos />
 			</div>
-			<div v-if="onePager" id="bio" ref="bioRef" :class="['md:pb-16 md:px-24 transition-opacity duration-1000 delay-500', isBioVisible ? 'animate-slide-fade-left' : 'opacity-0']">
+			<div
+				v-if="onePager"
+				id="bio"
+				ref="bioRef"
+				:class="[
+					'transition-opacity delay-500 duration-1000 md:px-24 md:pb-16',
+					isBioVisible ? 'animate-slide-fade-left' : 'opacity-0'
+				]"
+			>
 				<IndexBio />
 			</div>
 		</div>

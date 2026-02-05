@@ -11,53 +11,91 @@
 		--card-top-offset: 0;
 
 		/* 8px baseline reference */
-		--baseline: 0.5rem; /* 8px */
+		--baseline: 0.5rem;
+			/* 8px */
 
 		/* body / ui (Jost) */
-		--fs-body-sm: clamp(0.875rem, 0.85rem + 0.2vw, 1rem);        /* 14 → 16 */
-		--fs-body: clamp(1.25rem, 1.25rem + 0.25vw, 1.125rem);         /* 16 → 18 */
-		--fs-body-lg: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);    /* 18 → 20 */
+		--fs-body-sm: clamp(0.875rem, 0.85rem + 0.2vw, 1rem);
+			/* 14 → 16 */
+			--fs-body: clamp(1.25rem, 1.25rem + 0.25vw, 1.125rem);
+			/* 16 → 18 */
+			--fs-body-lg: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+			/* 18 → 20 */
 
 		/* headings (Jost) */
-		--fs-h-sm: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);         /* 20 → 24 */
-		--fs-h-md: clamp(1.5rem, 1.35rem + 0.6vw, 1.875rem);       /* 24 → 30 */
-		--fs-h-lg: clamp(2rem, 1.75rem + 1vw, 2.5rem);             /* 32 → 40 */
+		--fs-h-sm: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
+			/* 20 → 24 */
+			--fs-h-md: clamp(1.5rem, 1.35rem + 0.6vw, 1.875rem);
+			/* 24 → 30 */
+			--fs-h-lg: clamp(2rem, 1.75rem + 1vw, 2.5rem);
+			/* 32 → 40 */
 
 		/* display (Corinthia) */
-		--fs-display-sm: clamp(2.5rem, 2.2rem + 1.5vw, 3.25rem);   /* 40 → 52 */
-		--fs-display-md: clamp(3.25rem, 2.8rem + 2.2vw, 4.25rem);  /* 52 → 68 */
-		--fs-display-lg: clamp(4.5rem, 3.8rem + 3vw, 6rem);        /* 72 → 96 */
+		--fs-display-sm: clamp(2.5rem, 2.2rem + 1.5vw, 3.25rem);
+			/* 40 → 52 */
+			--fs-display-md: clamp(3.25rem, 2.8rem + 2.2vw, 4.25rem);
+			/* 52 → 68 */
+			--fs-display-lg: clamp(4.5rem, 3.8rem + 3vw, 6rem);
+			/* 72 → 96 */
 
 		/* line heights (8px-aligned multiples) */
-		--lh-tight: 1;       /* display */
-		--lh-snug: 1.25;     /* headings */
-		--lh-normal: 1.5;    /* body */
-		--lh-relaxed: 1.75;  /* long reads */
+		--lh-tight: 1;
+			/* display */
+			--lh-snug: 1.25;
+			/* headings */
+			--lh-normal: 1.5;
+			/* body */
+			--lh-relaxed: 1.75;
+			/* long reads */
 	}
+
 	html,
 	body {
 		height: auto;
 		overflow-x: hidden;
 	}
+
 	html {
 		scroll-behavior: smooth !important;
 	}
+
 	[id] {
 		scroll-margin-top: 70px;
 	}
+
 	body {
 		@apply bg-abyssal dark:bg-abyssal dark:text-yellow-50/90;
 	}
 }
 
 @layer components {
+	.mousey {
+			width: 3px;
+			padding: 10px 15px;
+			height: 35px;
+			border: 2px solid black;
+			border-radius: 25px;
+			opacity: 0.75;
+			box-sizing: content-box;
+			display: inline-block;
+		}
+	
+		.scroller {
+			width: 3px;
+			height: 10px;
+			border-radius: 25%;
+			background-color: black;
+			animation: scrollFade 2.2s cubic-bezier(0.15, 0.41, 0.69, 0.94) infinite;
+		}
 	#cards {
 		@apply list-none p-0 grid grid-cols-1 grid-rows-4 gap-4 pb-[calc(4*var(--card-margin))] mb-[var(--card-margin)] w-full;
 	}
+
 	.card {
 		@apply sticky top-0 h-[var(--card-height)] pt-[calc(var(--index)*var(--card-top-offset))] bg-abyssal;
 		perspective: 1000px;
 	}
+
 	.card__content {
 		@apply flex flex-col justify-center items-start overflow-y-scroll p-4 w-full h-full box-border bg-cloud text-abyssal;
 		transform-origin: 50% 0%;
@@ -67,78 +105,109 @@
 		animation-timeline: view();
 		animation-range: exit-crossing 0% exit-crossing 100%;
 	}
+
 	.card:nth-child(1) {
 		--index: 1;
 	}
+
 	.card:nth-child(2) {
 		@apply bg-granite text-white;
 		--index: 2;
+
 		& .card__content {
 			@apply bg-abyssal text-palladian;
 		}
 	}
+
 	.card:nth-child(3) {
 		--index: 3;
 	}
+
 	.card:nth-child(4) {
 		--index: 4;
 	}
+
 	.card:nth-child(4) .card__content {
 		@apply bg-abyssal text-palladian;
 		--shadow-color: #3A475080;
 	}
+
 	.max-w-wrapper {
 		@apply mx-auto max-w-6xl;
 	}
+
 	.menu {
 		@apply space-y-8 pt-16;
+
 		li {
 			@apply font-sans text-xl font-medium;
 			letter-spacing: -0.035em;
 		}
+
 		&-desktop {
 			@apply hidden md:flex flex-row justify-start space-x-8
 		}
 	}
+
 	.video-container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  aspect-ratio: 16 / 9;
-}
-
-@layer utilities {
-	@keyframes scale-card {
-		to {
-			transform: scale(0.8) translateY(-10vh) rotateX(-20deg);
-			box-shadow: 0 50px 80px -10px var(--shadow-color);
+		width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+			position: relative;
+			aspect-ratio: 16 / 9;
 		}
-	}
-}
-.fixed.top-0 {
-  contain: layout;
-  will-change: backdrop-filter, background-color;
-}
-.video-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-	margin-bottom: var(--spacing-base);
-}
 
-.video-wrapper iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
+		@layer utilities {
+		@keyframes scrollFade {
+				0% {
+					opacity: 1;
+					transform: translateY(0);
+				}
+		
+				60% {
+					opacity: 1;
+					transform: translateY(12px);
+				}
+		
+				100% {
+					opacity: 0;
+					transform: translateY(12px);
+				}
+			}
+				@keyframes scale-card {
+					to {
+						transform: scale(0.8) translateY(-10vh) rotateX(-20deg);
+						box-shadow: 0 50px 80px -10px var(--shadow-color);
+					}
+				}
+				}
+
+		.fixed.top-0 {
+			contain: layout;
+			will-change: backdrop-filter, background-color;
+		}
+
+		.video-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			margin-bottom: var(--spacing-base);
+		}
+
+		.video-wrapper iframe {
+			width: 100%;
+			height: 100%;
+			border: 0;
+		}
+
 	.main-video {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 	}
+
 	.video-credit {
 		position: absolute;
 		bottom: 1rem;
@@ -150,6 +219,7 @@
 		padding: 4px 8px;
 		border-radius: 4px;
 	}
+
 	.loader,
 	.error {
 		display: flex;
@@ -160,23 +230,28 @@
 		color: white;
 		font-family: sans-serif;
 	}
-	.content { 
+
+		.content {
 		@apply flex flex-col sm:flex-row md:flex-col;
+
 		h2 {
 			@apply text-display-md font-display;
 		}
+
 		p {
 			@apply animate-slide-fade-right delay-500 text-body md:text-body-lg;
 		}
 	}
 }
+
 ::selection {
-  @apply bg-black text-white;
+	@apply bg-black text-white;
 }
 
 .dark ::selection {
-  @apply bg-white text-black;
+	@apply bg-white text-black;
 }
+
 .slide-horizontal-enter-active,
 .slide-horizontal-leave-active {
 	transition:
@@ -204,9 +279,11 @@
 	transform: translateX(0);
 	opacity: 0;
 }
+
 .hide-scrollbar::-webkit-scrollbar {
 	display: none;
 }
+
 .hide-scrollbar {
 	-ms-overflow-style: none;
 	scrollbar-width: none;

@@ -8,7 +8,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "format": "prettier --write **/**/*.{vue,ts,css,js,json}",
+    "format": "prettier --write **/**/*.{vue,ts,js,json}",
     "lint": "eslint .",
     "deploy": "nuxt generate && gh-pages -d .output/public"
   },
