@@ -120,7 +120,32 @@ onMounted(() => {
 
 <template>
 	<div class="h-[100vh]">
-		<div class="mx-auto flex flex-1 flex-col">
+		<ul id="cards">
+			<li class="card">
+				<div class="card__content">
+					<p>lorem ipsum dolor sit amet</p>
+				</div>
+			</li>
+			<li class="card">
+				<div class="card__content">
+					<p>lorem ipsum dolor sit amet</p>
+				</div>
+			</li>
+			<li class="card">
+				<div class="card__content">
+					<p>lorem ipsum dolor sit amet</p>
+				</div>
+			</li>
+			<li class="card">
+				<div class="card__content">
+					<p>lorem ipsum dolor sit amet</p>
+				</div>
+			</li>
+		</ul>
+		<footer>
+			<h1>The End.</h1>
+		</footer>
+		<div class="hidden mx-auto flex flex-1 flex-col">
 			<div v-if="onePager" id="gallery" class="md:pb-16">
 				<IndexGallery />
 			</div>
@@ -135,6 +160,6 @@ onMounted(() => {
 				<IndexBio />
 			</div>
 		</div>
-		<IndexFooter />
+		<!--<IndexFooter />-->
 	</div>
 </template>

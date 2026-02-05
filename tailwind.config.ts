@@ -57,7 +57,10 @@ const config: Config = {
       },
       colors: {
         palladian: "#EEE9DF",
-        abyssal: "#1B2632"
+        abyssal: "#1B2632",
+        cloud: "#EAF2F4",
+        stormy: "#3A4750",
+        granite: "#151820"
       },
       lineHeight: {
         'extra-loose': '2.5',

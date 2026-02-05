@@ -6,6 +6,10 @@
 	:root {
 		--abyssal: #1b2632;
 		--palladian: #eee9df;
+		--card-height: 100vh;
+		--card-margin: 4vw;
+		--card-top-offset: 0;
+
 		/* 8px baseline reference */
 		--baseline: 0.5rem; /* 8px */
 
@@ -42,11 +46,47 @@
 		scroll-margin-top: 70px;
 	}
 	body {
-		@apply bg-white text-abyssal dark:bg-abyssal dark:text-yellow-50/90;
+		@apply bg-abyssal dark:bg-abyssal dark:text-yellow-50/90;
 	}
 }
 
 @layer components {
+	#cards {
+		@apply list-none p-0 grid grid-cols-1 grid-rows-4 gap-4 pb-[calc(4*var(--card-margin))] mb-[var(--card-margin)] w-full;
+	}
+	.card {
+		@apply sticky top-0 h-[var(--card-height)] pt-[calc(var(--index)*var(--card-top-offset))] bg-abyssal;
+		perspective: 1000px;
+	}
+	.card__content {
+		@apply flex flex-col justify-center items-start overflow-y-scroll p-4 w-full h-full box-border bg-cloud text-abyssal;
+		transform-origin: 50% 0%;
+		will-change: transform, filter;
+		transform-style: preserve-3d;
+		animation: scale-card linear forwards;
+		animation-timeline: view();
+		animation-range: exit-crossing 0% exit-crossing 100%;
+	}
+	.card:nth-child(1) {
+		--index: 1;
+	}
+	.card:nth-child(2) {
+		@apply bg-granite text-white;
+		--index: 2;
+		& .card__content {
+			@apply bg-abyssal text-palladian;
+		}
+	}
+	.card:nth-child(3) {
+		--index: 3;
+	}
+	.card:nth-child(4) {
+		--index: 4;
+	}
+	.card:nth-child(4) .card__content {
+		@apply bg-abyssal text-palladian;
+		--shadow-color: #3A475080;
+	}
 	.max-w-wrapper {
 		@apply mx-auto max-w-6xl;
 	}
@@ -66,6 +106,15 @@
   margin: 0 auto;
   position: relative;
   aspect-ratio: 16 / 9;
+}
+
+@layer utilities {
+	@keyframes scale-card {
+		to {
+			transform: scale(0.8) translateY(-10vh) rotateX(-20deg);
+			box-shadow: 0 50px 80px -10px var(--shadow-color);
+		}
+	}
 }
 .fixed.top-0 {
   contain: layout;
