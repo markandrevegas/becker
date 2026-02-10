@@ -1,10 +1,10 @@
 <template>
   <div
-    className="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center"
+    class="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center"
     @mouseenter="mouseEnterHandler"
     @mouseleave="mouseLeaveHandler"
     role="button"
-    aria-label="Light Mode Icon"
+    aria-label="Toggle Light Mode"
     tabindex="0"
   >
     <svg
@@ -19,7 +19,7 @@
       stroke-linejoin="round"
     >
       <circle cx="12" cy="12" r="4" />
-      <Motion is="path" v-for="(item, index) in paths" :key="item" :ref="el => (targetList[index] = el)" :d="item" />
+      <Motion is="path" v-for="(item, index) in paths" :key="item" :ref="(el) => (pathRefs[index] = el)" :d="item" />
     </svg>
   </div>
 </template>
@@ -30,6 +30,7 @@ export default {
 </script>
 
 <script setup>
+import { ref, onMounted } from 'vue';
 import { MotionComponent as Motion, useMotion } from '@vueuse/motion';
 
 const paths = [
@@ -43,6 +44,9 @@ const paths = [
   'm4.93 4.93 1.41 1.41',
 ];
 
+const pathRefs = ref([]);
+const motionInstances = ref([]);
+
 const variants = {
   normal: { opacity: 1 },
   animate: i => ({
@@ -51,41 +55,34 @@ const variants = {
   }),
 };
 
-const len = paths.length;
-const targetList = ref(new Array(len).fill(0).map(() => ref()));
-const targetInstanceList = reactive([]);
-
-for (let i = 0; i < len; i++) {
-  targetInstanceList[i] = useMotion(targetList.value[i], {
-    initial: variants.normal,
-    enter: variants.normal,
-  });
-}
-
 onMounted(() => {
-  for (let i = 0; i < len; i++) {
-    targetInstanceList[i].target = targetList.value[i];
-  }
+  pathRefs.value.forEach((el, index) => {
+    if (el) {
+      motionInstances.value[index] = useMotion(el, {
+        initial: variants.normal,
+        enter: variants.normal,
+      });
+    }
+  });
 });
 
-const hoverFn = type => {
-  for (let i = 0; i < len; i++) {
-    const variant = type === 'animate' ? variants.animate(i) : variants.normal;
-    const instance = targetInstanceList[i];
-    instance.apply({
-      transition: {
-        duration: 300,
-      },
-      ...variant,
-    });
-  }
+const applyAnimation = type => {
+  motionInstances.value.forEach((instance, index) => {
+    if (instance) {
+      const variant = type === 'animate' ? variants.animate(index) : variants.normal;
+      instance.apply({
+        transition: { duration: 300 },
+        ...variant,
+      });
+    }
+  });
 };
 
 function mouseEnterHandler() {
-  hoverFn('animate');
+  applyAnimation('animate');
 }
 
 function mouseLeaveHandler() {
-  hoverFn('normal');
+  applyAnimation('normal');
 }
 </script>
