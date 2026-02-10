@@ -1,9 +1,10 @@
 <template>
   <div
-    className="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center"
+    class="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center"
     @mouseenter="mouseEnterHandler"
     @mouseleave="mouseLeaveHandler"
     role="button"
+    aria-label="Toggle Chevron"
     tabindex="0"
   >
     <svg
@@ -30,6 +31,7 @@ export default {
 </script>
 
 <script setup>
+import { ref } from 'vue';
 import { MotionComponent as Motion, useMotion } from '@vueuse/motion';
 
 const defaultTransition = {
@@ -52,7 +54,7 @@ const targetInstance = useMotion(target, {
   enter: variants.normal,
 });
 
-const hoverFn = type => {
+const applyAnimation = type => {
   const variant = variants[type];
   targetInstance.apply({
     ...variant,
@@ -61,10 +63,10 @@ const hoverFn = type => {
 };
 
 function mouseEnterHandler() {
-  hoverFn('animate');
+  applyAnimation('animate');
 }
 
 function mouseLeaveHandler() {
-  hoverFn('normal');
+  applyAnimation('normal');
 }
 </script>

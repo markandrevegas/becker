@@ -1,8 +1,8 @@
 <template>
 	<div
-		className="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center"
+		class="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center"
 		role="button"
-		aria-label="Menu Button"
+		aria-label="Toggle Menu"
 		tabindex="0"
 	>
 		<svg
@@ -88,7 +88,7 @@ onMounted(() => {
 	}
 })
 
-const hoverFn = (type) => {
+const applyAnimation = (type) => {
 	for (let i = 0; i < len; i++) {
 		const variant = type === "animate" ? variants.animate(i) : variants.normal
 		const instance = targetInstanceList[i]
@@ -102,7 +102,7 @@ const hoverFn = (type) => {
 watch(
 	() => props.isOpen,
 	(isOpen) => {
-		hoverFn(isOpen ? "animate" : "normal")
+		applyAnimation(isOpen ? "animate" : "normal")
 	},
 	{ immediate: true }
 )

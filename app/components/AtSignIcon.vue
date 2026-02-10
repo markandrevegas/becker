@@ -1,10 +1,10 @@
 <template>
 	<div
-		className="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center"
+		class="cursor-pointer select-none p-2 hover:bg-accent rounded-md transition-colors duration-200 flex items-center justify-center"
 		@mouseenter="mouseEnterHandler"
 		@mouseleave="mouseLeaveHandler"
 		role="button"
-		aria-label="At Sign"
+		aria-label="Toggle At Sign"
 		tabindex="0"
 	>
 		<svg
@@ -31,6 +31,7 @@ export default {
 </script>
 
 <script setup>
+import { ref, reactive } from "vue"
 import { MotionComponent as Motion, useMotion } from "@vueuse/motion"
 
 const variants = [
@@ -82,7 +83,7 @@ for (let i = 0; i < len; i++) {
 	})
 }
 
-const hoverFn = (type) => {
+const applyAnimation = (type) => {
 	for (let i = 0; i < len; i++) {
 		const variant = variants[i][type]
 		const instance = targetInstanceList[i]
@@ -91,10 +92,10 @@ const hoverFn = (type) => {
 }
 
 function mouseEnterHandler() {
-	hoverFn("animate")
+	applyAnimation("animate")
 }
 
 function mouseLeaveHandler() {
-	// hoverFn('normal');
+	// applyAnimation('normal');
 }
 </script>
