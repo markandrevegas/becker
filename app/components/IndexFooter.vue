@@ -23,7 +23,7 @@ const images: GalleryImage[] = [
 	<footer
 			class="flex flex-col justify-end items-end mt-auto gap-8 bg-abyssal text-lg text-white dark:text-yellow-50/90 md:text-xl"
 		>
-			<div class="gallery-container relative">
+			<div class="gallery-container relative lg:w-full">
 				<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 					<div v-for="image in images" :key="image.id" class="relative w-full flex-1 flex-shrink-0 snap-center">
 						<NuxtImg

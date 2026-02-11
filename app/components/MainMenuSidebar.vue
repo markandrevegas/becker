@@ -47,9 +47,6 @@ const props = defineProps({
 		<header class="max-w-wrapper flex h-[70px] w-full items-center justify-end px-8 transition-colors duration-300">
 			<nav class="flex w-full items-center justify-between gap-16">
 				<ul class="menu-desktop">
-					<li class="flex justify-start md:hidden">
-						<NuxtLink to="#gallery" @click="handleClick('gallery', 'desktop')"><CircleChevronUpIcon /></NuxtLink>
-					</li>
 					<li style="margin-left: 0; padding-right: 4rem">
 						<NuxtLink to="#intro" @click="handleClick('intro', 'desktop')">Intro</NuxtLink>
 					</li>
@@ -64,12 +61,6 @@ const props = defineProps({
 					</li>
 				</ul>
 				<div class="flex items-center justify-start gap-8">
-					<a href="https://www.instagram.com/deanajbecker/" target="_blank">
-						<LineInstagram />
-					</a>
-					<a href="https://www.linkedin.com/in/deana-becker-5630545/" target="_blank">
-						<LineLinkedin />
-					</a>
 					<ColorModeToggle />
 				</div>
 			</nav>
@@ -100,11 +91,6 @@ const props = defineProps({
 				</div>
 				<div class="flex-1 overflow-y-scroll pt-[70px]">
 					<ul class="menu px-4">
-						<li class="flex justify-start" @click="handleClick('gallery', 'mobile')">
-							<NuxtLink aria-label="Back to Top" to="#gallery"
-								><CircleChevronUpIcon aria-hidden="true" focusable="false"
-							/></NuxtLink>
-						</li>
 						<li>
 							<NuxtLink aria-label="Intro" to="#intro" @click="handleClick('intro', 'mobile')">Intro</NuxtLink>
 						</li>
