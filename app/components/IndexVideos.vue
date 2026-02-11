@@ -59,12 +59,12 @@ const filmClips: FilmClip[] = [
 					</h2>
 				</div>
 			</div>
-			<div class="content px-8 py-24">
+			<div class="content px-8 py-24 sm:w-4/5">
 				<h2 class="mb-8 mt-2 hidden w-full max-w-md font-display text-display-lg sm:block">{{ header }}</h2>
 				<p>
 					{{ content }}
 				</p>
-				<div class="my-8 flex w-full flex-col gap-4 sm:flex-row lg:my-16">
+				<div class="my-8 flex w-full flex-col gap-4 lg:flex-row lg:my-16">
 					<div v-for="clip in filmClips" :key="clip.id" class="video-container">
 						<div class="video-wrapper">
 							<iframe
