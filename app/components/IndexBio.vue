@@ -132,11 +132,11 @@ const trainingItems: Training[] = [
 
 				<div class="grid gap-x-10 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
 					<div v-for="role in tvRoles" :key="role.show" class="space-y-1">
-						<p class="text-body text-neutral-900">
+						<p class="text-body">
 							{{ role.show }} <span v-if="role.role">– {{ role.role }}</span>
 						</p>
 
-						<p v-if="role.producer">Producer: {{ role.producer }}</p>
+						<p v-if="role.producer" class="text-neutral-500">Producer: {{ role.producer }}</p>
 					</div>
 				</div>
 			</div>
