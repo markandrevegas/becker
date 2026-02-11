@@ -15,16 +15,14 @@ useHead({
 })
 
 const handleGoHome = () => {
-	navigateTo('/')
+	navigateTo("/")
 }
 </script>
 
 <template>
 	<div class="flex min-h-[calc(100vh-70px)] flex-col items-center justify-center px-8 py-24">
 		<div class="text-center">
-			<h1 class="font-display text-8xl font-bold uppercase text-abyssal dark:text-yellow-50/90 md:text-9xl">
-				404
-			</h1>
+			<h1 class="font-display text-8xl font-bold uppercase text-abyssal dark:text-yellow-50/90 md:text-9xl">404</h1>
 			<h2 class="mt-4 text-2xl font-medium uppercase text-abyssal dark:text-yellow-50/90 md:text-3xl">
 				Page Not Found
 			</h2>

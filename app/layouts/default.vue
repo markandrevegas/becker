@@ -4,10 +4,10 @@ import { ref, onMounted, onBeforeUnmount } from "vue"
 const scrollContainer = ref(null)
 const isScrolled = ref(false)
 const onScroll = (e) => {
-  // Use a threshold that doesn't require "measuring" the whole container
-  const top = e.target.scrollTop
-  if (top > 70 && !isScrolled.value) isScrolled.value = true
-  else if (top <= 70 && isScrolled.value) isScrolled.value = false
+	// Use a threshold that doesn't require "measuring" the whole container
+	const top = e.target.scrollTop
+	if (top > 70 && !isScrolled.value) isScrolled.value = true
+	else if (top <= 70 && isScrolled.value) isScrolled.value = false
 }
 
 onMounted(() => {
@@ -23,15 +23,11 @@ onBeforeUnmount(() => {
 })
 </script>
 <template>
-	<div 
-    ref="scrollContainer" 
-    class="relative flex h-screen flex-col overflow-auto"
-    @scroll.passive="onScroll"
-  >
+	<div ref="scrollContainer" class="relative flex h-screen flex-col overflow-auto" @scroll.passive="onScroll">
 		<MainMenuSidebar :is-scrolled="isScrolled" />
 		<!-- Main scroll area -->
-		<main class="flex flex-1 flex-col pt-[70px]">
+		<div class="flex flex-1 flex-col pt-[70px]">
 			<slot></slot>
-		</main>
+		</div>
 	</div>
 </template>
