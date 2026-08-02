@@ -94,7 +94,8 @@ export default defineNuxtConfig({
 		"@nuxt/eslint",
 		"@nuxt/icon",
 		"nuxt-schema-org",
-		"@nuxt/scripts"
+		"@nuxt/scripts",
+		'nuxt-gtag'
 	],
 	runtimeConfig: {
     public: {
@@ -142,5 +143,12 @@ export default defineNuxtConfig({
         }
       : undefined
 		}
-	}
+	},
+	gtag: {
+    id: process.env.NUXT_PUBLIC_GTAG_ID || 'G-0TNS5Z0421',
+    config: {
+      page_title: 'Nuxt App',
+      send_page_view: true
+    }
+  }
 })
