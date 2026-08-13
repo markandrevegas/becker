@@ -12,7 +12,6 @@ const { data: onePager, status, error } = await useOnePager()
 provide("onePager", onePager)
 provide("onePagerPending", status.value)
 provide("onePagerError", error.value)
-console.log(onePager.value)
 const mapped = computed(() => {
 	const entry = onePager.value
 	if (!entry) return null
@@ -29,6 +28,7 @@ const mapped = computed(() => {
 		agentsHeader: entry.fields.agentsHeader
 	}
 })
+// watch(mapped, (val) => console.log(val))
 
 provide("onePager", mapped)
 
