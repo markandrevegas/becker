@@ -57,7 +57,7 @@ declare module "nuxt/schema" {
 export default defineNuxtConfig({
 	ssr: true,
 	app: {
-		baseURL: '/becker/',
+		// baseURL: '/becker/',
 		head: {
 			htmlAttrs: {
 				lang: "en"
