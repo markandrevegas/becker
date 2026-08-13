@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy to Hostinger
 on:
   push:
     branches: [ main ]
@@ -21,3 +21,27 @@ jobs:
         env:
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+
+      - name: Deploy to Hostinger via SSH
+        env:
+          SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -p $SSH_PORT" \
+            --exclude 'wp-admin/' \
+            --exclude 'wp-includes/' \
+            --exclude 'wp-content/' \
+            --exclude 'wp-login.php' \
+            --exclude 'wp-json/' \
+            --exclude 'xmlrpc.php' \
+            --exclude 'wp-*.php' \
+            --exclude '.htaccess' \
+            ./.output/public/ "$SSH_USER@$SSH_HOST:~/domains/deanajbecker.com/public_html/"
