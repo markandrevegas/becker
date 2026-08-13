@@ -22,7 +22,7 @@ interface FilmClip {
 	url?: string
 }
 
-const images: GalleryImage[] = [{ id: "1", src: "/becker/assets/gallery/10.webp", alt: "D. Becker" }]
+const images: GalleryImage[] = [{ id: "1", src: "/assets/gallery/10.webp", alt: "D. Becker" }]
 
 const filmClips: FilmClip[] = [
 	{

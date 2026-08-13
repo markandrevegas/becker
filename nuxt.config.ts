@@ -57,17 +57,17 @@ declare module "nuxt/schema" {
 export default defineNuxtConfig({
 	ssr: true,
 	app: {
-		// baseURL: '/becker/',
+		// baseURL: '/',
 		head: {
 			htmlAttrs: {
 				lang: "en"
 			}, 	
 			link: [
-				{ rel: "icon", type: "image/png", href: "/becker/assets/favicon-96x96.png", sizes: "96x96" },
-        { rel: "icon", type: "image/svg+xml", href: "/becker/assets/favicon.svg" },
-        { rel: "shortcut icon", href: "/becker/assets/favicon.ico" },
-        { rel: "apple-touch-icon", sizes: "180x180", href: "/becker/assets/apple-touch-icon.png" },
-        { rel: "manifest", href: "/becker/assets/site.webmanifest" },
+				{ rel: "icon", type: "image/png", href: "/assets/favicon-96x96.png", sizes: "96x96" },
+        { rel: "icon", type: "image/svg+xml", href: "/assets/favicon.svg" },
+        { rel: "shortcut icon", href: "/assets/favicon.ico" },
+        { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/apple-touch-icon.png" },
+        { rel: "manifest", href: "/assets/site.webmanifest" },
         { rel: "preconnect", href: "https://m.imdb.com", crossorigin: "" }
 			],
 			meta: [{ name: "apple-mobile-web-app-title", content: "Deana Becker" }]
