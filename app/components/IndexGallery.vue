@@ -28,7 +28,7 @@ const images: GalleryImage[] = [
 </script>
 
 <template>
-	<div class="flex flex-col">
+	<div class="flex flex-col h-screen">
 		<div class="gallery-container relative" style="height: 100vh">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-1 flex-shrink-0 snap-center">
