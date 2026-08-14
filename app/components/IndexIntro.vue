@@ -26,9 +26,7 @@ const images: GalleryImage[] = [{ id: "4", src: "/assets/gallery/5.webp", alt: "
 			</div>
 
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
-			<div
-				class="absolute bottom-0 left-0 right-0 z-30 flex h-72 flex-col justify-end px-8 pb-16 text-white sm:hidden sm:p-16"
-			>
+			<div class="absolute bottom-0 left-0 right-0 z-30 flex h-72 flex-col justify-end px-8 pb-16 text-white sm:hidden sm:p-16">
 				<h2 class="mt-2 max-w-md font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)] lg:hidden">
 					{{ IntroHeader }}
 				</h2>

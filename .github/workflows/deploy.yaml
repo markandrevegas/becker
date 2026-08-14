@@ -1,11 +1,13 @@
 name: Deploy to Hostinger
+
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
@@ -36,12 +38,5 @@ jobs:
 
           rsync -avz --delete \
             -e "ssh -i ~/.ssh/deploy_key -p $SSH_PORT" \
-            --exclude 'wp-admin/' \
-            --exclude 'wp-includes/' \
-            --exclude 'wp-content/' \
-            --exclude 'wp-login.php' \
-            --exclude 'wp-json/' \
-            --exclude 'xmlrpc.php' \
-            --exclude 'wp-*.php' \
-            --exclude '.htaccess' \
-            ./.output/public/ "$SSH_USER@$SSH_HOST:~/domains/deanajbecker.com/public_html/"
+            ./.output/public/ \
+            "$SSH_USER@$SSH_HOST:~/domains/deanajbecker.com/public_html/"

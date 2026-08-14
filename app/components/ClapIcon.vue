@@ -1,24 +1,6 @@
 <template>
-	<div
-		class="hover:bg-accent flex cursor-pointer select-none items-center justify-center rounded-md p-2 transition-colors duration-200"
-		@mouseenter="mouseEnterHandler"
-		@mouseleave="mouseLeaveHandler"
-		role="button"
-		aria-label="Toggle Clap"
-		tabindex="0"
-	>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			width="36"
-			height="36"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="2"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			style="overflow: visible"
-		>
+	<div class="hover:bg-accent flex cursor-pointer select-none items-center justify-center rounded-md p-2 transition-colors duration-200" @mouseenter="mouseEnterHandler" @mouseleave="mouseLeaveHandler" role="button" aria-label="Toggle Clap" tabindex="0">
+		<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="overflow: visible">
 			<Motion is="g" :ref="targetList[0]" :transform-origin="transformOrigin[0]">
 				<Motion is="g" :ref="targetList[1]" :transform-origin="transformOrigin[1]">
 					<path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3Z" />

@@ -62,17 +62,7 @@ const theaterRoles: TheaterRole[] = [
 interface Training {
 	item: string
 }
-const trainingItems: Training[] = [
-	{ item: "American Academy of Dramatic Arts - NYC" },
-	{ item: "The Groundlings (Scholarship Winner)" },
-	{ item: "Brian Reese Acting Studios - LA" },
-	{ item: "Studio Theatre Acting Conservatory - Washington D.C." },
-	{ item: "Soap Opera Workshop / Gail Comacho - NYC" },
-	{ item: "AIA Three Of Us / Delphi Harrington - NYC" },
-	{ item: "Weist - Barron - NYC" },
-	{ item: "Private Coaching with Nathan George" },
-	{ item: "BA - Film Production" }
-]
+const trainingItems: Training[] = [{ item: "American Academy of Dramatic Arts - NYC" }, { item: "The Groundlings (Scholarship Winner)" }, { item: "Brian Reese Acting Studios - LA" }, { item: "Studio Theatre Acting Conservatory - Washington D.C." }, { item: "Soap Opera Workshop / Gail Comacho - NYC" }, { item: "AIA Three Of Us / Delphi Harrington - NYC" }, { item: "Weist - Barron - NYC" }, { item: "Private Coaching with Nathan George" }, { item: "BA - Film Production" }]
 </script>
 <template>
 	<div class="flex w-full flex-col gap-4 pb-24">
@@ -85,9 +75,7 @@ const trainingItems: Training[] = [
 				</div>
 
 				<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
-				<div
-					class="absolute bottom-0 left-0 right-0 z-30 flex h-72 flex-col justify-end px-8 pb-16 text-white sm:hidden sm:p-16"
-				>
+				<div class="absolute bottom-0 left-0 right-0 z-30 flex h-72 flex-col justify-end px-8 pb-16 text-white sm:hidden sm:p-16">
 					<h2 class="mt-2 max-w-md font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)] lg:hidden">
 						{{ BioHeader }}
 					</h2>

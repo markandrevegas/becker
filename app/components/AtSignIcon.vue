@@ -1,23 +1,6 @@
 <template>
-	<div
-		class="hover:bg-accent flex cursor-pointer select-none items-center justify-center rounded-md p-2 transition-colors duration-200"
-		@mouseenter="mouseEnterHandler"
-		@mouseleave="mouseLeaveHandler"
-		role="button"
-		aria-label="Toggle At Sign"
-		tabindex="0"
-	>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			width="24"
-			height="24"
-			viewBox="0 0 24 24"
-			fill="none"
-			stroke="currentColor"
-			stroke-width="2"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-		>
+	<div class="hover:bg-accent flex cursor-pointer select-none items-center justify-center rounded-md p-2 transition-colors duration-200" @mouseenter="mouseEnterHandler" @mouseleave="mouseLeaveHandler" role="button" aria-label="Toggle At Sign" tabindex="0">
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 			<Motion is="circle" :ref="targetList[0]" cx="12" cy="12" r="4" />
 			<Motion is="path" :ref="targetList[1]" d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8" />
 		</svg>

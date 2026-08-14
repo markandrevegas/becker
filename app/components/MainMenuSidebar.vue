@@ -39,10 +39,7 @@ const props = defineProps({
 			'--header-blur': props.isScrolled ? '24px' : '12px',
 			'--header-bg': props.isScrolled ? 'rgba(27, 38, 50, 0.4)' : 'transparent'
 		}"
-		:class="[
-			'bg-[var(--header-bg)] backdrop-blur-[var(--header-blur)]',
-			props.isScrolled ? 'text-white' : 'text-abyssal dark:text-yellow-50/90'
-		]"
+		:class="['bg-[var(--header-bg)] backdrop-blur-[var(--header-blur)]', props.isScrolled ? 'text-white' : 'text-abyssal dark:text-yellow-50/90']"
 	>
 		<header class="max-w-wrapper flex h-[70px] w-full items-center justify-end px-8 transition-colors duration-300">
 			<nav class="flex w-full items-center justify-between gap-16">
@@ -64,27 +61,13 @@ const props = defineProps({
 					<ColorModeToggle />
 				</div>
 			</nav>
-			<button
-				aria-label="Menu Toggle"
-				class="text-2xl uppercase tracking-tighter md:hidden"
-				:aria-expanded="isOpen"
-				aria-haspopup="true"
-				@click="toggleMenu"
-			>
+			<button aria-label="Menu Toggle" class="text-2xl uppercase tracking-tighter md:hidden" :aria-expanded="isOpen" aria-haspopup="true" @click="toggleMenu">
 				<MenuIcon :is-open="isOpen" />
 			</button>
 		</header>
 		<!-- Drawer overlay -->
-		<div
-			v-if="isOpen"
-			aria-label="Menu Toggle"
-			class="fixed inset-0 top-[70px] z-40 bg-black/50 backdrop-blur-sm"
-			@click="toggleMenu"
-		></div>
-		<nav
-			class="fixed right-0 top-[70px] z-50 min-h-screen w-2/3 bg-white text-abyssal transition-transform duration-300 dark:bg-abyssal dark:text-white lg:w-1/5"
-			:class="isOpen ? 'translate-x-0' : 'translate-x-full'"
-		>
+		<div v-if="isOpen" aria-label="Menu Toggle" class="fixed inset-0 top-[70px] z-40 bg-black/50 backdrop-blur-sm" @click="toggleMenu"></div>
+		<nav class="fixed right-0 top-[70px] z-50 min-h-screen w-2/3 bg-white text-abyssal transition-transform duration-300 dark:bg-abyssal dark:text-white lg:w-1/5" :class="isOpen ? 'translate-x-0' : 'translate-x-full'">
 			<div class="flex h-full flex-col">
 				<div class="fixed right-0 top-0 z-10 flex hidden h-[70px] w-full items-center justify-between px-4">
 					<ColorModeToggle />
@@ -95,9 +78,7 @@ const props = defineProps({
 							<NuxtLink aria-label="Intro" to="#intro" @click="handleClick('intro', 'mobile')">Intro</NuxtLink>
 						</li>
 						<li>
-							<NuxtLink aria-label="Biography and Roles" to="#bio" @click="handleClick('bio', 'mobile')"
-								>Film, TV, Theatre</NuxtLink
-							>
+							<NuxtLink aria-label="Biography and Roles" to="#bio" @click="handleClick('bio', 'mobile')">Film, TV, Theatre</NuxtLink>
 						</li>
 						<li>
 							<NuxtLink aria-label="Videos" to="#videos" @click="handleClick('videos', 'mobile')">Reels</NuxtLink>

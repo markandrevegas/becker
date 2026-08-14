@@ -105,11 +105,9 @@ useSchemaOrg([
 	}),
 	defineVideo({
 		name: "Deana J Becker Dramatic Reel",
-		description:
-			"A compilation of dramatic performances showcasing Deana J Becker's range and talent as a SAG AFTRA actress.",
+		description: "A compilation of dramatic performances showcasing Deana J Becker's range and talent as a SAG AFTRA actress.",
 		thumbnailUrl: "/video-thumb.jpg",
-		contentUrl:
-			"https://imdb-video.media-imdb.com/vi2536814873/1434659607842-pgv4ql-1501028571775.mp4?Expires=1768508207&amp;Signature=DrpzT2e14MqKmQgK2RGC3tyDB8xaDSjGVDHZ7RjpezoZXpVcUT3oOBQHbtrmn8r23Fb8HUl4oshzaX8NXUSYmJWOj98854UnmRf0wYpYLzoq6x0YzpNEVNE-YjKjhWTk4gmYOZfahUNY0rhso6GFquwmcWEyVNxZG-YDMfF8Imj1ZgVwh8wSVZHyuZ51iGyEv0AnJujsexWdUkwzVfP9tPStt9dI0Ln~niLbTU8lBtZbIm7M-PD6PAuHVJvfrJz5DCpC8Z1AWr5bbYQ87rWaJQiVhCCD~Yf1C6pCfuZAD~rDTPY~AbtpLl9phXpiYtUwlcJmXukEvnXkmVTEjKk7ZQ__&amp;Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
+		contentUrl: "https://imdb-video.media-imdb.com/vi2536814873/1434659607842-pgv4ql-1501028571775.mp4?Expires=1768508207&amp;Signature=DrpzT2e14MqKmQgK2RGC3tyDB8xaDSjGVDHZ7RjpezoZXpVcUT3oOBQHbtrmn8r23Fb8HUl4oshzaX8NXUSYmJWOj98854UnmRf0wYpYLzoq6x0YzpNEVNE-YjKjhWTk4gmYOZfahUNY0rhso6GFquwmcWEyVNxZG-YDMfF8Imj1ZgVwh8wSVZHyuZ51iGyEv0AnJujsexWdUkwzVfP9tPStt9dI0Ln~niLbTU8lBtZbIm7M-PD6PAuHVJvfrJz5DCpC8Z1AWr5bbYQ87rWaJQiVhCCD~Yf1C6pCfuZAD~rDTPY~AbtpLl9phXpiYtUwlcJmXukEvnXkmVTEjKk7ZQ__&amp;Key-Pair-Id=APKAIFLZBVQZ24NQH3KA"
 	})
 ])
 onMounted(() => {
@@ -118,42 +116,18 @@ onMounted(() => {
 </script>
 
 <template>
-	<div class="h-[100vh]">
+	<div>
 		<main class="mx-auto flex flex-1 flex-col">
-			<div v-if="onePager" id="gallery" class="md:pb-16">
+			<div v-if="onePager" id="gallery">
 				<IndexGallery />
 			</div>
-			<div
-				v-if="onePager"
-				id="intro"
-				ref="introRef"
-				:class="[
-					'transition-opacity delay-500 duration-1000 md:px-8 md:pb-16',
-					isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0'
-				]"
-			>
+			<div v-if="onePager" id="intro" ref="introRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pt-48 md:pb-16', isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0']">
 				<IndexIntro />
 			</div>
-			<div
-				v-if="onePager"
-				id="videos"
-				ref="videoRef"
-				:class="[
-					'transition-opacity delay-500 duration-1000 md:px-8 md:pb-16',
-					isVideoVisible ? 'animate-slide-fade-right' : 'opacity-0'
-				]"
-			>
+			<div v-if="onePager" id="videos" ref="videoRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16', isVideoVisible ? 'animate-slide-fade-right' : 'opacity-0']">
 				<IndexVideos />
 			</div>
-			<div
-				v-if="onePager"
-				id="bio"
-				ref="bioRef"
-				:class="[
-					'transition-opacity delay-500 duration-1000 md:px-8 md:pb-16',
-					isBioVisible ? 'animate-slide-fade-left' : 'opacity-0'
-				]"
-			>
+			<div v-if="onePager" id="bio" ref="bioRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16', isBioVisible ? 'animate-slide-fade-left' : 'opacity-0']">
 				<IndexBio />
 			</div>
 		</main>
