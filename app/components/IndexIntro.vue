@@ -14,14 +14,19 @@ interface GalleryImage {
 	alt: string
 }
 
-const images: GalleryImage[] = [{ id: "4", src: "/assets/gallery/5.webp", alt: "On-set Behind the Scenes" }]
+const images: GalleryImage[] = [
+  { id: "4", src: "/assets/gallery/5.webp", alt: "On-set Behind the Scenes" },
+  { id: "2", src: "/assets/gallery/1.webp", alt: "On-set Production" },
+  { id: "6", src: "/assets/gallery/3.webp", alt: "Behind the Scenes" },
+  { id: "7", src: "/assets/gallery/4.webp", alt: "On-set Action" }
+]
 </script>
 <template>
 	<div class="flex flex-col items-start gap-4 sm:flex-row-reverse md:items-center lg:flex-row">
 		<div class="gallery-container relative w-full sm:w-1/2">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
-					<NuxtImg :src="image.src" class="h-screen w-full object-cover object-top" :alt="image.alt" />
+					<NuxtImg :src="image.src" :alt="image.alt" class="h-screen w-full object-cover object-top" sizes="100vw sm:50vw" width="900" height="1200" />
 				</div>
 			</div>
 

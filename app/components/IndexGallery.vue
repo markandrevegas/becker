@@ -47,7 +47,7 @@ const images: GalleryImage[] = [
 				</p>
 			</div>
 		</div>
-		<div class="hidden max-w-wrapper relative">
+		<div class="max-w-wrapper relative hidden">
 			<div class="content gap-8 px-8 py-24">
 				<p class="sm:!text-2l !text-xl md:!text-3xl md:!leading-loose">
 					{{ HeroAboutTeaser }}

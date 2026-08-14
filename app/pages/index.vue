@@ -121,7 +121,7 @@ onMounted(() => {
 			<div v-if="onePager" id="gallery">
 				<IndexGallery />
 			</div>
-			<div v-if="onePager" id="intro" ref="introRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pt-48 md:pb-16', isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0']">
+			<div v-if="onePager" id="intro" ref="introRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16 md:pt-48', isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0']">
 				<IndexIntro />
 			</div>
 			<div v-if="onePager" id="videos" ref="videoRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16', isVideoVisible ? 'animate-slide-fade-right' : 'opacity-0']">
