@@ -21,49 +21,23 @@ const images: GalleryImage[] = [
 </script>
 <template>
 	<footer class="mt-auto flex flex-col items-end justify-end gap-8 bg-abyssal text-lg text-white dark:text-yellow-50/90 md:text-xl">
-		<div class="relative lg:w-full">
-			<div v-for="image in images" :key="image.id" class="relative w-full flex-1 flex-shrink-0 snap-center">
-				<NuxtImg :src="image.srcMobile" width="1536" class="h-screen w-full object-cover md:hidden" alt="Deana J Becker" loading="lazy" />
-				<NuxtImg :src="image.srcDesktop" class="hidden h-screen w-full object-cover md:block" alt="Deana J Becker" loading="eager" fetchpriority="high" />
-			</div>
-			<div class="max-w-wrapper absolute bottom-0 left-0 right-0 z-30 flex flex-col justify-start px-8 pb-32 text-white dark:text-yellow-50/90">
-				<h2 class="mt-2 max-w-md font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">
-					{{ agentsHeader }}
-				</h2>
-				<div class="mt-16 flex w-full flex-col gap-16 sm:grid sm:grid-cols-2">
-					<div class="flex flex-col sm:col-span-1">
-						<span class="mb-2 block font-semibold drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">Evolve Talent Management</span>
-						<span class="drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">Sandra Berney</span>
-						<a href="mailto:Sandra.evolvetalent@gmail.com" class="drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)] hover:underline">sandra.evolvetalent@gmail.com</a>
-					</div>
-					<div class="flex flex-col sm:col-span-1">
-						<span class="mb-2 block font-semibold drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">COMM-Henderson Represents Inc. (HRI)</span>
-						<span class="drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">Michelle Henderson</span>
-						<a mailto="mhenderson@hritalent.com" class="drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)] hover:underline">mhenderson@hritalent.com</a>
-						<span class="drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">310-295-077</span>
-					</div>
+		<div>
+			<h2 class="mt-2 max-w-md font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">
+				{{ agentsHeader }}
+			</h2>
+			<div class="mt-16 flex w-full flex-col gap-16 sm:grid sm:grid-cols-2">
+				<div class="flex flex-col sm:col-span-1">
+					<span class="mb-2 block font-semibold drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">Evolve Talent Management</span>
+					<span class="drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">Sandra Berney</span>
+					<a href="mailto:Sandra.evolvetalent@gmail.com" class="drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)] hover:underline">sandra.evolvetalent@gmail.com</a>
+				</div>
+				<div class="flex flex-col sm:col-span-1">
+					<span class="mb-2 block font-semibold drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">COMM-Henderson Represents Inc. (HRI)</span>
+					<span class="drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">Michelle Henderson</span>
+					<a mailto="mhenderson@hritalent.com" class="drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)] hover:underline">mhenderson@hritalent.com</a>
+					<span class="drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">310-295-077</span>
 				</div>
 			</div>
-			<!--<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
-				<div v-for="image in images" :key="image.id" class="relative w-full flex-1 flex-shrink-0 snap-center">
-					<NuxtImg
-						:src="image.srcMobile"
-						width="1536"
-						class="h-screen w-full object-cover md:hidden"
-						alt="Deana J Becker"
-						loading="lazy"
-					/>
-					<NuxtImg
-						:src="image.srcDesktop"
-						class="hidden h-screen w-full object-cover md:block"
-						alt="Deana J Becker"
-						loading="eager"
-						fetchpriority="high"
-					/>
-				</div>
-			</div>-->
-
-			<!--<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>-->
 		</div>
 	</footer>
 </template>

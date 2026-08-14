@@ -15,10 +15,10 @@ interface GalleryImage {
 }
 
 const images: GalleryImage[] = [
-  { id: "4", src: "/assets/gallery/5.webp", alt: "On-set Behind the Scenes" },
-  { id: "2", src: "/assets/gallery/1.webp", alt: "On-set Production" },
-  { id: "6", src: "/assets/gallery/3.webp", alt: "Behind the Scenes" },
-  { id: "7", src: "/assets/gallery/4.webp", alt: "On-set Action" }
+	{ id: "4", src: "/assets/gallery/5.webp", alt: "On-set Behind the Scenes" },
+	{ id: "2", src: "/assets/gallery/1.webp", alt: "On-set Production" },
+	{ id: "6", src: "/assets/gallery/3.webp", alt: "Behind the Scenes" },
+	{ id: "7", src: "/assets/gallery/4.webp", alt: "On-set Action" }
 ]
 </script>
 <template>

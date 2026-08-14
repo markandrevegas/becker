@@ -131,6 +131,5 @@ onMounted(() => {
 				<IndexBio />
 			</div>
 		</main>
-		<IndexFooter />
 	</div>
 </template>

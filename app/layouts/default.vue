@@ -29,5 +29,6 @@ onBeforeUnmount(() => {
 		<div class="flex flex-1 flex-col pt-[70px]">
 			<slot></slot>
 		</div>
+		<IndexFooter />
 	</div>
 </template>
