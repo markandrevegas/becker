@@ -24,9 +24,11 @@ const images: GalleryImage[] = [
 
 <template>
 	<div class="relative h-[100dvh] w-full overflow-hidden">
+		<!-- Mobile Image -->
 		<NuxtImg :src="images[0]?.srcMobile" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" class="absolute inset-0 h-full min-h-full w-full min-w-full max-w-none object-cover md:hidden" width="768" height="1365" loading="eager" fetchpriority="high" preload />
 
-		<NuxtImg :src="images[0]?.srcDesktop" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" class="absolute inset-0 hidden h-full w-full object-cover md:block" width="1536" height="1024" loading="eager" fetchpriority="high" preload />
+		<!-- Desktop Image -->
+		<NuxtImg :src="images[0]?.srcDesktop" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" class="absolute inset-0 hidden h-full min-h-full w-full min-w-full max-w-none object-cover md:block" width="1536" height="1024" loading="eager" fetchpriority="high" preload />
 
 		<div class="max-w-wrapper absolute bottom-[8rem] left-0 z-30 px-8 text-white dark:text-yellow-50/90 lg:bottom-[32rem]">
 			<h1 class="animate-slide-fade-left font-display text-display-lg">
