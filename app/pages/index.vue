@@ -8,29 +8,8 @@ const { isVisible: isIntroVisible } = useInViewport(introRef)
 const { isVisible: isVideoVisible } = useInViewport(videoRef)
 const { isVisible: isBioVisible } = useInViewport(bioRef)
 
-const { data: onePager, status, error } = await useOnePager()
-provide("onePager", onePager)
-provide("onePagerPending", status.value)
-provide("onePagerError", error.value)
-const mapped = computed(() => {
-	const entry = onePager.value
-	if (!entry) return null
-
-	return {
-		title: entry.fields.title,
-		desc: entry.fields.desc,
-		aboutTeaser: entry.fields.aboutTeaser,
-		aboutHeader: entry.fields.aboutHeader,
-		aboutParagraph: entry.fields.aboutParagraph,
-		videoHeader: entry.fields.videoHeader,
-		bioHeader: entry.fields.bioHeader,
-		bioParagraph: entry.fields.bioParagraph,
-		agentsHeader: entry.fields.agentsHeader
-	}
-})
-// watch(mapped, (val) => console.log(val))
-
-provide("onePager", mapped)
+const { data: onePager, pending: onePagerPending, error: onePagerError } = await useOnePager()
+const mapped = await useOnePagerFields()
 
 import localHeroImage from "/assets/gallery/headshot.webp"
 const photo = ref<{ urls: { full: string }; alt: string } | null>(null)

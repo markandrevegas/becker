@@ -1,12 +1,7 @@
 <script setup lang="ts">
-import type { OnePager } from "~/types/contentful"
-const onePager = inject<Ref<OnePager | null>>("onePager")
-
-if (!onePager) {
-	throw new Error("onePager not provided")
-}
-const IntroHeader = computed(() => onePager.value?.aboutHeader)
-const IntroParagraph = computed(() => onePager.value?.aboutParagraph ?? "")
+const { data: onePager, pending: onePagerPending, error: onePagerError } = await useOnePager()
+const IntroHeader = computed(() => onePager.value?.fields.aboutHeader)
+const IntroParagraph = computed(() => onePager.value?.fields.aboutParagraph ?? "")
 
 interface GalleryImage {
 	id: string

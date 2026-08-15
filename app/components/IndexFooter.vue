@@ -1,23 +1,8 @@
 <script setup lang="ts">
-import type { OnePager } from "~/types/contentful"
-const onePager = inject<Ref<OnePager | null>>("onePager")
+const { data: onePager, pending: onePagerPending, error: onePagerError } = await useOnePager()
 
-const agentsHeader = computed(() => onePager?.value?.agentsHeader ?? "")
+const agentsHeader = computed(() => onePager?.value?.fields.agentsHeader ?? "")
 // const agentsInfo = computed(() => onePager?.value?.agentsInfo)
-interface GalleryImage {
-	id: string
-	srcMobile: string
-	srcDesktop: string
-	alt: string
-}
-const images: GalleryImage[] = [
-	{
-		id: "2",
-		srcMobile: "/assets/gallery/7.webp",
-		srcDesktop: "/assets/gallery/index.webp",
-		alt: "Deana J Becker"
-	}
-]
 </script>
 <template>
 	<footer class="mt-auto flex flex-col items-end justify-end gap-8 bg-abyssal text-lg text-white dark:text-yellow-50/90 md:text-xl">
