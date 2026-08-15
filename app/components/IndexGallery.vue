@@ -23,7 +23,7 @@ const images: GalleryImage[] = [
 </script>
 
 <template>
-	<div class="aspect-ratio[16/9] flex h-screen flex-col">
+	<div class="flex h-screen flex-col">
 		<div class="gallery-container relative h-screen">
 			<div class="hide-scrollbar flex h-full w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="(image, index) in images" :key="image.id" class="relative h-full w-full flex-shrink-0 snap-center">
