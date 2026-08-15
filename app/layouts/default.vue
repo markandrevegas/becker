@@ -24,10 +24,10 @@ onBeforeUnmount(() => {
 </script>
 <template>
 	<div>
-		<div ref="scrollContainer" class="relative flex h-[100dvh] flex-col overflow-auto w-full" @scroll.passive="onScroll">
+		<div ref="scrollContainer" class="relative flex h-[100dvh] w-full flex-col overflow-auto" @scroll.passive="onScroll">
 			<MainMenuSidebar :is-scrolled="isScrolled" />
 			<!-- Main scroll area -->
-			<div class="relative flex flex-1 flex-col pt-[70px] w-full">
+			<div class="relative flex w-full flex-1 flex-col pt-[70px]">
 				<slot></slot>
 			</div>
 		</div>
