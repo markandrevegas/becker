@@ -5,7 +5,7 @@ const agentsHeader = computed(() => onePager?.value?.fields.agentsHeader ?? "")
 // const agentsInfo = computed(() => onePager?.value?.agentsInfo)
 </script>
 <template>
-	<footer class="mt-auto px-8 pb-24 md:text-xl">
+	<footer class="px-8 pb-24 md:text-xl">
 		<div class="px-8">
 			<h2 class="mt-2 max-w-md font-display text-display-lg">
 				{{ agentsHeader }}

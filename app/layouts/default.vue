@@ -23,11 +23,13 @@ onBeforeUnmount(() => {
 })
 </script>
 <template>
-	<div ref="scrollContainer" class="relative flex h-screen flex-col overflow-auto" @scroll.passive="onScroll">
-		<MainMenuSidebar :is-scrolled="isScrolled" />
-		<!-- Main scroll area -->
-		<div class="flex flex-1 flex-col pt-[70px]">
-			<slot></slot>
+	<div>
+		<div ref="scrollContainer" class="relative flex h-screen flex-col overflow-auto" @scroll.passive="onScroll">
+			<MainMenuSidebar :is-scrolled="isScrolled" />
+			<!-- Main scroll area -->
+			<div class="flex flex-1 flex-col pt-[70px]">
+				<slot></slot>
+			</div>
 		</div>
 		<IndexFooter />
 	</div>

@@ -3,13 +3,14 @@ import { useInViewport } from "~/composables/useInViewport"
 const introRef = ref<HTMLElement | null>(null)
 const videoRef = ref<HTMLElement | null>(null)
 const bioRef = ref<HTMLElement | null>(null)
+const galleryRef = ref<HTMLElement | null>(null)
 
 const { isVisible: isIntroVisible } = useInViewport(introRef)
 const { isVisible: isVideoVisible } = useInViewport(videoRef)
 const { isVisible: isBioVisible } = useInViewport(bioRef)
+const { isVisible: isGalleryVisible } = useInViewport(galleryRef)
 
 const { data: onePager, pending: onePagerPending, error: onePagerError } = await useOnePager()
-const mapped = await useOnePagerFields()
 
 import localHeroImage from "/assets/gallery/headshot.webp"
 const photo = ref<{ urls: { full: string }; alt: string } | null>(null)
@@ -97,7 +98,7 @@ onMounted(() => {
 <template>
 	<div>
 		<main class="mx-auto flex flex-1 flex-col">
-			<div v-if="onePager" id="gallery" ref="galleryRef">
+			<div v-if="onePager" id="gallery" ref="galleryRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16 md:pt-48', isGalleryVisible ? 'animate-fade-slide-up' : 'opacity-0']">
 				<IndexGallery />
 			</div>
 			<div v-if="onePager" id="intro" ref="introRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16 md:pt-48', isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0']">
