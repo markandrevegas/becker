@@ -15,7 +15,7 @@ interface GalleryImage {
 const images: GalleryImage[] = [
 	{
 		id: "2",
-		srcMobile: "/assets/gallery/5.webp",
+		srcMobile: "/assets/gallery/headshot.webp",
 		srcDesktop: "/assets/gallery/index.webp",
 		alt: "Deana J Becker"
 	}
@@ -25,7 +25,9 @@ const images: GalleryImage[] = [
 <template>
 	<div class="relative h-[100dvh] w-full overflow-hidden">
 		<!-- Mobile Image -->
-		<NuxtImg :src="images[0]?.srcMobile" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" class="absolute inset-0 h-[100dvh] w-full object-cover md:hidden" loading="eager" fetchpriority="high" preload />
+		<div class="absolute inset-0 h-[100dvh] md:hidden">
+			<NuxtImg class="h-full w-full object-cover" :src="images[0]?.srcMobile" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" loading="eager" fetchpriority="high" preload />
+		</div>
 
 		<!-- Desktop Image -->
 		<NuxtImg :src="images[0]?.srcDesktop" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" class="absolute inset-0 hidden h-full min-h-full w-full min-w-full max-w-none object-cover md:block" width="1536" height="1024" loading="eager" fetchpriority="high" preload />
