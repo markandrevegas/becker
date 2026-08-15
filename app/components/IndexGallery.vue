@@ -21,7 +21,7 @@ const images: GalleryImage[] = [
 	{
 		id: "2",
 		srcMobile: "/assets/gallery/headshot.webp",
-		srcDesktop: "/assets/gallery/headshot.webp",
+		srcDesktop: "/assets/gallery/index.webp",
 		alt: "Deana J Becker"
 	}
 ]
