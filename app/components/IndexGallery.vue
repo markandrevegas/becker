@@ -20,8 +20,8 @@ interface GalleryImage {
 const images: GalleryImage[] = [
 	{
 		id: "2",
-		srcMobile: "/assets/gallery/7.webp",
-		srcDesktop: "/assets/gallery/index.webp",
+		srcMobile: "/assets/gallery/headshot.webp",
+		srcDesktop: "/assets/gallery/headshot.webp",
 		alt: "Deana J Becker"
 	}
 ]
