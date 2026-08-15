@@ -25,7 +25,7 @@ const images: GalleryImage[] = [
 <template>
 	<div class="relative h-[100dvh] w-full overflow-hidden">
 		<!-- Mobile Image -->
-		<NuxtImg :src="images[0]?.srcMobile" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" class="absolute inset-0 h-full min-h-full w-full min-w-full max-w-none object-cover md:hidden" width="768" height="1365" loading="eager" fetchpriority="high" preload />
+		<NuxtImg :src="images[0]?.srcMobile" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" class="absolute inset-0 h-[100dvh] min-h-full w-full min-w-full max-w-none object-cover md:hidden" width="768" height="1365" loading="eager" fetchpriority="high" preload />
 
 		<!-- Desktop Image -->
 		<NuxtImg :src="images[0]?.srcDesktop" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" class="absolute inset-0 hidden h-full min-h-full w-full min-w-full max-w-none object-cover md:block" width="1536" height="1024" loading="eager" fetchpriority="high" preload />
