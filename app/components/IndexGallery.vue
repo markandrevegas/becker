@@ -24,12 +24,10 @@ const images: GalleryImage[] = [
 
 <template>
 	<div class="flex h-screen flex-col">
-		<div class="gallery-container relative h-screen">
-			<div class="hide-scrollbar flex h-full w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
-				<div v-for="(image, index) in images" :key="image.id" class="relative h-full w-full flex-shrink-0 snap-center">
-					<NuxtImg :src="image.srcMobile" :alt="`Deana J Becker — ${index + 1}`" sizes="100vw" class="h-screen w-full animate-fade-slide-up object-cover delay-500 md:hidden" :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'low'" :preload="index === 0" />
-					<NuxtImg :src="image.srcDesktop" :alt="`Deana J Becker — ${index + 1}`" width="1536" height="1024" sizes="100vw" class="hidden h-screen w-full animate-fade-slide-up object-cover delay-500 md:block" :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'low'" :preload="index === 0" />
-				</div>
+		<div class="relative h-screen">
+			<div v-for="(image, index) in images" :key="image.id" class="relative h-full w-full flex-shrink-0 snap-center">
+				<NuxtImg :src="image.srcMobile" :alt="`Deana J Becker — ${index + 1}`" sizes="100vw" class="h-screen w-full animate-fade-slide-up object-cover delay-500 md:hidden" :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'low'" :preload="index === 0" />
+				<NuxtImg :src="image.srcDesktop" :alt="`Deana J Becker — ${index + 1}`" width="1536" height="1024" sizes="100vw" class="hidden h-screen w-full animate-fade-slide-up object-cover delay-500 md:block" :loading="index === 0 ? 'eager' : 'lazy'" :fetchpriority="index === 0 ? 'high' : 'low'" :preload="index === 0" />
 			</div>
 
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
