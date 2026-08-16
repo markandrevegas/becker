@@ -13,7 +13,7 @@ const heroDesc = computed(() => {
 </script>
 
 <template>
-	<div class="relative h-[100dvh] w-full overflow-hidden">
+	<div class="h-[100dvh] w-full overflow-hidden">
 		<!-- Mobile -->
 		<div class="absolute inset-0 md:hidden">
 			<NuxtImg :src="mobileImage" :alt="heroTitle" class="h-screen w-full object-cover object-top" sizes="100vw" width="900" height="1200" />
