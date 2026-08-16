@@ -1,14 +1,18 @@
 <script setup lang="ts">
 const { data: onePager, pending: onePagerPending, error: onePagerError } = await useOnePager()
-const IntroHeader = computed(() => onePager.value?.fields.aboutHeader)
-const IntroParagraph = computed(() => onePager.value?.fields.aboutParagraph ?? "")
+const title = computed(() => {
+	return onePager.value?.fields.title || "Deana J. Becker"
+})
+const desc = computed(() => {
+	return onePager.value?.fields.desc || "SAG AFTRA Actress"
+})
 
 interface GalleryImage {
 	id: string
 	src: string
 	alt: string
 }
-import gallery1 from "~/assets/gallery/1.webp"
+import gallery1 from "~/assets/gallery/headshot.webp"
 import gallery3 from "~/assets/gallery/3.webp"
 import gallery4 from "~/assets/gallery/4.webp"
 import gallery5 from "~/assets/gallery/5.webp"
@@ -30,14 +34,15 @@ const images: GalleryImage[] = [
 
 			<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
 			<div class="absolute bottom-0 left-0 right-0 z-30 flex h-72 flex-col justify-end px-8 pb-16 text-white sm:hidden sm:p-16">
-				<h2 class="mt-2 max-w-md font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)] lg:hidden">
-					{{ IntroHeader }}
+				<h2 class="mt-2 max-w-md font-display text-display-lg lg:hidden">
+					{{ title }}
 				</h2>
+				<p>{{ desc }}</p>
 			</div>
 		</div>
-		<div class="content px-8 py-24 sm:w-1/2">
-			<h2 class="mb-16 mt-2 hidden w-full max-w-md font-display text-display-lg sm:block">{{ IntroHeader }}</h2>
-			<p>{{ IntroParagraph }}</p>
+		<div class="hidden sm:block content px-8 py-24 sm:w-1/2">
+			<h2 class="mb-16 mt-2 hidden w-full max-w-md font-display text-display-lg sm:block">{{ title }}</h2>
+			<p>{{ desc }}</p>
 		</div>
 	</div>
 </template>
