@@ -97,7 +97,7 @@ onMounted(() => {
 
 <template>
 	<main class="flex w-full flex-1 flex-col overflow-x-hidden">
-		<!--<IndexGallery />-->
+		<MainGallery />
 		<div v-if="onePager" id="intro" ref="introRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16 md:pt-48', isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0']">
 			<IndexIntro />
 		</div>
