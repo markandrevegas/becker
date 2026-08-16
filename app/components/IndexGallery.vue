@@ -1,44 +1,37 @@
 <script setup lang="ts">
-const { data: onePager, pending: onePagerPending, error: onePagerError } = await useOnePager()
+import mobileImage from "~/assets/gallery/headshot.webp"
+import desktopImage from "~/assets/gallery/index.webp"
 
-const HeroTitle = computed(() => onePager.value?.fields.title ?? "")
-const HeroDesc = computed(() => onePager.value?.fields.desc ?? "")
-/*const HeroAboutTeaser = computed(() => onePager.value?.fields.aboutTeaser ?? "")*/
+const { data: onePager } = await useOnePager()
 
-interface GalleryImage {
-	id: string
-	srcMobile: string
-	srcDesktop: string
-	alt: string
-}
-
-const images: GalleryImage[] = [
-	{
-		id: "2",
-		srcMobile: "/assets/gallery/headshot.webp",
-		srcDesktop: "/assets/gallery/index.webp",
-		alt: "Deana J Becker"
-	}
-]
+const heroTitle = computed(() => {
+	return onePager.value?.fields.title || "Deana J. Becker"
+})
+const heroDesc = computed(() => {
+	return onePager.value?.fields.desc || "SAG AFTRA Actress"
+})
 </script>
 
 <template>
-	<div class="relative h-[100dvh] w-full overflow-hidden">
-		<!-- Mobile Image -->
-		<div class="absolute inset-0 h-[100dvh] md:hidden">
-			<NuxtImg class="h-full w-full object-cover" :src="images[0]?.srcMobile" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" loading="eager" fetchpriority="high" preload />
+	<div class="relative h-[100dvh] w-full overflow-hidden bg-red-100">
+		<!-- Mobile -->
+		<div class="absolute inset-0 md:hidden">
+			<NuxtImg :src="mobileImage" :alt="heroTitle" sizes="100vw" class="h-full w-full object-cover" loading="eager" fetchpriority="high" preload />
 		</div>
 
-		<!-- Desktop Image -->
-		<NuxtImg :src="images[0]?.srcDesktop" :alt="`Deana J Becker — ${HeroTitle}`" sizes="100vw" class="absolute inset-0 hidden h-full min-h-full w-full min-w-full max-w-none object-cover md:block" width="1536" height="1024" loading="eager" fetchpriority="high" preload />
+		<!-- Desktop -->
+		<div class="absolute inset-0 hidden md:block">
+			<NuxtImg :src="desktopImage" :alt="heroTitle" sizes="100vw" class="h-full w-full object-cover" loading="eager" fetchpriority="high" preload />
+		</div>
 
-		<div class="max-w-wrapper absolute bottom-[8rem] left-0 z-30 px-8 text-white dark:text-yellow-50/90 lg:bottom-[32rem]">
-			<h1 class="animate-slide-fade-left font-display text-display-lg">
-				{{ HeroTitle }}
+		<!-- Content -->
+		<div class="absolute bottom-[20rem] left-0 z-30 px-8 text-white lg:bottom-[32rem]">
+			<h1 class="animate-slide-fade-left font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">
+				{{ heroTitle }}
 			</h1>
 
-			<p class="font-regular mt-2 max-w-md animate-fade-in text-xl uppercase delay-300">
-				{{ HeroDesc }}
+			<p class="font-regular mt-2 max-w-md animate-fade-in text-xl uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] delay-300">
+				{{ heroDesc }}
 			</p>
 		</div>
 	</div>
