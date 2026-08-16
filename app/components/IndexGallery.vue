@@ -16,7 +16,8 @@ const heroDesc = computed(() => {
 	<div class="relative h-[100dvh] w-full overflow-hidden">
 		<!-- Mobile -->
 		<div class="absolute inset-0 md:hidden">
-			<NuxtImg :src="mobileImage" :alt="heroTitle" sizes="100vw" class="h-full w-full object-cover" loading="eager" fetchpriority="high" preload />
+			<NuxtImg :src="mobileImage" :alt="heroTitle" class="h-screen w-full object-cover object-top" sizes="100vw" width="900" height="1200" />
+			<!--<NuxtImg :src="mobileImage" :alt="heroTitle" sizes="100vw" class="h-full w-full object-cover" loading="eager" fetchpriority="high" preload />-->
 		</div>
 
 		<!-- Desktop -->
@@ -25,7 +26,7 @@ const heroDesc = computed(() => {
 		</div>
 
 		<!-- Content -->
-		<div class="absolute bottom-[20rem] left-0 z-30 px-8 text-white lg:bottom-[32rem]">
+		<div class="hidden absolute bottom-[20rem] left-0 z-30 px-8 text-white lg:bottom-[32rem]">
 			<h1 class="animate-slide-fade-left font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">
 				{{ heroTitle }}
 			</h1>
