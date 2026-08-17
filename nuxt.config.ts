@@ -51,6 +51,13 @@ declare module "nuxt/schema" {
 			}
 			routeRules?: Record<string, NitroRouteConfig>
 		}
+		gtag?: {
+			id?: string
+			config?: {
+				page_title?: string
+				send_page_view?: boolean
+			}
+		}
 	}
 }
 
@@ -101,6 +108,7 @@ export default defineNuxtConfig({
     public: {
       contentfulSpaceId: process.env.CONTENTFUL_SPACE_ID,
       contentfulAccessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+			wordpressApiUrl: process.env.WORDPRESS_API_URL
     }
   },
 	nitro: {

@@ -23,6 +23,7 @@ jobs:
         env:
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
+          WORDPRESS_API_URL: ${{ secrets.WORDPRESS_API_URL }}
 
       - name: Deploy to Hostinger via SSH
         env:
