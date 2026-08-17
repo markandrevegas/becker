@@ -108,7 +108,7 @@ export default defineNuxtConfig({
     public: {
       contentfulSpaceId: process.env.CONTENTFUL_SPACE_ID,
       contentfulAccessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-			wordpressApiUrl: process.env.NUXT_PUBLIC_WORDPRESS_API_URL
+			wordpressApiUrl: process.env.NUXT_PUBLIC_WORDPRESS_API_URL || 'https://deanajbecker.com/wp-json/wp/v2'
     }
   },
 	nitro: {
