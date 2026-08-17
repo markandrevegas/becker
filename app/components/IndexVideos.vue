@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const { data: onePager, pending: onePagerPending, error: onePagerError } = await useOnePager()
-
-const content = computed(() => onePager?.value?.fields.aboutTeaser)
-const header = computed(() => onePager?.value?.fields.videoHeader)
+defineProps<{
+  header?: string
+  content?: string
+}>()
 
 interface GalleryImage {
 	id: string
@@ -42,15 +42,11 @@ const filmClips: FilmClip[] = [
 		<div class="flex flex-col gap-4 sm:flex-row sm:flex-row-reverse sm:items-center">
 			<div class="gallery-container relative w-full">
 				<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
-					<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
-						<NuxtImg :src="image.src" class="h-screen w-full object-cover object-top" :alt="image.alt" />
+					<div v-for="clip in filmClips" :key="clip.id" class="video-container w-full flex-shrink-0 snap-center">
+						<div class="video-wrapper">
+							<iframe :title="clip.title" :src="'https://www.imdb.com/video/imdb/' + clip.videoId + '/imdb/embed'" width="640" height="360" frameborder="0" allowfullscreen loading="lazy"></iframe>
+						</div>
 					</div>
-				</div>
-				<div v-if="images.length === 0" class="mt-4 text-center">// NO_IMAGES_FOUND</div>
-				<div class="absolute bottom-0 left-0 right-0 z-30 flex h-72 flex-col justify-end px-8 pb-16 text-white sm:hidden sm:p-16">
-					<h2 class="mt-2 max-w-md font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">
-						{{ header }}
-					</h2>
 				</div>
 			</div>
 			<div class="content px-8 py-24 sm:w-4/5">
@@ -58,13 +54,6 @@ const filmClips: FilmClip[] = [
 				<p>
 					{{ content }}
 				</p>
-				<div class="my-8 flex w-full flex-col gap-4 lg:my-16 lg:flex-row">
-					<div v-for="clip in filmClips" :key="clip.id" class="video-container">
-						<div class="video-wrapper">
-							<iframe :title="clip.title" :src="'https://www.imdb.com/video/imdb/' + clip.videoId + '/imdb/embed'" width="640" height="360" frameborder="0" allowfullscreen loading="lazy"></iframe>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

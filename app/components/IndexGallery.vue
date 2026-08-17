@@ -2,6 +2,10 @@
 import mobileImage from "~/assets/gallery/headshot.webp"
 import desktopImage from "~/assets/gallery/index.webp"
 
+defineProps<{
+  mainHeader?: string
+  desc?: string
+}>()
 const { data: onePager } = await useOnePager()
 
 const heroTitle = computed(() => {
@@ -27,12 +31,12 @@ const heroDesc = computed(() => {
 
 		<!-- Content -->
 		<div class="hidden absolute bottom-[20rem] left-0 z-30 px-8 text-white lg:bottom-[32rem]">
-			<h1 class="animate-slide-fade-left font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">
-				{{ heroTitle }}
+			<h1 v-if="mainHeader" class="animate-slide-fade-left font-display text-display-lg drop-shadow-[1px_3px_5px_rgba(0,0,0,0.8)]">
+				{{ mainHeader }}
 			</h1>
 
 			<p class="font-regular mt-2 max-w-md animate-fade-in text-xl uppercase drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] delay-300">
-				{{ heroDesc }}
+				{{ desc }}
 			</p>
 		</div>
 	</div>

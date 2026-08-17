@@ -1,5 +1,3 @@
-// composables/useWordPress.ts
-
 export const useWordPress = () => {
 	const config = useRuntimeConfig()
 
