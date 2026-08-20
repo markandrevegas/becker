@@ -6,27 +6,22 @@ defineProps<{
   mainHeader?: string
   desc?: string
 }>()
+
 const { data: onePager } = await useOnePager()
 
-const heroTitle = computed(() => {
-	return onePager.value?.fields.title || "Deana J. Becker"
-})
-const heroDesc = computed(() => {
-	return onePager.value?.fields.desc || "SAG AFTRA Actress"
-})
 </script>
 
 <template>
 	<div class="h-[100dvh] w-full overflow-hidden">
 		<!-- Mobile -->
 		<div class="absolute inset-0 md:hidden">
-			<NuxtImg :src="mobileImage" :alt="heroTitle" class="h-screen w-full object-cover object-top" sizes="100vw" width="900" height="1200" />
+			<NuxtImg :src="mobileImage" :alt="mainHeader" class="h-screen w-full object-cover object-top" sizes="100vw" width="900" height="1200" />
 			<!--<NuxtImg :src="mobileImage" :alt="heroTitle" sizes="100vw" class="h-full w-full object-cover" loading="eager" fetchpriority="high" preload />-->
 		</div>
 
 		<!-- Desktop -->
 		<div class="absolute inset-0 hidden md:block">
-			<NuxtImg :src="desktopImage" :alt="heroTitle" sizes="100vw" class="h-full w-full object-cover" loading="eager" fetchpriority="high" preload />
+			<NuxtImg :src="desktopImage" :alt="mainHeader" sizes="100vw" class="h-full w-full object-cover" loading="eager" fetchpriority="high" preload />
 		</div>
 
 		<!-- Content -->

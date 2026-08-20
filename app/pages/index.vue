@@ -4,17 +4,19 @@ import { useInViewport } from "~/composables/useInViewport"
 const { getEntry } = useWordPress()
 
 const { data, error, status } = await getEntry('landingpage', 'mainindexpage')
+
 const acf = computed(() => data.value?.[0]?.acf)
+
 watchEffect(() => {
 	if (data.value) {
 		console.log('data:', data.value)
 	}
-	if (error.value !== undefined) {
+	/*if (error.value !== undefined) {
 		console.log('error:', error.value)
 	}
 	if (status.value) {
 		console.log('status:', status.value)
-	}
+	}*/
 	if (acf.value) {
 		console.log('acf:', acf.value)
 	}
@@ -27,8 +29,6 @@ const bioRef = ref<HTMLElement | null>(null)
 const { isVisible: isIntroVisible } = useInViewport(introRef)
 const { isVisible: isVideoVisible } = useInViewport(videoRef)
 const { isVisible: isBioVisible } = useInViewport(bioRef)
-
-/*const { data: onePager, pending: onePagerPending, error: onePagerError } = await useOnePager()*/
 
 import localHeroImage from "/assets/gallery/headshot.webp"
 const photo = ref<{ urls: { full: string }; alt: string } | null>(null)
@@ -116,14 +116,14 @@ onMounted(() => {
 <template>
 	<main class="flex w-full flex-1 flex-col overflow-x-hidden">
 		<MainGallery :header="acf?.mainheader" :desc="acf?.desc" />
-		<div id="intro" ref="introRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16 md:pt-48', isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0']">
+		<div id="intro" ref="introRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16', isIntroVisible ? 'animate-fade-slide-up' : 'opacity-0']">
 			<IndexIntro :header="acf?.aboutheader" :content="acf?.aboutparagraph" />
 		</div>
 		<div id="videos" ref="videoRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16', isVideoVisible ? 'animate-slide-fade-right' : 'opacity-0']">
 			<IndexVideos :header="acf?.videosheader" :content="acf?.videosparagraph" />
 		</div>
 		<div id="bio" ref="bioRef" :class="['transition-opacity delay-500 duration-1000 md:px-8 md:pb-16', isBioVisible ? 'animate-slide-fade-left' : 'opacity-0']">
-			<IndexBio />
+			<IndexBio :header="acf?.bioheader" :content="acf?.bioparagraph" />
 		</div>
 	</main>
 </template>

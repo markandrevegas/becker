@@ -24,7 +24,7 @@ const images: GalleryImage[] = [
 ]
 </script>
 <template>
-	<div class="flex flex-col items-start gap-4 sm:flex-row-reverse md:items-center lg:flex-row">
+	<div class="flex flex-col items-start gap-4 lg:flex-row-reverse md:items-center lg:flex-row">
 		<div class="gallery-container relative w-full sm:w-1/2">
 			<div class="hide-scrollbar flex w-full snap-x snap-mandatory overflow-x-auto overflow-y-hidden scroll-smooth">
 				<div v-for="image in images" :key="image.id" class="relative w-full flex-shrink-0 snap-center">
@@ -40,8 +40,8 @@ const images: GalleryImage[] = [
 				<p>{{ desc }}</p>
 			</div>
 		</div>
-		<div class="hidden sm:block content px-8 py-24 sm:w-1/2">
-			<h2 class="mb-16 mt-2 hidden w-full max-w-md font-display text-display-lg sm:block">{{ title }}</h2>
+		<div class="hidden sm:block sm:text-center sm:pl-16 content px-8 py-24 sm:w-1/2">
+			<h2 class="mb-4 mt-2 hidden w-full max-w-md sm:mx-auto font-display text-display-lg sm:block">{{ title }}</h2>
 			<p>{{ desc }}</p>
 		</div>
 	</div>

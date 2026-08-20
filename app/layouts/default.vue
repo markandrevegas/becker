@@ -4,7 +4,6 @@ import { ref, onMounted, onBeforeUnmount } from "vue"
 const scrollContainer = ref(null)
 const isScrolled = ref(false)
 const onScroll = (e) => {
-	// Use a threshold that doesn't require "measuring" the whole container
 	const top = e.target.scrollTop
 	if (top > 70 && !isScrolled.value) isScrolled.value = true
 	else if (top <= 70 && isScrolled.value) isScrolled.value = false
