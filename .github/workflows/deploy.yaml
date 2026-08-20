@@ -32,12 +32,12 @@ jobs:
           SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
           SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
         run: |
-          mkdir -p ~/.ssh
-          echo "$SSH_KEY" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> ~/.ssh/known_hosts
+          mkdir -p "$HOME/.ssh"
+          echo "$SSH_KEY" > $HOME/.ssh/deploy_key
+          chmod 600 $HOME/.ssh/deploy_key
+          ssh-keyscan -p "$SSH_PORT" -H "$SSH_HOST" >> $HOME/.ssh/known_hosts
 
           rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key -p $SSH_PORT" \
+            -e "ssh -i $HOME/.ssh/deploy_key -p $SSH_PORT" \
             ./.output/public/ \
-            "$SSH_USER@$SSH_HOST:~/domains/deanajbecker.com/public_html/app/"
+            "$SSH_USER@$SSH_HOST:$HOME/domains/deanajbecker.com/public_html/app/"
